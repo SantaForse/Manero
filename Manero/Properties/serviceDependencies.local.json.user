@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "secrets.user": {
+      "restored": true,
+      "restoreTime": "2023-10-13T18:50:43.4166631Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2023-10-15T11:43:50.1281542Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2023-10-15T10:22:51.5406531Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "6d2725c6-b482-4c4b-b2bb-aaf2d1ab74f0"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "manero_group"
+    }
+  }
+}
