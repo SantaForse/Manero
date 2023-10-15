@@ -1,15 +1,15 @@
 {
   "dependencies": {
-    "mssql2": {
-      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/swedencentral/connectors/ConnectionStringsmanerodatabase_38BD46C8BF",
-      "secretStore": "LocalSecretsFile",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/manero-server/databases/manero-database",
-      "type": "mssql.azure",
-      "connectionId": "ConnectionStrings:manero-database"
-    },
     "secrets1": {
       "type": "secrets.user",
       "dynamicId": null
+    },
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/swedencentral/connectors/ConnectionStringsDefaultConnection_32B0355C59",
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/manero-server/databases/manero-db",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DefaultConnection"
     }
   }
 }
