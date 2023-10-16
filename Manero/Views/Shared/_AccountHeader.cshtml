@@ -1,0 +1,36 @@
+﻿@using Manero.Models
+@model AccountHeaderViewModel
+
+<nav class="account-header d-flex justify-content-center align-content-center">
+    @if (Model.ShowBackButton && Model.BackButtonLink != null)
+    {
+        <a href="@Model.BackButtonLink">&lt;</a>
+    }
+    <span>@Model.Title</span>
+</nav>
+
+
+<style>
+    .account-header {
+        background-color: white;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px; 
+    }
+
+        .account-header a {
+            text-decoration: none;
+            color: #111111;
+            font-size: 18px;
+        }
+
+        .account-header span {
+            color: #111111;
+            font-weight: 600;
+            font-size: 18px;
+            flex-grow: 2; 
+            text-align: center;
+        }
+</style>

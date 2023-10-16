@@ -1,7 +1,6 @@
 ﻿@page
-@model ForgotPasswordConfirmation
+@model Manero.Areas.Identity.Pages.Account.AccountCreatedSuccessModel
 @{
-    ViewData["Title"] = "Forgot password confirmation";
 }
 @using Manero.Models
 
@@ -11,16 +10,15 @@
     ShowBackButton = false
 })
 <div class="d-flex justify-content-center align-items-center mt-3">
-    <img src="~/svg/forgot_password.svg" alt="Description" />
+    <img src="~/svg/account_create_success.svg" alt="Successfully created account" />
 </div>
 
 <div class="d-flex justify-content-center align-items-center flex-column mt-5">
-    <h3>Your password has been reset!</h3>
+    <h3>Account Created!</h3>
     <p>
-        Please check your email to reset your password.
+        Your account has been created
+        successfully.
     </p>
-     <a asp-page="Login" class="w-100 btn btn-lg btn-primary">DONE</a>
-
-
+    <a href="/" class="w-100 btn btn-lg btn-primary">DONE</a>
 </div>
 
