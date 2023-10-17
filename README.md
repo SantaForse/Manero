@@ -92,6 +92,8 @@ Navigate to `https://localhost:5001` (or the port specified) to see the running 
 
 ### Working with CSS in Visual Studio
 
+With the use of `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` along with `buildWebCompiler`, there's no need to rebuild the entire project to see your CSS or Razor view changes. Simply save your changes and refresh your browser to see them in action.
+
 #### Directory Structure for Styles
 
 Your styles should be located in the following directories within the `Manero` project:
@@ -125,7 +127,3 @@ The `compilerconfig.json` in the `Manero` root directory directs `buildWebCompil
 - **Manually**:
   1. Right-click on `compilerconfig.json` in `Solution Explorer`.
   2. Choose `Web Compiler -> Re-compile all`.
-
-#### Real-Time Changes
-
-No need to rebuild the entire project to see your CSS changes. Simply refresh your browser to observe the updated styles.
