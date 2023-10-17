@@ -1,129 +1,185 @@
-﻿## Manero Project Development Guide
+# Manero Project Development Guide 📘
 
-This guide aims to help team members set up their local development environments.
+Welcome to the Manero Project! This guide is designed to help you set up your local development environment.
 
-### Folder Structure
+## Table of Contents
 
-- **base**: Root directory containing the Git repository.
-  - **Manero**: Main project directory.
-  - **Manero.Tests**: Directory containing xUnit tests.
+1. [Folder Structure](#folder-structure)
+2. [Pre-requisites](#pre-requisites)
+3. [Getting the Code](#getting-the-code)
+4. [Project Setup](#project-setup)
+5. [Database Connection](#database-connection)
+6. [Running the Project](#running-the-project)
+7. [Running Tests](#running-tests)
+8. [Working with CSS in Visual Studio](#working-with-css-in-visual-studio)
+9. [Additional Resources](#additional-resources)
 
-### Pre-requisites
+---
 
-1. **Install .NET SDK**: Make sure the .NET SDK is installed on your machine. Download it from the [official site](https://dotnet.microsoft.com/download).
+## Folder Structure 📂
 
-   `[Download .NET SDK](https://dotnet.microsoft.com/download)`
+The project follows a specific directory structure. Familiarizing yourself with this will make your life a lot easier.
 
-### Getting the Code
+```
+Manero/
+│
+├── Manero/               # Main project directory
+├── Manero.Tests/         # Directory containing xUnit tests
+└── ...
+```
 
-2. **Clone the Repository**:
-   - **Using Terminal**:
-     ```bash
-     git clone https://github.com/SantaForse/Manero.git
-     ```
-   - **Using Visual Studio**:
-     1. Open Visual Studio
-     2. Go to `File -> Clone or Checkout Code`
-     3. Enter the GitHub repo URL and click `Clone`
+## Pre-requisites 🛠
 
-### Project Setup
+Before diving into the code, make sure you have the following installed:
 
-3. **Navigate to the Project Directory**:
+- **.NET SDK**: You need the .NET SDK to compile and run the project. [Download .NET SDK](https://dotnet.microsoft.com/download)
 
-   - **Using Terminal**:
-     ```bash
-     cd to/the/project/directory
-     ```
-   - **Using Visual Studio**: Open the `Manero` project from the `Solution Explorer`.
+---
 
-4. **Initialize User Secrets**:
-   - **Using Terminal**:
-     ```bash
-     dotnet user-secrets init
-     ```
-   - **Using Visual Studio**:
-     1. Right-click on the `Manero` project in `Solution Explorer`
-     2. Click on `Manage User Secrets`
+## Getting the Code 📦
 
-### Database Connection
+### Clone the Repository
 
-5. **Set Database Connection**:
-   The connection string is availible in the group chats.
-   - **Using Terminal**:
-     ```bash
-     dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Paste_Your_Connection_String_Here"
-     ```
-   - **Using Visual Studio**:
-     1. After clicking `Manage User Secrets`, a `secrets.json` file will open.
-     2. Paste your connection string like so:
+1. **Using Terminal**: Open your terminal and run the following command:
+
+    ```bash
+    git clone https://github.com/SantaForse/Manero.git
+    ```
+
+2. **Using Visual Studio**: 
+
+    - Open Visual Studio.
+    - Navigate to `File -> Clone or Checkout Code`.
+    - Enter the GitHub repository URL and click `Clone`.
+
+---
+
+## Project Setup 🛠
+
+### Navigate to the Project Directory
+
+1. **Using Terminal**: Change your current directory to the project's main folder:
+
+    ```bash
+    cd Manero
+    ```
+   
+2. **Using Visual Studio**: Open the `Manero` project from the `Solution Explorer`.
+
+### Initialize User Secrets
+
+User secrets help you keep sensitive configuration data out of your source code.
+
+1. **Using Terminal**: 
+
+    ```bash
+    dotnet user-secrets init
+    ```
+
+2. **Using Visual Studio**: 
+
+    - Right-click on the `Manero` project in `Solution Explorer`.
+    - Select `Manage User Secrets` from the context menu.
+
+---
+
+## Database Connection 🗄
+
+> **Note**: The connection string is available in the group chats.
+
+1. **Using Terminal**: 
+
+    ```bash
+    dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Your_Connection_String"
+    ```
+
+2. **Using Visual Studio**: 
+
+    - After clicking `Manage User Secrets`, a `secrets.json` file will open.
+    - Paste your connection string like so:
+
         ```json
         {
-        	"ConnectionStrings": {
-        		"DefaultConnection": "Paste_Your_Connection_String_Here"
-        	}
+            "ConnectionStrings": {
+                "DefaultConnection": "Your_Connection_String"
+            }
         }
         ```
 
-### Running the Project
+---
 
-6. **Run the Manero Project**:
-   - **Using Terminal**:
-     ```bash
-     dotnet run
-     ```
-   - **Using Visual Studio**:
-     1. Make sure `Manero` is set as the `Startup Project` (it should be bold in `Solution Explorer`).
-     2. Press `F5` or click on the `Start Debugging` button.
+## Running the Project 🏃‍♀️
 
-### Running Tests
+1. **Using Terminal**: 
 
-To run the tests located in the `Manero.Tests` folder, do the following:
+    ```bash
+    dotnet run
+    ```
 
-- **Using Terminal**:
-  ```bash
-  cd Manero.Tests
-  dotnet test
-  ```
-- **Using Visual Studio**:
-  1.  Open the `Test Explorer` window.
-  2.  Click on `Run All Tests` or select specific tests to run.
+2. **Using Visual Studio**: 
 
-Navigate to `https://localhost:5001` (or the port specified) to see the running application.
+    - Ensure `Manero` is set as the `Startup Project`. It should appear in bold in the `Solution Explorer`.
+    - Press `F5` or click on the `Start Debugging` button to run the project.
 
-### Working with CSS in Visual Studio
+---
 
-With the use of `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` along with `buildWebCompiler`, there's no need to rebuild the entire project to see your CSS or Razor view changes. Simply save your changes and refresh your browser to see them in action.
+## Running Tests 🧪
 
-#### Directory Structure for Styles
+### To run the tests located in the `Manero.Tests` folder, do the following:
 
-Your styles should be located in the following directories within the `Manero` project:
+1. **Using Terminal**: 
 
-- `Manero/Styles`: Root directory for all style-related files.
-  - `Manero/Styles/Buttons`: Contains `_buttons.scss` for button-related styles.
-  - `Manero/Styles/Inputs`: Contains `_inputs.scss` for input-related styles.
-  - `Manero/Styles/Root`: Contains `_root.scss` for root-level styles.
-  - `Manero/Styles/styles.scss`: Main SCSS file, which imports all other SCSS files.
-  - `Manero/Styles/styles.css` & `Manero/Styles/styles.min.css`: Compiled output CSS files.
+    ```bash
+    cd Manero.Tests
+    dotnet test
+    ```
 
-#### Compilation Configuration
+2. **Using Visual Studio**: 
 
-The `compilerconfig.json` in the `Manero` root directory directs `buildWebCompiler` to compile `styles.scss` into `wwwroot/css/styles.css`. Configuration snippet:
+    - Open the `Test Explorer` window.
+    - Click on `Run All Tests` or select specific tests to run.
 
-```json
-{
-	"outputFile": "wwwroot/css/styles.css",
-	"inputFile": "Styles/styles.scss",
-	"options": { "sourceMap": true }
-}
+---
+
+## Working with CSS in Visual Studio 🎨
+
+### About `BuildWebCompiler` and `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation`
+
+- **`BuildWebCompiler`**: This package automatically compiles SCSS into CSS every time you save changes to an SCSS file. No manual steps needed!
+  
+- **`Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation`**: With this package, any changes made to Razor views (`.cshtml` files) are reflected immediately upon refreshing the browser—no need to restart the application.
+
+### Directory Structure for Styles
+
+Your styles should be organized as follows:
+
+```plaintext
+Manero/
+│
+├── Styles/           
+│   ├── Buttons/      # Button-related styles
+│   ├── Inputs/       # Input-related styles
+│   └── Root/         # Root-level styles
+│
+└── ...
 ```
 
-#### How to Compile
+### Compilation Configuration
 
-- **Using Visual Studio**:
+The `compilerconfig.json` file directs `buildWebCompiler` to compile `styles.scss` into `wwwroot/css/styles.css`.
 
-  1. Save your changes in the SCSS file.
-  2. `buildWebCompiler` automatically compiles into `styles.css` and `styles.min.css`.
+- **Auto-Compile**: Simply save your SCSS changes and they will automatically compile.
+- **Manual**: Right-click on `compilerconfig.json` in `Solution Explorer` and choose `Web Compiler -> Re-compile all`.
 
-- **Manually**:
-  1. Right-click on `compilerconfig.json` in `Solution Explorer`.
-  2. Choose `Web Compiler -> Re-compile all`.
+---
+
+## Additional Resources 📚
+
+Here are some extra materials that may assist you in setting up and working on the project:
+
+- **.NET Core Documentation**: [Official Docs](https://docs.microsoft.com/en-us/dotnet/core/)
+- **xUnit Testing**: [Getting Started with xUnit](https://xunit.net/docs/getting-started/netcore/cmd)
+- **Visual Studio Shortcuts**: [Keyboard Shortcuts](https://visualstudioshortcuts.com/)
+- **SCSS Basics**: [SCSS Tutorial](https://sass-lang.com/guide)
+- **Razor Views in ASP.NET**: [Understanding Razor](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0)
+  
