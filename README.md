@@ -4,15 +4,15 @@ Welcome to the Manero Project! This guide is designed to help you set up your lo
 
 ## Table of Contents
 
-1. [Folder Structure](#folder-structure)
-2. [Pre-requisites](#pre-requisites)
-3. [Getting the Code](#getting-the-code)
-4. [Project Setup](#project-setup)
-5. [Database Connection](#database-connection)
-6. [Running the Project](#running-the-project)
-7. [Running Tests](#running-tests)
-8. [Working with CSS in Visual Studio](#working-with-css-in-visual-studio)
-9. [Additional Resources](#additional-resources)
+1. [Folder Structure](#folder-structure-)
+2. [Pre-requisites](#pre-requisites-)
+3. [Getting the Code](#getting-the-code-)
+4. [Project Setup](#project-setup-)
+5. [Database Connection](#database-connection-)
+6. [Running the Project](#running-the-project-)
+7. [Running Tests](#running-tests-)
+8. [Working with CSS in Visual Studio](#working-with-css-in-visual-studio-)
+9. [Additional Resources](#additional-resources-)
 
 ---
 
