@@ -1,0 +1,27 @@
+﻿.my-btn {
+    background-color: var(--color-theme-black);
+    color: var(--color-white);
+    border: none;
+    padding: 0.95rem;
+    width: 100%;
+    border-radius: 5rem;
+    font-size: 0.875rem;
+    font-weight: var(--semibold-font);
+}
+.a-btn {
+    background-color: var(--color-theme-black);
+    color: var(--color-white);
+    border: none;
+    padding: 0.95rem;
+    width: 100%;
+    border-radius: 5rem;
+    font-size: 0.875rem;
+    font-weight: var(--semibold-font);
+    text-decoration: none;
+    text-align: center;
+    &:hover {
+        background-color: var(--color-theme-black);
+        color: var(--color-white);
+        text-decoration: none;
+    }
+}

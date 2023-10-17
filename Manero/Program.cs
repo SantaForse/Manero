@@ -17,6 +17,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
 var app = builder.Build();
 
 var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
