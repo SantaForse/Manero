@@ -1,0 +1,255 @@
+/* Jag importerar inte SF Pro Text, då det verkar vara en Apple font.  */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&display=swap');
+
+
+:root {
+
+    /* Colours */
+    --color-theme: #DBE3F5;
+    --color-theme-black: #111111;
+    --color-white: #FFFFFF;
+    --color-text-gray: #626262;
+    --color-text-red: #F4303C;
+    --color-text-blue: #B3B9C7;
+    --color-text-yellow: #EF962D;
+    --color-stars: #FFBE00;
+    --color-new: #CFA93F;
+    --color-sale: #69864D;
+    --color-top: #864D7D;
+    --color-success: #00824B;
+    --color-fail: #F4303C; /* This is the same colour as text red */
+
+    /* Font-details */
+    --font-mulish: 'Mulish', sans-serif;
+    --light-font: 300;
+    --regular-font: 400;
+    --semibold-font: 600;
+    --bold-font: 700;
+}
+
+
+.top-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+    .top-navbar .less-symbol {
+        font-size: 25px;
+    }
+
+    .top-navbar img {
+        width: 80px;
+        height: 25px;
+    }
+
+    .top-navbar .shopping-bag-symbol {
+        font-size: 25px;
+    }
+
+.product-img {
+    margin-top: 25px;
+    width: 100%;
+}
+
+    .product-img img {
+        height: 350px;
+        width: 100%;
+    }
+
+    .product-img .product-img-navigation {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 10px;
+    }
+
+    .product-img .product-img-border {
+        border: 1px solid var(--color-theme);
+    }
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+}
+
+    .product-details .product-heading-heart {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 35px;
+        margin-bottom: 16px;
+        font-size: 20px;
+    }
+
+        .product-details .product-heading-heart h1 {
+            font-family: var(--font-mulish);
+            font-weight: var(--bold-font);
+            font-size: 20px;
+        }
+
+    .product-details .raiting-stars {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 3px;
+    }
+
+    .product-price-quantity {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+        .product-price-quantity h1 {
+            font-family: var(--font-mulish);
+            font-size: 20px;
+            font-weight: var(--semibold-font);
+        }
+
+        .product-price-quantity .plus-minus-button {
+            font-family: var(--font-mulish);
+            font-size: 15px;
+            display: flex;
+            flex-direction: row;
+            gap: 22px;
+            font-weight: var(--semibold-font);
+        }
+
+    .product-size {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 33px;
+        margin-bottom: 20px;
+    }
+
+        .product-size h3{
+            font-family: var(--font-mulish);
+            font-size: 16px;
+            font-weight: var(--semibold-font);
+        }
+
+        .product-size .sizes{
+           display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+        }
+
+            .product-size .sizes button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid var(--color-theme);
+                border-radius: 25px;
+                text-decoration: none;
+                color: var(--color-theme-black);
+                font-weight: var(--semibold-font);
+                font-size: 12px;
+                font-family: var(--font-mulish);
+                width: 50px;
+                height: 50px;
+                transition: all 200ms ease-in-out;
+            }
+
+                .product-size .sizes button:hover{
+                    background-color: var(--color-theme);
+                }
+
+    .product-color {
+        display: flex;
+        flex-direction: row;
+    }
+    
+        .product-color h3{
+           font-family: var(--font-mulish);
+           font-size: 16px;
+           font-weight: var(--semibold-font);
+           margin-right: 30px;
+        }
+
+        .product-color .product-colors{
+            display: flex;
+            gap: 10px;
+         }
+
+            .product-color .product-colors button{
+                height: 30px;
+                width: 30px;
+                border-radius: 25px;
+                border: none;
+                transition: all 200ms ease-in-out;
+            }
+
+                .product-color .product-colors button:hover{
+                    border: 4px solid var(--color-theme);
+                }
+
+            .product-color .product-colors .red{
+                background-color: #FF6262;
+            }
+
+            .product-color .product-colors .light-blue{
+                background-color: #63C7FF;
+            }
+
+            .product-color .product-colors .beige{
+                background-color: #F8E7CD;
+            }
+
+            .product-color .product-colors .dark-blue{
+                background-color: #323858;
+            }
+
+            .product-color .product-colors .black{
+                background-color: #111111;
+            }
+
+    .product-description {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        gap: 15px;
+    }
+
+        .product-description h3{
+            font-family: var(--font-mulish);
+            font-size: 16px;
+            font-weight: var(--semibold-font);
+            color: var(--color-theme-black);
+        }
+
+        .product-description p{
+            font-family: var(--font-mulish);
+            font-size: 16px;
+            font-weight: var(--regular-font);
+            color: var(--color-text-gray);
+        }
+
+
+    .black-button{
+        background-color: var(--color-theme-black);
+        color: var(--color-white);
+        border: none;
+        padding: 0.95rem;
+        width: 100%;
+        border-radius: 5rem;
+        font-size: 0.875rem;
+        font-weight: var(--semibold-font);
+        transition: all 200ms ease-in-out;
+    }
+
+        .black-button:hover{
+            border: 4px solid var(--color-theme);
+        }
+
+        
+
+
+
+
