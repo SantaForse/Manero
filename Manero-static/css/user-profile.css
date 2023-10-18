@@ -28,7 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3rem 0;;
+
 }
     .user-profile .presentation .line-container {
         height: 30px;
@@ -74,6 +74,7 @@
         color: var(--color-text-gray);
         font-weight: var(--regular-font);
         font-size: 1rem;
+        padding-bottom: 2rem;
     }
 
 .user-profile .navigation-fields {
