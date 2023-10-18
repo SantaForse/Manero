@@ -1,3 +1,9 @@
+@import url('buttons.css');
+@import url('input-fields.css');
+@import url('site.css');
+@import url('user-profile.css');
+@import url('user-profile-edit.css');
+
 .user-profile {
     font-family: var(--font-mulish);
 }
@@ -17,15 +23,12 @@
     justify-content: start;
 }
 
-
-
 .user-profile .presentation {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 3rem 0;;
-    border-bottom: 1px solid var(--color-theme);
 }
     .user-profile .presentation .line-container {
         height: 30px;
@@ -73,34 +76,51 @@
         font-size: 1rem;
     }
 
-
-
-.user-profile .subsection {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 5rem;
+.user-profile .navigation-fields {
     border-bottom: 1px solid var(--color-theme);
 }
-    .user-profile .subsection > * {
+
+    .user-profile .navigation-field {
         display: flex;
+        justify-content: start;
         align-items: center;
+        height: 5rem;
+        border-top: 1px solid var(--color-theme);
     }
-    .user-profile .subsection :first-child {
-        flex: 1;
-        justify-content: center;
-        width: 4rem;
-    }
-    .user-profile .subsection .label {
-        flex: 4;
-        min-width: fit-content;
-    }
-    .user-profile .subsection :last-child {
-        flex: 1;
-        justify-content: center;
-        width: 3rem;
-    }
-        .user-profile .subsection .sign-out {
-            flex: 5;
-            justify-content: start;
+        .user-profile .navigation-field > * {
+            display: flex;
+            align-items: center;
         }
+        .user-profile .navigation-field :first-child {
+            flex: 1;
+            justify-content: center;
+            width: 4rem;
+        }
+        .user-profile .navigation-field .label {
+            flex: 4;
+            min-width: fit-content;
+        }
+        .user-profile .navigation-field :last-child {
+            flex: 1;
+            justify-content: center;
+            width: 3rem;
+        }
+            .user-profile .navigation-field .sign-out {
+                flex: 5;
+                justify-content: start;
+            }
+
+
+
+
+
+.user-profile form {
+    margin: 0 2rem;
+}
+    .user-profile .input-title {
+        top: 22px;
+        padding: 0 0.5rem;
+    }
+    .user-profile form button {
+        margin-top: 2.3rem;
+    }
