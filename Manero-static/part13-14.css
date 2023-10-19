@@ -431,14 +431,22 @@ maybe swap between them with js on phone/computer */
   display: flex;
   flex-direction: column;
 }
-  .checkout_section .checkout_details button {
+  .checkout_section .checkout_details .order_details,
+  .checkout_section .checkout_details .shipping_details,
+  .checkout_section .checkout_details .payment_method {
     border: 2px solid var(--color-theme);
     border-style: none none solid none;
     background-color: var(--color-white);
     width: 100%;
     padding: 0;
-
   }
+  .checkout_section .checkout_details .shipping_details button,
+  .checkout_section .checkout_details .payment_method button  {
+    background-color: var(--color-white);
+    border: none;
+  }
+
+
   .checkout_section .checkout_details .order_title,
   .checkout_section .checkout_details .shipping_title,
   .checkout_section .checkout_details .payment_title  {
@@ -497,11 +505,55 @@ maybe swap between them with js on phone/computer */
       }
 
 /* Design about shipping */
+.shipping_details {
+  width: 100%;
+}
+.shipping_details #my_shipping {
+  width: 100%;
+}
+  .shipping_details #my_shipping iframe{
+    margin-top: 20px;
+    width: 100%;
+  }
+
+
 
 /* Design about peyment method */
 
-/* Design aboum form */
-
+/* Design about form */
+.checkout_section .container {
+  position: relative;
+}
+.checkout_section .container .input {
+  margin-top: 1rem;
+  border: solid 2px var(--color-theme);
+  padding: 0.8rem 2.2rem;
+  border-radius: 2rem;
+  width: 100%;
+  outline: none;
+  height: 140px;
+  text-align: start;
+  text-justify: start;
+  resize: none;
+  height: 140px;
+}
+.checkout_section .container .input-title{
+  position: absolute;
+  top: 0.5rem;
+  background-color: var(--color-white);
+  max-width: fit-content;
+  padding: 0 1rem;
+  left: 2.5rem;
+}
+.checkout_section .container .input-title p {
+  font-size: 0.75rem;
+  font-weight: var(--semibold-font);
+  color: var(--color-text-gray);
+}
+.checkout_section .container .black_button {
+  width: 100%;
+  margin-top: 100px;
+}
 
 @media  (min-width: 576px) {
     

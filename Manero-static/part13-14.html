@@ -1175,7 +1175,7 @@
 
 <!-- Page 36-38 -->
 <section class="checkout_section mt-5">
-    <div class="checkout_border">
+    <div class="checkout_border container">
 <!-- Just different title on each page -->
         <div class="checkout_head container">
             <h1>Checkout</h1>
@@ -1186,7 +1186,7 @@
 
     <div class="checkout_details">
 <!-- Should loop out all objects. But static for now. -->
-        <button class="order_details" type="button" data-toggle="collapse" data-target="#my_order"  >
+        <button class="order_details container" type="button" data-toggle="collapse" data-target="#my_order"  >
             <div class="order_title container">
                 <h1>My order</h1>
                 <h1>£40,9</h1>
@@ -1214,39 +1214,64 @@
             </div>
         </button>
         
-        <button class="shipping_details" type="button" data-toggle="collapse" data-target="#my_shipping">
-            <div class="shipping_title container">
+        <div class="shipping_details container" >
+            <button class="shipping_title container" type="button" data-toggle="collapse" data-target="#my_shipping">
                 <div class="shipping_text">
                     <h1>Shipping details</h1>
                     <h1>Genericstreet nr 23, Faketown, Långtbortistan... </h1>
                 </div>
                 <a href="#">&#62;</a>
-            </div>
+            </button>
     <!-- This one contains the hidden information, toggle by button -->
-            <div class="collapse" id="my_shipping">
-                stuff
+            <div class="collapse " id="my_shipping">
+                <iframe class="container" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d16281.287102260696!2d17.9565971!3d59.3302677!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ssv!2sse!4v1697737962574!5m2!1ssv!2sse" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="address_list">
+                    <!-- loop out all addresses -->
+                    <div class="shipping_address">
+                        <span>
+                            <h1>Home</h1>
+                            <p>Real Avenue 42, Realtown, Realistan...</p>
+                        </span>
+                        <input form="order_form" type="radio">
+                    </div>
+                    <div class="shipping_address">
+                        <span>
+                            <h1>Home</h1>
+                            <p>Real Avenue 42, Realtown, Realistan...</p>
+                        </span>
+                        <input form="order_form" type="radio">
+                    </div>
+                    <div class="shipping_address">
+                        <span>
+                            <h1>Home</h1>
+                            <p>Real Avenue 42, Realtown, Realistan...</p>
+                        </span>
+                        <input form="order_form" type="radio">
+                    </div>
+                </div>
+            
             </div>
-        </button>
+        </div>
 
-        <button class="payment_method"  type="button" data-toggle="collapse" data-target="#my_payment">
-            <div class="payment_title container">
+        <div class="payment_method container">
+            <button class="payment_title container"   type="button" data-toggle="collapse" data-target="#my_payment">
                 <div class="payment_text">
                     <h1>Payment method</h1>
                     <h1>7741 ******** 6644</h1>
                 </div>
                 <a href="#">&#62;</a>
-            </div>
+            </button>
     <!-- This one contains the hidden information, toggle by button -->
             <div class="collapse" id="my_payment">
                 stuff
             </div>
-        </button>
+        </div>
     </div>
 
-    <form action="#">
+    <form id="order_form" class="container mt-5" action="#" novalidate>
         <div class="order_comment">
-            <label for="checkout_comment">Comment</label>
-            <input id="checkout_comment" name="checkout_comment" type="text" placeholder="Enter your comment">
+            <label class="input-title" for="checkout_comment">COMMENT</label>
+            <textarea class="input" id="checkout_comment" name="checkout_comment" type="textarea" placeholder="Enter your comment"></textarea>
         </div>
         <button type="submit" class="black_button">CONFIRM ORDER</button>
     </form>
