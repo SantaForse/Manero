@@ -50,6 +50,24 @@
       background-color: var(--color-theme-black);
       color: var(--color-white);
   }
+  
+.black_button {
+  background-color: var(--color-theme-black);
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: var(--semibold-font);
+  font-family: var(--font-mulish);
+  padding: 15px 25px;
+  border-radius: 45px;
+  border: none;
+  text-align: center;
+  transition: color ease-in 250ms, background ease-in 250ms;
+}
+  .black_button:hover {
+    background-color: var(--color-white);
+    color: var(--color-theme-black);
+  }
 
 
 
@@ -382,6 +400,107 @@ maybe swap between them with js on phone/computer */
         width: 100%;
         height: 100%;
       }
+
+
+
+/* Checkout, on one page */
+.checkout_section .checkout_border {
+  border: 2px solid var(--color-theme);
+  border-style: none none solid none;
+  margin-bottom: 20px;
+}
+  .checkout_section .checkout_border .checkout_head{
+    text-align: center;
+    position: relative;
+  }
+    .checkout_section .checkout_border .checkout_head a{
+      position: absolute;
+      left: 0;
+      top: calc(50% - 0.7em );
+      text-decoration: none;
+      color: var(--color-theme-black);
+      font-weight: var(--bold-font);
+      font-size: 18px;
+    }
+    .checkout_section .checkout_border .checkout_head h1{
+      font-size: 18px;
+      font-weight: var(--semibold-font);
+      color: var(--color-theme-black);
+    }
+.checkout_section .checkout_details {
+  display: flex;
+  flex-direction: column;
+}
+  .checkout_section .checkout_details button {
+    border: 2px solid var(--color-theme);
+    border-style: none none solid none;
+    background-color: var(--color-white);
+    width: 100%;
+    padding: 0;
+
+  }
+  .checkout_section .checkout_details .order_title,
+  .checkout_section .checkout_details .shipping_title,
+  .checkout_section .checkout_details .payment_title  {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+    .checkout_section .checkout_details .shipping_title .shipping_text,
+    .checkout_section .checkout_details .payment_title .payment_text {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+    }
+      .checkout_section .checkout_details .shipping_title .shipping_text :nth-child(2),
+      .checkout_section .checkout_details .payment_title .payment_text :nth-child(2){
+        color: var(--color-text-gray);
+      }
+    .checkout_section .checkout_details .shipping_title a,
+    .checkout_section .checkout_details .payment_title  a{
+      align-self: center;
+      text-decoration: none;
+      color: var(--color-theme-black);
+      font-size: 20px;
+    }
+  .checkout_section .checkout_details .order_title h1,
+  .checkout_section .checkout_details .shipping_title h1,
+  .checkout_section .checkout_details .payment_title h1
+   {
+    font-size: 18px;
+  }
+
+/* Design about the order */
+  .checkout_section .checkout_details #my_order {
+    background: var(--color-theme);
+    padding: 0 20px;
+  }
+    .checkout_section .checkout_details #my_order .basket {
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+    }
+      .checkout_section .checkout_details #my_order .basket .basket_object,
+      .checkout_section .checkout_details #my_order .order_discount,
+      .checkout_section .checkout_details #my_order .delivery_cost {
+        display: flex;
+        justify-content: space-between;
+      }
+      .checkout_section .checkout_details #my_order .basket p,
+      .checkout_section .checkout_details #my_order .order_discount p,
+      .checkout_section .checkout_details #my_order .delivery_cost p {
+        font-size: 14px;
+      }
+      .checkout_section .checkout_details #my_order .delivery_cost :nth-child(2) {
+        color: var(--color-success);
+      }
+
+/* Design about shipping */
+
+/* Design about peyment method */
+
+/* Design aboum form */
 
 
 @media  (min-width: 576px) {
