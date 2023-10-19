@@ -1,7 +1,6 @@
 /* Jag importerar inte SF Pro Text, då det verkar vara en Apple font.  */
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&display=swap');
 
-
 :root {
 
     /* Colours */
@@ -28,25 +27,104 @@
 }
 
 
+/* Search input */
+.search-input  {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 7px;
+    gap: 2px;
+}
+.search-input input {
+    border: none;
+    font-family: var(--font-mulish);
+    font-size: 14px;
+}
+
+.search-input .search-button {
+    font-size: 13px;
+}
+
+
+/* top-navbar */
 .top-navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 25px;
+    align-items: end;
 }
+
+
 
     .top-navbar .less-symbol {
         font-size: 25px;
     }
 
+    .top-navbar button {
+        border: none;
+        background-color: transparent;
+    }
+
+    .top-navbar h3 {
+        font-size: 18px;
+        font-weight: var(--semibold-font);
+        font-family: var(--font-mulish);
+    }
+
     .top-navbar img {
         width: 80px;
         height: 25px;
+        margin-bottom: 5px;
     }
 
     .top-navbar .shopping-bag-symbol {
-        font-size: 25px;
+        font-size: 25px; 
     }
+
+    .top-navbar .orange-ball {
+        width: 20px;
+        height: 20px;
+        background-color: var(--color-fail);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        position: relative;
+        top: 37px;
+        right: 7px;
+    }
+
+        .top-navbar .orange-ball p{
+            display: flex;
+            color: var(--color-white);
+            font-family: var(--font-mulish);
+            font-size: 10px;
+            font-weight: var(--bold-font);
+            margin-top: 2px;
+        }
+
+
+/* bottom-navbar */
+
+.bottom-navbar {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    width: 100%;
+}
+
+    .bottom-navbar a{
+        text-decoration: none;
+        color: var(--color-text-gray);
+        font-size: 18px;
+        transition: all 200ms ease-in-out;
+    }
+
+        .bottom-navbar a:hover{
+            color: var(--color-stars);
+        }
 
 .product-img {
     margin-top: 25px;
@@ -435,6 +513,18 @@
                 margin-bottom: 30px;
             }
         
+
+            .search-input input {
+                font-size: 18px;
+            }
+            
+            .search-input .search-button {
+                font-size: 16px;
+            }
+
+            .top-navbar h3 {
+                font-size: 22px;
+            }
         }
         
         @media  (min-width: 992px) {
@@ -486,6 +576,14 @@
             flex-direction: row;
             justify-content: space-between;
         }
+
+        .search-input input {
+            font-size: 21px;
+        }
+        
+        .search-input .search-button {
+            font-size: 19px;
+        }
         }
         
         @media  (min-width: 1200px) {
@@ -509,6 +607,28 @@
             .review-border {
                 margin-top: 40px;
                 margin-bottom: 40px;
+            }
+
+            .top-navbar {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .top-navbar .shopping-bag-symbol {
+                font-size: 30px; 
+            }
+        
+            .top-navbar h3 {
+                font-size: 28px;
+            }
+
+            .top-navbar img {
+                width: 120px;
+                height: 35px;
+            }
+
+            .top-navbar button {
+                display: none;
             }
         
         }
@@ -552,6 +672,11 @@
             .review-border {
                 margin-top: 50px;
                 margin-bottom: 50px;
+            }
+
+            .top-navbar {
+                padding-left: 50px;
+                padding-right: 50px;
             }
         
         }
