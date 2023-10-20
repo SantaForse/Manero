@@ -405,7 +405,7 @@ maybe swap between them with js on phone/computer */
 
 /* Checkout, on one page */
 .checkout_section .checkout_border {
-  border: 2px solid var(--color-theme);
+  border: 2px solid hsl(222, 57%, 85%);
   border-style: none none solid none;
   margin-bottom: 20px;
 }
@@ -434,7 +434,7 @@ maybe swap between them with js on phone/computer */
   .checkout_section .checkout_details .order_details,
   .checkout_section .checkout_details .shipping_details,
   .checkout_section .checkout_details .payment_method {
-    border: 2px solid var(--color-theme);
+    border: 2px solid hsl(222, 57%, 85%);
     border-style: none none solid none;
     background-color: var(--color-white);
     width: 100%;
@@ -474,8 +474,7 @@ maybe swap between them with js on phone/computer */
     }
   .checkout_section .checkout_details .order_title h1,
   .checkout_section .checkout_details .shipping_title h1,
-  .checkout_section .checkout_details .payment_title h1
-   {
+  .checkout_section .checkout_details .payment_title h1 {
     font-size: 18px;
   }
 
@@ -504,21 +503,172 @@ maybe swap between them with js on phone/computer */
         color: var(--color-success);
       }
 
+      
 /* Design about shipping */
+/* and design about payment method */
 .shipping_details {
   width: 100%;
 }
-.shipping_details #my_shipping {
-  width: 100%;
-}
-  .shipping_details #my_shipping iframe{
-    margin-top: 20px;
+  .shipping_details #my_shipping,
+  .payment_method #my_payment .payment_options .credit_card {
     width: 100%;
+    background-color: var(--color-theme);
+  }
+    .shipping_details #my_shipping iframe{
+      margin-top: 20px;
+    }
+    .shipping_details #my_shipping .address_list, 
+    .payment_method #my_payment .payment_options{
+      display: flex;
+      flex-direction: column;
+    }
+      .shipping_details #my_shipping .address_list .shipping_address,
+      .payment_method #my_payment .payment_options .pay_option{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 2px solid hsl(222, 57%, 85%);
+        border-style: none none solid none;
+        padding: 20px 15px;
+      }
+        .payment_method #my_payment .payment_options h1{
+          border: 2px solid hsl(222, 57%, 85%);
+          border-style: solid none solid none;
+          padding: 20px 10px;
+          font-size: 18px;
+          font-weight: var(--semibold-font);
+          margin-bottom: 0;
+        }
+          .payment_method #my_payment .payment_options .pay_option p,
+          .payment_method #my_payment .payment_options .pay_option a {
+            margin-bottom: 0;
+          }
+          .payment_method #my_payment .payment_options .pay_option a{
+            text-decoration: none;
+            color: var(--color-theme-black);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+
+
+        .shipping_details #my_shipping .address_list :last-child, 
+        .payment_method #my_payment .payment_options :last-child{
+          border: none;
+        }
+      .shipping_details #my_shipping .address_list .shipping_address p{
+        font-size: 14px;
+        font-weight: var(--bold-font);
+        margin: 0;
+      }
+      
+      .shipping_details #my_shipping .address_list .enter_address input[type='radio'],
+      .payment_method #my_payment .payment_options .pay_option input[type='radio']{
+        -webkit-appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        outline: none;
+        box-shadow: 0 0 0 2px var(--color-theme);
+      }
+      .shipping_details #my_shipping .address_list .enter_address input[type='radio']:before,
+      .payment_method #my_payment .payment_options .pay_option input[type='radio']:before {
+        content: '';
+        display: block;
+        width: 60%;
+        height: 60%;
+        margin: 20% auto;
+        border-radius: 50%;
+      }
+  /* ORDER IS IMPORTANT WITH THE INPUTS! */
+      .shipping_details #my_shipping .address_list .shipping_address input[type='radio'],
+      .payment_method #my_payment .payment_options .credit_card input[type='radio']{
+        -webkit-appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        outline: none;
+        box-shadow: 0 0 0 2px var(--color-white);
+      }
+      .shipping_details #my_shipping .address_list .shipping_address input[type='radio']:before,
+      .payment_method #my_payment .payment_options .credit_card input[type='radio']:before{
+        content: '';
+        display: block;
+        width: 60%;
+        height: 60%;
+        margin: 20% auto;
+        border-radius: 50%;
+      }
+      .shipping_details #my_shipping .address_list .enter_address input[type="radio"]:checked:before, 
+      .shipping_details #my_shipping .address_list .shipping_address input[type="radio"]:checked:before,
+      .shipping_details #my_shipping .address_list #add_address_form .new_address  input[type="radio"]:checked:before,
+      .payment_method #my_payment .payment_options .pay_option input[type="radio"]:checked:before {
+        background: var(--color-text-red);
+      } 
+      .shipping_details #my_shipping .address_list .shipping_address span :nth-child(2){
+        font-size: 14px;
+        font-weight: var(--regular-font);
+      }
+    .shipping_details #my_shipping .address_list #add_address_form {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-white);
+      padding: 30px 0;
+    }
+      .shipping_details #my_shipping .address_list #add_address_form .enter_address{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding-right: 15px;
+      }
+      .shipping_details #my_shipping .address_list #add_address_form .enter_address .adress_input{
+        border: solid 1px var(--color-theme);
+        padding: 0.8rem 2rem;
+        border-radius: 2rem;
+        width: 100%;
+        outline: none;
+        text-align: start;
+        text-justify: start;
+        resize: none;
+      }
+      .shipping_details #my_shipping .address_list #add_address_form .enter_address label{
+        position: absolute;
+        top: -.7rem;
+        background-color: var(--color-white);
+        max-width: fit-content;
+        padding: 0 1rem;
+        left: 1rem;
+      }
+    .shipping_details #my_shipping .address_list #add_address_form .new_address{
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+      .shipping_details #my_shipping .address_list #add_address_form .new_address p{
+        margin: 0;
+      }
+      .shipping_details #my_shipping .address_list #add_address_form .new_address input[type='radio']{
+        -webkit-appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        outline: none;
+        box-shadow: 0 0 0 2px var(--color-theme);
+        margin-left: 15px;
+    }
+    .shipping_details #my_shipping .address_list #add_address_form .new_address input[type='radio']:before{
+      content: '';
+      display: block;
+      width: 70%;
+      height: 70%;
+      margin: 15% auto;
+      border-radius: 3px;
   }
 
-
-
-/* Design about peyment method */
 
 /* Design about form */
 .checkout_section .container {
@@ -531,7 +681,6 @@ maybe swap between them with js on phone/computer */
   border-radius: 2rem;
   width: 100%;
   outline: none;
-  height: 140px;
   text-align: start;
   text-justify: start;
   resize: none;

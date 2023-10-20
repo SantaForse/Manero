@@ -15,7 +15,7 @@
 
     
 <!-- The "balls" are flex, with scroll function in javascript -->
-<section class="category_section  ">
+<section class="category_section  d-none">
     <div class="container">
         <div class="category_balls">
             
@@ -90,7 +90,7 @@
 
   
 <!-- Product grid, with slider function -->
-<section class="best_sellers_section  ">
+<section class="best_sellers_section  d-none">
     <div class="container">
         <div class="best_sellers_title">
             <h1>Best Sellers</h1>
@@ -383,7 +383,7 @@
 </section>
 
 
-<section class="banner_section_left  ">
+<section class="banner_section_left  d-none">
     <div class="container">
         <h1>Take 50% off now!</h1>
         <a class="white_button">SHOP NOW</a>
@@ -392,7 +392,7 @@
 
     
 <!-- Product grid, with slider function -->
-<section class="featured_products_section  ">
+<section class="featured_products_section  d-none">
     <div class="container">
         <div class="featured_products_title">
             <h1>Featured products</h1>
@@ -769,7 +769,7 @@
 
 
 <!-- Divider, maybe an image later on?  -->
-<section class="banner_section_right  ">
+<section class="banner_section_right  d-none">
     <div class="container">
         <h1>Take 50% off now!</h1>
         <a class="white_button">SHOP NOW</a>
@@ -777,7 +777,7 @@
 </section>
 
 <!-- Product grid, without scroll function-->
-<section class="featured_products_section_v2  ">
+<section class="featured_products_section_v2  d-none">
     <div class="container">
         <div class="best_sellers_title">
             <h1>Featured products</h1>
@@ -988,7 +988,7 @@
 </section>
 
 
-<section class="best_sellers_section_v2  ">
+<section class="best_sellers_section_v2  d-none">
     <div class="container">
         <div class="best_sellers_title">
             <h1>Best Sellers</h1>
@@ -1173,8 +1173,10 @@
 
 
 
+
+<!-- The use of containers might have f**ed the design a bit, can fix later... -->
 <!-- Page 36-38 -->
-<section class="checkout_section mt-5">
+<section class="checkout_section mt-5 ">
     <div class="checkout_border container">
 <!-- Just different title on each page -->
         <div class="checkout_head container">
@@ -1223,30 +1225,41 @@
                 <a href="#">&#62;</a>
             </button>
     <!-- This one contains the hidden information, toggle by button -->
-            <div class="collapse " id="my_shipping">
+            <div class="collapse" id="my_shipping">
                 <iframe class="container" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d16281.287102260696!2d17.9565971!3d59.3302677!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ssv!2sse!4v1697737962574!5m2!1ssv!2sse" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="address_list">
                     <!-- loop out all addresses -->
                     <div class="shipping_address">
                         <span>
-                            <h1>Home</h1>
+                            <p>Home</p>
                             <p>Real Avenue 42, Realtown, Realistan...</p>
                         </span>
-                        <input form="order_form" type="radio">
+                        <input form="order_form" type="radio" name="adress_choice" value="option1">
                     </div>
                     <div class="shipping_address">
                         <span>
-                            <h1>Home</h1>
+                            <p>Home</p>
                             <p>Real Avenue 42, Realtown, Realistan...</p>
                         </span>
-                        <input form="order_form" type="radio">
+                        <input form="order_form" type="radio" name="adress_choice" value="option2">
                     </div>
                     <div class="shipping_address">
                         <span>
-                            <h1>Home</h1>
+                            <p>Home</p>
                             <p>Real Avenue 42, Realtown, Realistan...</p>
                         </span>
-                        <input form="order_form" type="radio">
+                        <input form="order_form" type="radio" name="adress_choice" value="option3">
+                    </div>
+                    <div id="add_address_form" class="add_shipping_address">
+                        <div class="enter_address">
+                            <label class="address_label" for="order_form">ENTER AN ADDRESS</label>
+                            <input class="adress_input" for="order_form" id="address_input" name="address_input" type="text" placeholder="Enter an address">
+                            <input form="order_form" type="radio" name="adress_choice" value="option4">
+                        </div>
+                        <div class="new_address">
+                            <input class="add_current_location"  form="order_form" type="radio" name="adress_choice" value="option5">
+                            <p>Use current location</p>
+                        </div>
                     </div>
                 </div>
             
@@ -1263,7 +1276,38 @@
             </button>
     <!-- This one contains the hidden information, toggle by button -->
             <div class="collapse" id="my_payment">
-                stuff
+                <div class="payment_options">
+                    <h1>Credit cards</h1>
+            <!-- The credit card has different attribute, and should be looped out -->
+                    <div class="pay_option credit_card">
+                        <p>7741 ******** 6644</p>
+                        <input form="order_form" type="radio" name="payment_choice" value="option1">
+                    </div>
+                    <div class="pay_option credit_card">
+                        <p>7674 ******** 1884</p>
+                        <input form="order_form" type="radio" name="payment_choice" value="option2">
+                    </div>
+                    <div class="pay_option credit_card">
+                        <a href="#">
+                            <p>Add a new card</p>
+                            <i class="fa-regular fa-credit-card"></i>
+                        </a>
+                    </div>
+                    
+                <!-- Maybe static options? -->
+                    <div class="pay_option">
+                        <p>Apple Pay</p>
+                        <input form="order_form" type="radio" name="payment_choice" value="option3">
+                    </div>
+                    <div class="pay_option">
+                        <p>Pay Pal</p>
+                        <input form="order_form" type="radio" name="payment_choice" value="option4">
+                    </div>
+                    <div class="pay_option">
+                        <p>Cash</p>
+                        <input form="order_form" type="radio" name="payment_choice" value="option5">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
