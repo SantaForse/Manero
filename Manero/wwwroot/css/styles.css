@@ -68,6 +68,11 @@ p {
   color: var(--color-text-gray);
 }
 
+a {
+  text-decoration: none;
+  color: var(--color-theme-black);
+}
+
 .my-btn {
   background-color: var(--color-theme-black);
   color: var(--color-white);
@@ -101,6 +106,7 @@ p {
   position: relative;
 }
 .input-holder input {
+  position: relative;
   margin-top: 1rem;
   border: solid 1px var(--color-light-blue);
   padding: 0.8rem 2.2rem;
@@ -154,4 +160,40 @@ p {
   border-radius: 5px;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///C:/Users/p/source/ec-utbildningar-assignment-projekt/Manero/Styles/Root/_root.scss%22,%22file:///C:/Users/p/source/ec-utbildningar-assignment-projekt/Manero/Styles/Buttons/_buttons.scss%22,%22file:///C:/Users/p/source/ec-utbildningar-assignment-projekt/Manero/Styles/Inputs/_inputs.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAC;AACO;AAGR;AACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;AACA;EACA;EACA;EACA;EACA;EACA;;;AAOJ;AACA;EACI;;;AAGJ;EACI;IACI;;;AAIR;EACI;;;AAGJ;EACI;EACA;;;AAGJ;EACI;;;AAEJ;EACI;EACA;EACA;EACA;;;AAEJ;EACI;EACA;EACA;EACA;;;AAEJ;EACI;EACA;EACA;;;ACtEH;EACG;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAEJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACI;EACA;EACA;;;ACxBP;EACG;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;;AAGL;EACK;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAKJ;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA%22%7D */
+.input-label-chooser {
+  position: relative;
+}
+.input-label-chooser select {
+  top: 30px;
+  left: 15px;
+  position: absolute;
+  border: none;
+  border-right: 1px solid var(--color-text-gray);
+  outline: none;
+  background-color: transparent;
+  z-index: 100;
+}
+.input-label-chooser input {
+  padding-left: 100px;
+}
+
+.otp-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: auto;
+}
+.otp-container .otp-digit {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 2em;
+  border: 1px solid var(--color-light-blue);
+  transition: border-color 0.3s ease;
+}
+.otp-container .otp-digit-filled {
+  background: var(--color-light-blue);
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22file:///C:/Users/p/source/ec-utbildningar-assignment-projekt/Manero/Styles/Root/_root.scss%22,%22file:///C:/Users/p/source/ec-utbildningar-assignment-projekt/Manero/Styles/Buttons/_buttons.scss%22,%22file:///C:/Users/p/source/ec-utbildningar-assignment-projekt/Manero/Styles/Inputs/_inputs.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAC;AACO;AAGR;AACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;AACA;EACA;EACA;EACA;EACA;EACA;;;AAOJ;AACA;EACI;;;AAGJ;EACI;IACI;;;AAIR;EACI;;;AAGJ;EACI;EACA;;;AAGJ;EACI;;;AAEJ;EACI;EACA;EACA;EACA;;;AAEJ;EACI;EACA;EACA;EACA;;;AAEJ;EACI;EACA;EACA;;;AAEJ;EACI;EACA;;;AC1EH;EACG;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAEJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACI;EACA;EACA;;;ACxBP;EACG;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;AAGL;EACK;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAKJ;EACI;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;EACA;;AAGJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGR;EACI;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEJ;EACI;;;AAIR;EACI;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI%22%7D */
