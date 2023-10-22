@@ -24,10 +24,6 @@
     padding: 0;
 }
 
-.order-history .frame {
-
-}
-
 
 
 .order-history .order-container {
@@ -57,14 +53,13 @@
         .order-history .order-summary .order-status {
             font-size: 14pt;
         }
-        .order-history .order-summary i {}
+
         
     .order-history .order-summary-bottom {
         display: flex;
         justify-content: space-between;
         font-size: 12pt;
     }
-        .order-history .order-summary .order-date {}
         .order-history .order-summary .order-total {
             font-weight: var(--bold-font);
         }
@@ -79,14 +74,11 @@
             justify-content: space-between;
             font-size: 12pt;
         }
-            .order-history .order-details .order-item .product-item-name {}
-            .order-history .order-details .order-item .product-item-quantity {}
-            .order-history .order-details .order-item .product-item-price {}
     
             .order-history .order-details .order-links {
                 padding-top: 2rem;
                 display: flex;
                 justify-content: space-between;
             }
-                .order-history .order-details .order-links i {}
+
     
