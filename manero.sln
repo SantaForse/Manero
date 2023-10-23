@@ -10,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Manero-Static", "Manero-Static", "{720E027C-B172-4774-BB19-B0C49AEA756B}"
 	ProjectSection(SolutionItems) = preProject
 		home.html = home.html
+		page09.html = page09.html
+		page25.html = page25.html
 	EndProjectSection
 EndProject
 Global
