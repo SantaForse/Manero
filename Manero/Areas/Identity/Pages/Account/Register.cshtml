@@ -11,25 +11,30 @@
     BackButtonLink = string.IsNullOrEmpty(Request.Headers["Referer"].ToString()) ? "/#" : Request.Headers["Referer"].ToString()
     })
 <div class="d-flex flex-column justify-content-center align-items-center">
-    <h1 style="margin-top: 7rem; font-weight: 600; font-size: 32px">Sign Up</h1>
+    <h1 style="margin-top: 5rem;" class="big-title">Sign Up</h1>
     <form class="mt-4 w-100" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-        <div class="form-floating mb-3">
-            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+        <div class="input-holder mb-3">
+            <input asp-for="Input.Name" autocomplete="name" aria-required="true" />
+            <label asp-for="Input.Name">Name</label>
+            <span asp-validation-for="Input.Name" class="text-danger"></span>
+        </div>
+        <div class="input-holder mb-3">
+            <input asp-for="Input.Email" autocomplete="username" aria-required="true"  />
             <label asp-for="Input.Email">Email</label>
             <span asp-validation-for="Input.Email" class="text-danger"></span>
         </div>
-        <div class="form-floating mb-3">
-            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+        <div class="input-holder mb-3">
+            <input asp-for="Input.Password" autocomplete="new-password" aria-required="true"  />
             <label asp-for="Input.Password">Password</label>
             <span asp-validation-for="Input.Password" class="text-danger"></span>
         </div>
-        <div class="form-floating mb-3">
-            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+        <div class="input-holder mb-3">
+            <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true"  />
             <label asp-for="Input.ConfirmPassword">Confirm Password</label>
             <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
         </div>
-        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+        <button id="registerSubmit" type="submit" class="my-btn">Register</button>
     </form>
     <section class="mt-4">
         <h3>Use another service to register.</h3>

@@ -1,0 +1,36 @@
+﻿@page
+@model Manero.Areas.Identity.Pages.Account.PhoneVerifyModel
+@{
+}
+
+@using Manero.Models
+
+@await Html.PartialAsync("_AccountHeader", new AccountHeaderViewModel
+    {
+    Title = "Verify your phone number",
+    BackButtonLink = string.IsNullOrEmpty(Request.Headers["Referer"].ToString()) ? "/DefaultFallbackURL" : Request.Headers["Referer"].ToString()
+    })
+<div class="d-grid" style="margin-top: 5rem">
+    @if (!string.IsNullOrEmpty(Model.SmsSentMessage))
+    {
+        <p>@Model.SmsSentMessage</p>
+    }
+    <section class="mt-3">
+        <form id="account" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="mb-3 input-holder">
+                <div class="input-label-chooser">
+                    <select class="country-flag" asp-for="Input.CountryPrefix">
+                        <option value="+1" data-flag="🇺🇸">🇺🇸 +1</option>
+                        <option value="+46" data-flag="sv">sv +46</option>
+                        <!-- Add other country flags and codes here -->
+                    </select>
+                    <input asp-for="Input.Phonenumber" autocomplete="username" aria-required="true" />
+                </div>
+                <label asp-for="Input.Phonenumber">Phone Number</label>
+                <span asp-validation-for="Input.Phonenumber" class="text-danger"></span>
+            </div>
+            <button type="submit" class="w-100 my-btn">CONFIRM</button>
+        </form>
+    </section>
+</div>
