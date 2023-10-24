@@ -1,8 +1,7 @@
 @import url('buttons.css');
 @import url('input-fields.css');
 @import url('site.css');
-@import url('user-profile.css');
-@import url('user-profile-edit.css');
+
 
 .user-profile {
     font-family: var(--font-mulish);
