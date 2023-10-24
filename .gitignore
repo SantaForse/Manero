@@ -288,3 +288,5 @@ Manero/healthchecksdb
 Manero/MigrationBackup/
 Manero/.ionide/
 Manero/FodyWeavers.xsd
+/Manero-static/css/product18.css
+/Manero-static/html/home.html
