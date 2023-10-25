@@ -1,0 +1,91 @@
+﻿/* Jag importerar inte SF Pro Text, då det verkar vara en Apple font.  */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&display=swap');
+
+
+:root {
+    /* Colours */
+    --color-theme: #DBE3F5;
+    --color-theme-black: #111111;
+    --color-white: #FFFFFF;
+    --color-text-gray: #626262;
+    --color-text-red: #F4303C;
+    --color-text-blue: #B3B9C7;
+    --color-text-yellow: #EF962D;
+    --color-stars: #FFBE00;
+    --color-new: #CFA93F;
+    --color-sale: #69864D;
+    --color-top: #864D7D;
+    --color-success: #00824B;
+    --color-fail: #F4303C; /* This is the same colour as text red */
+    --color-light-blue: #DBE3F5;
+    /* Font-details */
+    --font-mulish: 'Mulish', sans-serif;
+    --light-font: 300;
+    --regular-font: 400;
+    --semibold-font: 600;
+    --bold-font: 700;
+}
+
+
+
+
+
+/* Det under kan troligtvis tas bort */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+.big-title {
+    font-family: var(--font-mulish);
+    font-size: 32px;
+    font-weight: var(--bold-font);
+    color: var(--color-theme-black);
+}
+.mid-title {
+    font-family: var(--font-mulish);
+    font-size: 22px;
+    font-weight: var(--bold-font);
+    color: var(--color-theme-black);
+}
+p {
+    font-family: var(--font-mulish);
+    font-size: 16px;
+    color: var(--color-text-gray);
+}
+a {
+    text-decoration: none;
+    color: var(--color-theme-black);
+}
+
+/**************************************************/
+.bg-color1{
+	background-color:#DBE3F5;
+}
+
+.bg-color2{
+	background-color:#FFFFFF;
+}
+.bg-color3{
+	background-color:	#000000;
+}
+
+
+/**************************************************/
