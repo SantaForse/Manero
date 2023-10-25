@@ -1,0 +1,130 @@
+
+body {
+    background-color: black;
+ 
+  .contactPage{
+
+    margin-left: 40px;
+    
+  .container {
+    color: white;
+ 
+  }
+  
+  .contact-us {
+  
+   margin-top: 84px;
+ 
+   
+  }
+  
+  .contact-title{
+    font-weight: bold;
+    font-size: 22px;
+    /* text-align: start; */
+    margin-bottom: 55px;
+   
+  }
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    font-size: 14px;
+  }
+  
+  .info {
+    display: flex;
+    align-items: center;
+  
+}
+  
+  .info i {
+    margin-right: 10px;
+  
+  }
+
+  .separator {
+    margin-top: 3px;
+    border: 0;
+    border-top: 1px solid white;
+    width: 100vw;
+  
+  }
+  
+  .track {
+    margin-top: 260px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Mulish', sans-serif;
+  }
+
+  .p-relative {
+	position:relative;
+}
+
+
+.input-contact {
+  position: relative;
+  top: 2.7rem;
+ background-color:black;
+  max-width: fit-content; 
+ 
+  padding: 0 1rem;
+  left: 1.4rem;
+}
+
+  p {
+    font-size: 0.75rem;
+    font-weight: semibold;
+    color: white;
+    font-size: 14px;
+    font-family: 'Mulish', sans-serif;
+  }
+
+
+
+
+input {
+  margin-top: 1rem;
+  border: solid 1px gray;
+  padding: 0.8rem 2.2rem;
+  border-radius: 5rem;
+  width: 50%; 
+  outline: none;
+  background-color: black;
+ 
+}
+
+
+.input-contact input[type="text"] {
+  width: 224px;
+}
+
+
+
+button{
+background-color: grey;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 37px;
+    font-size:24px;
+    position: absolute;
+    right: 4px;
+    bottom: 5px;
+    cursor: pointer;
+    outline: none;
+
+}
+
+} 
+} 
+ 
+  @media (max-width: 768px) {
+    input, .custom-checkbox {
+      width: 330px; 
+    }
+  }
+  
+  

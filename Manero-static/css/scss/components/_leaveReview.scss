@@ -1,0 +1,113 @@
+
+.leave-review {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+
+.center-content {
+  text-align: center;
+
+
+.review-title {
+  font-size: 18px;
+  font-weight: semiBold;
+  font-family: 'Mulish', sans-serif;
+  color: black;
+  
+}
+
+.review-image {
+  margin-top: 41px;
+}
+
+.vertical-line {
+  width: 1px; 
+  background-color: black;
+  position: absolute;
+  top: 33%; 
+  left: 50%; 
+  height: 30px; 
+  border-radius: 50px; 
+}
+
+.review-paragraph {
+  font-size: 22px;
+  font-weight: bold;
+  color: black;
+  font-family: 'Mulish', sans-serif;
+  margin-top: 68px; 
+}
+
+.star-rating i {
+  font-size: 35px; 
+  color: #DBE3F5;
+}
+
+.second-text {
+  font-size: 16px;
+  color: #626262;
+  font-family: 'Mulish', sans-serif;
+  margin-top: 20px; 
+}
+
+
+
+label[for="comments"]  {
+
+  position: relative;
+  top: 1.8rem;
+  background-color: white;
+  max-width: fit-content;
+  padding: 0 1rem;
+  left: -8rem;
+  font-size: 12px;
+  font-family: 'Mulish', sans-serif;
+}
+  
+
+
+input#comments  {
+  margin-top: 1rem;
+  border: solid 1px #DBE3F5;
+  padding: 3rem 2.2rem;
+  border-radius: 1rem;
+  width: 100%; 
+  outline: none;
+}
+
+input#comments::placeholder {
+  position: absolute;
+  top: 20px;
+  font-size: 14px;
+  font-family: 'Mulish', sans-serif;
+  color: #A0ADCC;
+}
+
+button{
+
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 0.95rem;
+  width: 100%;
+  border-radius: 5rem;
+  font-size: 0.875rem;
+  font-weight:semiBold;
+  margin-top: 53px;
+} 
+.black-line {
+  width: 115px;
+  background-color: black;
+  border: 1.5px solid black;
+  height: 2px;
+  border-radius: 50px;
+  position: absolute;
+  top: 92%;
+  left: 50%;
+  transform: translateX(-50%) scale(1.2);
+} 
+
+}
+}
