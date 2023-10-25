@@ -1,0 +1,78 @@
+﻿@* For now these two are static, I might make them into a viewmodel when I have the time *@
+
+
+<section class="featured_products_section_v2 mb-5 ">
+    <div class="container">
+        <div class="best_sellers_title">
+            <h1>Featured products</h1>
+            <a href="/final-static/shopping.html">View all <span>&#62;</span></a>
+        </div>
+        <!-- Grid with autofill function -->
+        <div class="big_card_grid">
+
+
+            @{
+                int nr = 0;
+            }
+
+            @while (nr < 8)
+            {
+                nr++;
+
+                <!-- start of card -->
+                <div class="product_card">
+                    <div class="card_top">
+                        <!-- can be changed, between classes:
+                                "card_tag_new, card_tag_sale and card_tag_top".
+                            see the options below -->
+                        @if (nr == 2)
+                        {
+                            <div class="card_tag_new">NEW</div>
+                        }
+                        else if (nr == 3)
+                        {
+                            <div class="card_tag_sale">SALE</div>
+                        }
+                        else if (nr == 4)
+                        {
+                            <div class="card_tag_top">TOP</div>
+                        }
+                        else
+                        {
+                            <div class="card_tag"></div>
+                        }
+
+
+                        <img src="/static-images/stock-images/white-shoe.jpg" alt="product">
+                        <div class="card_options">
+                            <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
+                            <a asp-controller="Shoppingcart" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
+                        </div>
+                    </div>
+                    <div class="card_bottom">
+                        <div class="card_rating">
+                            <div class="card_stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p>(3)</p>
+                        </div>
+                        <div class="card_title">Louise Withong</div>
+                        <div class="card_price">
+                            <p>£20.9</p>
+                            <p>£12.9</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of card -->
+            }
+
+
+
+
+        </div>
+    </div>
+</section>

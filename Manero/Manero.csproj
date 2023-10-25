@@ -38,6 +38,11 @@
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="wwwroot\static-images\pattern.svg" />
+    <None Include="wwwroot\static-images\placeholder_promocode.svg" />
+    <None Include="wwwroot\static-images\promocode_img.svg" />
+    <None Include="wwwroot\static-images\stock-images\balenciaga-shoe.webp" />
+    <None Include="wwwroot\static-images\trackorder_img.svg" />
   </ItemGroup>
 
 </Project>

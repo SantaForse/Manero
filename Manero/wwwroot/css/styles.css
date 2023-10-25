@@ -1,6 +1,10 @@
 ﻿@charset "UTF-8";
 /* Jag importerar inte SF Pro Text, då det verkar vara en Apple font.  */
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&display=swap");
+@import url('combinedCss.css');
+
+
+
 :root {
   /* Colours */
   --color-theme: #DBE3F5;
@@ -25,9 +29,11 @@
   --bold-font: 700;
 }
 
+
 /* Det under kan troligtvis tas bort */
 html {
   font-size: 14px;
+  font-family: var(--font-mulish);
 }
 
 @media (min-width: 768px) {
