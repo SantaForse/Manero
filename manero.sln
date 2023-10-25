@@ -12,6 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Manero-Static", "Manero-Sta
 		home.html = home.html
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{D3B2E392-8B9A-4FD8-B1EF-1BC2446BD467}"
+	ProjectSection(SolutionItems) = preProject
+		Manero\wwwroot\css\site.css = Manero\wwwroot\css\site.css
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +34,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D3B2E392-8B9A-4FD8-B1EF-1BC2446BD467} = {720E027C-B172-4774-BB19-B0C49AEA756B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ABA3A2A1-43D0-41BD-807A-05AC7EF904C4}
