@@ -1,34 +1,32 @@
-﻿@*
-This is the same partial as on wishlist later (but with items from different place)
-    will also be made from static to viewmodel...
-*@
+﻿@* For now these two are static, I might make them into a viewmodel when I have the time *@
+
+@model Manero.ViewModels.CardGridViewModel
 
 
-
-<section class="best_sellers_section_v2 mb-5">
+<section class="featured_products_section_v2 mb-5 ">
     <div class="container">
         <div class="best_sellers_title">
-            <h1>Best Sellers</h1>
-            <a href="/final-static/shopping.html">View all <span>&#62;</span></a>
+            <h1>@Model.Title</h1>
+            <a asp-controller="@Model.ButtonLink" asp-action="Index">@Model.ButtonText <span>&#62;</span></a>
         </div>
-        <!-- Flex with limited amount -->
-        <div class="small_card_flex">
+        <!-- Grid with autofill function -->
+        <div class="big_card_grid">
+
 
             @{
                 int nr = 0;
             }
 
-            @while (nr < 8)
+            @while (nr < Model.CardNr)
             {
                 nr++;
 
                 <!-- start of card -->
-                <div class="small_product_card">
-                    <div class="card_left">
+                <div class="product_card">
+                    <div class="card_top">
                         <!-- can be changed, between classes:
                                 "card_tag_new, card_tag_sale and card_tag_top".
                             see the options below -->
-
                         @if (nr == 2)
                         {
                             <div class="card_tag_new">NEW</div>
@@ -47,14 +45,13 @@ This is the same partial as on wishlist later (but with items from different pla
                         }
 
 
-                        <img src="/static-images/stock-images/horse.jpg" alt="product">
-                    </div>
-                    <div class="card_right">
-                        <div class="card_title">High Heels</div>
-                        <div class="card_price">
-                            <p>£20.9</p>
-                            <p>£12.9</p>
+                        <img src="/static-images/stock-images/white-shoe.jpg" alt="product">
+                        <div class="card_options">
+                            <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
+                            <a asp-controller="Shoppingcart" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
                         </div>
+                    </div>
+                    <div class="card_bottom">
                         <div class="card_rating">
                             <div class="card_stars">
                                 <i class="fa-solid fa-star"></i>
@@ -65,14 +62,20 @@ This is the same partial as on wishlist later (but with items from different pla
                             </div>
                             <p>(3)</p>
                         </div>
-                    </div>
-                    <div class="small_card_options">
-                        <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
-                        <a asp-controller="Shoppingcart" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
+
+                        @* Should later go to individual shopping cards site... *@
+                        <a asp-controller="Shopping" asp-action="Index" class="card_title">Prada shoe</a>
+                        <div class="card_price">
+                            <p>£20.9</p>
+                            <p>£12.9</p>
+                        </div>
                     </div>
                 </div>
                 <!-- end of card -->
             }
+
+
+
 
         </div>
     </div>

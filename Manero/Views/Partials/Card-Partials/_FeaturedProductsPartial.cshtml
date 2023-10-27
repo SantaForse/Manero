@@ -1,8 +1,11 @@
-﻿<section class="featured_products_section  ">
+﻿@model Manero.ViewModels.CardGridViewModel
+
+
+<section class="best_sellers_section  ">
     <div class="container">
-        <div class="featured_products_title">
-            <h1>Featured products</h1>
-            <a asp-controller="Shopping" asp-action="Index">View all <span>&#62;</span></a>
+        <div class="best_sellers_title">
+            <h1>@Model.Title</h1>
+            <a asp-controller="@Model.ButtonLink" asp-action="Index">@Model.ButtonText <span>&#62;</span></a>
         </div>
 
         <!-- Same type of grid as "best sellers", but with different size settings -->
@@ -12,7 +15,7 @@
                 int nr = 0;
             }
 
-            @while(nr < 8)
+            @while (nr < Model.CardNr)
             {
                 nr++; 
 
@@ -57,7 +60,9 @@
                             </div>
                             <p>(3)</p>
                         </div>
-                        <div class="card_title">Louise Withong</div>
+
+                        @* Should later go to individual shopping cards site... *@
+                        <a asp-controller="Shopping" asp-action="Index" class="card_title">Prada shoe</a>
                         <div class="card_price">
                             <p>£20.9</p>
                             <p>£12.9</p>
