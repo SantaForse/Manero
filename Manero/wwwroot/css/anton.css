@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&display=swap");
+
+:root {
+    /* Colours */
+    --color-theme: #DBE3F5;
+    --color-theme-black: #111111;
+    --color-white: #FFFFFF;
+    --color-text-gray: #626262;
+    --color-text-red: #F4303C;
+    --color-light-blue: #DBE3F5;
+    --color-text-blue: #B3B9C7;
+    --color-text-yellow: #EF962D;
+    --color-stars: #FFBE00;
+    --color-new: #CFA93F;
+    --color-sale: #69864D;
+    --color-top: #864D7D;
+    --color-success: #00824B;
+    --color-fail: #F4303C; /* This is the same colour as text red */
+    /* Font-details */
+    --font-mulish: "Mulish", sans-serif;
+    --light-font: 300;
+    --regular-font: 400;
+    --semibold-font: 600;
+    --bold-font: 700;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+body {
+    font-family: var(--font-mulish);
+}
+
+.vertical-line {
+    border-left: 1px solid black;
+    height: 2.2rem;
+    position: relative;
+    left: 50%;
+    margin-top: 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.black-button {
+    background-color: var(--color-theme-black);
+    color: var(--color-white);
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 5rem;
+    font-size: 0.875rem;
+    font-weight: var(--semibold-font);
+    margin-top: 1.2rem;
+}
+
+.promocodes-header, .payment-header, .edit-card-header {
+    font-size: 1.125rem;
+    font-weight: var(--semibold-font);
+    text-align: center;
+    color: var(--color-theme-black);
+}
+
+    .promocodes-header ._title, .payment-header ._title, .edit-card-header ._title {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        margin-bottom: 2.3rem;
+    }
+
+    .promocodes-header .buttons, .payment-header .buttons, .edit-card-header .buttons {
+        font-size: 0.875rem;
+        font-weight: var(--regular-font);
+    }
+
+        .promocodes-header .buttons button, .payment-header .buttons button, .edit-card-header .buttons button {
+            border: none;
+            border-radius: 10rem;
+            padding: 0.2rem 1.3rem;
+            margin: 0.2rem;
+            background-color: var(--color-light-blue);
+        }
+
+        .promocodes-header .buttons ._active, .payment-header .buttons ._active, .edit-card-header .buttons ._active {
+            background-color: var(--color-theme-black);
+            color: var(--color-white);
+        }
+
+.my-promocodes .promocode {
+    line-height: 1.1rem;
+}
+
+    .my-promocodes .promocode h4 {
+        font-weight: var(--semibold-font);
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+    }
+
+    .my-promocodes .promocode .discount-amount {
+        color: var(--color-text-red);
+        font-weight: var(--semibold-font);
+        font-size: 1.313rem;
+    }
+
+    .my-promocodes .promocode .yellow-discount {
+        color: var(--color-text-yellow);
+    }
+
+    .my-promocodes .promocode .green-discount {
+        color: var(--color-success);
+    }
+
+    .my-promocodes .promocode .expire-date {
+        font-size: 0.875rem;
+    }
+
+    .my-promocodes .promocode button {
+        background-color: transparent;
+        font-size: 1.7rem;
+        border: none;
+    }
+
+.no-promocodes {
+    text-align: center;
+}
+
+    .no-promocodes h4 {
+        font-weight: var(--bold-font);
+        font-size: 1.375rem;
+    }
+
+    .no-promocodes p {
+        margin-top: 1rem;
+        font-weight: var(--regular-font);
+        font-size: 1rem;
+    }
+
+    .no-promocodes .input-title {
+        position: relative;
+        top: 2.7rem;
+        background-color: var(--color-white);
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+        padding: 0 1rem;
+        left: 1.4rem;
+    }
+
+        .no-promocodes .input-title p {
+            font-size: 0.75rem;
+            font-weight: var(--semibold-font);
+            color: var(--color-text-gray);
+        }
+
+    .no-promocodes input {
+        margin-top: 1rem;
+        border: solid 1px var(--color-light-blue);
+        padding: 0.8rem 2.2rem;
+        border-radius: 5rem;
+        width: 100%;
+        outline: none;
+    }
+
+.signup, .card-details {
+    text-align: center;
+}
+
+    .signup .vertical-line, .card-details .vertical-line {
+        border-left: 1px solid black;
+        height: 2.4rem;
+        position: relative;
+        left: 50%;
+        margin-top: 1.7rem;
+        margin-bottom: 1rem;
+    }
+
+    .signup h4, .card-details h4 {
+        font-size: 2rem;
+        font-family: var(--font-mulish);
+        font-weight: var(--bold-font);
+    }
+
+    .signup .field-div, .card-details .field-div {
+        position: relative;
+        margin-top: 1.4rem;
+    }
+
+    .signup .input-title, .card-details .input-title {
+        position: absolute;
+        bottom: 2.3rem;
+        background-color: var(--color-white);
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+        padding: 0 1rem;
+        left: 1.4rem;
+        margin: 0;
+        height: 1.5rem;
+    }
+
+        .signup .input-title p, .card-details .input-title p {
+            font-size: 0.75rem;
+            font-weight: var(--semibold-font);
+            color: var(--color-text-gray);
+        }
+
+    .signup input, .card-details input {
+        border: solid 1px var(--color-light-blue);
+        padding: 0.8rem 2.2rem;
+        border-radius: 5rem;
+        width: 100%;
+        outline: none;
+    }
+
+    .signup .sign-in, .card-details .sign-in {
+        color: var(--color-theme-black);
+        text-decoration: none;
+    }
+
+    .signup .social-media, .card-details .social-media {
+        font-size: 1.25rem;
+        margin-top: 2rem;
+    }
+
+.saved-cards, .edit-card {
+    font-weight: var(--semibold-font);
+}
+
+    .saved-cards .add-card, .edit-card .add-card {
+        font-weight: var(--regular-font);
+        font-size: 0.875rem;
+    }
+
+        .saved-cards .add-card i, .edit-card .add-card i {
+            font-size: 1.2rem;
+            color: var(--color-theme-black);
+        }
+
+    .saved-cards .slider, .edit-card .slider {
+        margin-top: 1.4rem;
+        /* line them up horizontally */
+        display: flex;
+        /* allow for scrolling */
+        overflow-x: auto;
+        /* make it smooth on iOS */
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-points-x: repeat(300px);
+        scroll-snap-type: mandatory;
+    }
+
+        .saved-cards .slider > div, .edit-card .slider > div {
+            flex-shrink: 0;
+            text-align: center;
+            margin-right: 15px;
+        }
+
+    .saved-cards ._card, .edit-card ._card {
+        position: relative;
+    }
+
+        .saved-cards ._card i, .saved-cards ._card .card-number, .saved-cards ._card .card-name, .saved-cards ._card .expire, .edit-card ._card i, .edit-card ._card .card-number, .edit-card ._card .card-name, .edit-card ._card .expire {
+            position: absolute;
+        }
+
+        .saved-cards ._card i, .edit-card ._card i {
+            top: 1rem;
+            left: 1.2rem;
+            color: var(--color-white);
+            font-size: 2.5rem;
+        }
+
+        .saved-cards ._card .card-number, .edit-card ._card .card-number {
+            top: 4.3rem;
+            left: 1.2rem;
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: var(--regular-font);
+            word-spacing: 0.6rem;
+        }
+
+        .saved-cards ._card .card-name, .edit-card ._card .card-name {
+            top: 7.5rem;
+            left: 1.2rem;
+            color: var(--color-white);
+            font-size: 0.625rem;
+            font-weight: var(--semibold-font);
+        }
+
+        .saved-cards ._card .expire, .edit-card ._card .expire {
+            top: 7.5rem;
+            left: 11rem;
+            color: var(--color-white);
+            font-size: 0.5rem;
+        }
+
+.payment-methods {
+    margin-top: 2rem;
+}
+
+    .payment-methods div {
+        border-bottom: 1px solid var(--color-light-blue);
+        margin-top: 1rem;
+    }
+
+        .payment-methods div ._name i {
+            color: var(--color-success);
+        }
+
+    .payment-methods .edit-or-add {
+        color: var(--color-theme-black);
+        font-size: 1.2rem;
+    }
+
+.card-details input {
+    border: none;
+}
+
+.card-details .card-number button {
+    position: relative;
+    top: 0.7rem;
+    font-size: 1.2rem;
+    right: 1.7rem;
+    background-color: transparent;
+    border: none;
+}
+
+.track-order {
+    text-align: center;
+}
+
+    .track-order h4 {
+        font-size: 1.25rem;
+        font-weight: var(--bold-font);
+    }
+
+    .track-order .order-nr {
+        font-weight: var(--regular-font);
+        color: var(--color-text-gray);
+    }
+
+.order-progress {
+    margin-left: 2rem;
+}
+
+    .order-progress ._group {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: left;
+        gap: 1.8rem;
+        position: relative;
+    }
+
+        .order-progress ._group i {
+            font-size: 1.5rem;
+        }
+
+        .order-progress ._group h6 {
+            font-weight: var(--semibold-font);
+        }
+
+        .order-progress ._group p {
+            font-size: 0.813rem;
+            color: var(--color-text-gray);
+            font-weight: var(--regular-font);
+        }
+
+        .order-progress ._group .vertical-line {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.7rem;
+            height: 1.9rem;
+        }

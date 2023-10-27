@@ -1,6 +1,5 @@
-@import url('buttons-chr.css');
-@import url('input-fields-chr.css');
 @import url('site.css');
+@import url('christian-shared.css');
 
 
 .user-profile {
@@ -82,40 +81,29 @@
 
     .user-profile .navigation-field {
         display: flex;
-        justify-content: start;
+        justify-content: space-between;
         align-items: center;
         height: 5rem;
         border-top: 1px solid var(--color-theme);
+        padding: 0 1rem;
     }
-        .user-profile .navigation-field > * {
+
+        .user-profile .navigation-field div {
             display: flex;
+            justify-content: start;
             align-items: center;
-        }
-        .user-profile .navigation-field :first-child {
-            flex: 1;
-            justify-content: center;
-            width: 4rem;
-        }
-        .user-profile .navigation-field .label {
-            flex: 4;
             min-width: fit-content;
         }
-        .user-profile .navigation-field :last-child {
-            flex: 1;
-            justify-content: center;
-            width: 3rem;
+        .user-profile .navigation-field .label {
+            min-width: fit-content;
+            padding-left: 1rem;
         }
-            .user-profile .navigation-field .sign-out {
-                flex: 5;
-                justify-content: start;
-            }
-
 
 
 
 
 .user-profile form {
-    margin: 0 2rem;
+    margin: 0 1rem;
 }
     .user-profile .input-title {
         top: 22px;

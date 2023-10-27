@@ -21,6 +21,7 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
+/*
 var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
 using (var scope = scopeFactory.CreateScope())
 {
@@ -45,6 +46,7 @@ using (var scope = scopeFactory.CreateScope())
         }
     }
 }
+*/
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
