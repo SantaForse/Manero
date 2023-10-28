@@ -2824,7 +2824,7 @@ input[type="range"] {
 
     .bottom-navbar {
         position: absolute;
-        top: 0;
+        top: 10px;
         justify-content: end;
         border: none;
         z-index: 1;
@@ -2839,7 +2839,8 @@ input[type="range"] {
     .top-navbar {
         position: relative;
         justify-content: start;
-        margin-top: 15px;
+        margin-top: 0px;
+        padding-top: 0px;
     }
 
         .top-navbar img {

@@ -1,8 +1,20 @@
-﻿@{
+﻿﻿@using Manero.ViewModels;
+
+@{
+
     ViewData["Title"] = "Home Page";
+
+    var HomePage = new NavbarViewModel()
+            {
+                Burger = false,
+                MiddleData = "Search",
+                ShoppingCart = true
+
+            };
+
 }
 
-<partial name="/Views/Partials/_ReviewsPartial.cshtml" />
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
 
 <partial name="/Views/Partials/_ShowcasePartial.cshtml" />
 
