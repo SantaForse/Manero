@@ -1,0 +1,44 @@
+﻿@{
+    int count = 0;
+    int nr = 0;
+}
+
+
+<section class="reviews">
+
+
+    @while (count < 4)
+    {
+
+        count++;
+
+        <div class="review-card container">
+            <img src="~/static-images/review@(count).jpg" alt="review-person-1">
+            <div class="review-info">
+                <div class="name-date-stars">
+                    <div class="name-date">
+                        <p class="name">Annette Black</p>
+                        <p class="review-date">23 Jan 2022</p>
+                    </div>
+                    <div class="review-stars">
+
+                        @* For now they are static *@
+                        
+                        @for (int i = 0; i < (count - nr); i++)
+                        {
+                            <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
+
+                        }
+                        
+                        @for (int i = 0; i < (5 - count); i++)
+                        {
+                            <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
+                        }
+                    </div>
+                </div>
+                <p class="review-text">Consequat ut ea dolor aliqua laborum tempor Lorem culpa. Commodo veniam sint est mollit proident commodo.</p>
+            </div>
+        </div>
+    }
+
+</section>
