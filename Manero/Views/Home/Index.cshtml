@@ -6,15 +6,22 @@
 
     var HomePage = new NavbarViewModel()
             {
+                Burger = true,
+                MiddleData = "Manero",
+                ShoppingCart = true
+
+            };
+
+    var SearchPage = new NavbarViewModel()
+            {
                 Burger = false,
                 MiddleData = "Search",
                 ShoppingCart = true
 
             };
-
 }
 
-<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="SearchPage" />
 
 <partial name="/Views/Partials/_ShowcasePartial.cshtml" />
 

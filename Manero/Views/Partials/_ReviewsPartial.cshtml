@@ -6,7 +6,7 @@
 
 <section class="reviews">
 
-
+@* For now they just loop out the same cards, will need products in db to loop out  *@
     @while (count < 4)
     {
 
@@ -17,6 +17,8 @@
             <div class="review-info">
                 <div class="name-date-stars">
                     <div class="name-date">
+
+                        @* Here it will instead show the info from database via a model *@
                         <p class="name">Annette Black</p>
                         <p class="review-date">23 Jan 2022</p>
                     </div>
