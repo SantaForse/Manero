@@ -2960,3 +2960,134 @@ Zahras css */
         padding-right: 50px;
     }
 }
+
+/*Zahras contact pop-out part css (changed and cleaned css, chnaged classes, colors, fully clean/Santa) 
+
+*/
+
+.pop-out-burger-contact {
+    background-color: var(--color-theme-black);
+}
+
+    .pop-out-burger-contact .burger-contact-page {
+        margin-left: 40px;
+    }
+
+        .pop-out-burger-contact .burger-contact-page .contact-title {
+            font-weight: var(--bold-font);
+            font-size: 22px;
+            color: var(--color-white);
+            margin-top: 15px;
+            margin-bottom: 55px;
+        }
+
+        .pop-out-burger-contact .burger-contact-page .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            font-size: 14px;
+        }
+
+            .pop-out-burger-contact .burger-contact-page .contact-info .info {
+                display: flex;
+                align-items: center;
+            }
+
+                .pop-out-burger-contact .burger-contact-page .contact-info .info i {
+                    margin-right: 10px;
+                    font-size: 14px;
+                    color: var(--color-white);
+                    border: 1px solid var(--color-text-blue);
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .pop-out-burger-contact .burger-contact-page .contact-info .info p {
+                    margin-right: 10px;
+                    font-size: 14px;
+                    font-weight: var(--regular-font);
+                    font-family: var(--font-mulish);
+                    color: var(--color-text-blue);
+                }
+
+            .pop-out-burger-contact .burger-contact-page .contact-info .form {
+                bottom: 30px;
+                position: absolute;
+            }
+
+                    .pop-out-burger-contact .burger-contact-page .contact-info .form .contact-burger-bottom .track {
+                        color: var(--color-text-blue);
+                        font-size: 14px;
+                        font-family: var(--font-mulish);
+                        font-weight: var(--regular-font);
+                    }
+
+
+    /*do not know what that piece of code was for
+        
+        .pop-out-burger-contact .burger-contact-page .input-contact {
+        position: relative;
+        top: 2.7rem;
+        background-color: var(--color-theme-black);
+        max-width: fit-content;
+        padding: 0 1rem;
+        left: 1.4rem;
+    }*/
+
+                    .pop-out-burger-contact .burger-contact-page .contact-info .form .contact-burger-bottom .input-title {
+                        font-weight: var(--semibold-font);
+                        color: var(--color-text-blue);
+                        background-color: var(--color-theme-black);
+                        font-size: 12px;
+                        font-family: var(--font-mulish);
+                    }
+
+                    .pop-out-burger-contact .burger-contact-page .contact-info .form .contact-burger-bottom input {
+                        margin-top: 1rem;
+                        border: solid 1px var(--color-text-blue);
+                        padding: 0.8rem 2.2rem;
+                        border-radius: 5rem;
+                        width: 50%;
+                        outline: none;
+                        background-color: var(--color-theme-black);
+                    }
+
+                        .pop-out-burger-contact .burger-contact-page .contact-info .form .contact-burger-bottom input[type=text] {
+                            width: 224px;
+                            font-size: 16px;
+                            font-weight: var(--regular-font);
+                            font-family: var(--font-mulish);
+                            color: var(--color-white);
+                        }
+
+                        .pop-out-burger-contact .burger-contact-page .contact-info .form .contact-burger-bottom input placeholder {
+                            font-size: 16px;
+                            font-weight: var(--regular-font);
+                            font-family: var(--font-mulish);
+                            color: var(--color-white);
+                        }
+
+                    .pop-out-burger-contact .burger-contact-page .contact-info .form .contact-burger-bottom button {
+                        background-color: var(--color-text-blue);
+                        border: 1px solid var(--color-text-blue);
+                        border-radius: 50%;
+                        width: 40px;
+                        height: 37px;
+                        font-size: 24px;
+                        position: absolute;
+                        right: 4px;
+                        bottom: 5px;
+                        cursor: pointer;
+                        outline: none;
+                        transition: all 200ms ease-in-out;
+                    }
+
+                        .pop-out-burger-contact .burger-contact-page .contact-info .form .contact-burger-bottom button:hover {
+                            border: 1px solid var(--color-theme);
+                            color: var(--color-theme);
+                        }
