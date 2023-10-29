@@ -2846,10 +2846,10 @@ Zahras css */
         padding-right: 50px;
     }
         .bottom-navbar a {
-            font-size: 27px;
-            width: 30px;
-            height: 30px;
-            border-radius: 15px;
+            font-size: 25px;
+            width: 45px;
+            height: 45px;
+            border-radius: 25px;
         }
     .top-navbar .orange-ball {
         display: none;
