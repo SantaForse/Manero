@@ -15,14 +15,22 @@
 
     var SearchPage = new NavbarViewModel()
             {
-                Burger = false,
+                Burger = true,
                 MiddleData = "Search",
+                ShoppingCart = true
+
+            };
+
+    var TitlePage = new NavbarViewModel()
+            {
+                Burger = false,
+                MiddleData = "Best sellers",
                 ShoppingCart = true
 
             };
 }
 
-<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="SearchPage" />
 
 <partial name="/Views/Partials/_ShowcasePartial.cshtml" />
 
