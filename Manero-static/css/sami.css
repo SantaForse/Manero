@@ -2,6 +2,12 @@
     display: grid;
     grid: 40px /auto auto auto auto auto; 
     grid-gap: 30px;
+
+} 
+
+.container .icon-path a {
+  text-decoration: none;
+  color: black;
 } 
 
 .container .icon-path i:hover {
