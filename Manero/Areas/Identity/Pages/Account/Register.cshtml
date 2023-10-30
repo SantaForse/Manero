@@ -10,28 +10,32 @@
     Title = "Sign up",
     BackButtonLink = string.IsNullOrEmpty(Request.Headers["Referer"].ToString()) ? "/#" : Request.Headers["Referer"].ToString()
     })
-<div class="d-flex flex-column justify-content-center align-items-center">
+<div class="d-flex flex-column justify-content-center align-items-center" style="padding: 0 2rem;" >
     <h1 style="margin-top: 5rem;" class="big-title">Sign Up</h1>
     <form class="mt-4 w-100" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
         <div class="input-holder mb-3">
-            <input asp-for="Input.Name" autocomplete="name" aria-required="true" />
+            <input asp-for="Input.Name" id="name-input" autocomplete="name" aria-required="true" />
             <label asp-for="Input.Name">Name</label>
+            <i id="name-input-icon" class="fa-regular fa-check" style="display: none"></i>
             <span asp-validation-for="Input.Name" class="text-danger"></span>
         </div>
         <div class="input-holder mb-3">
-            <input asp-for="Input.Email" autocomplete="username" aria-required="true"  />
+            <input id="email-input" asp-for="Input.Email" autocomplete="username" aria-required="true"  />
             <label asp-for="Input.Email">Email</label>
+            <i id="email-input-icon" class="fa-regular fa-check" style="display: none"></i>
             <span asp-validation-for="Input.Email" class="text-danger"></span>
         </div>
         <div class="input-holder mb-3">
-            <input asp-for="Input.Password" autocomplete="new-password" aria-required="true"  />
+            <input asp-for="Input.Password" id="login-pw" autocomplete="new-password" aria-required="true"  />
             <label asp-for="Input.Password">Password</label>
+            <i id="password-toggle-icon" onclick="togglePasswordVisibility()" class="fa-regular fa-eye-slash"></i>
             <span asp-validation-for="Input.Password" class="text-danger"></span>
         </div>
         <div class="input-holder mb-3">
-            <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true"  />
+            <input asp-for="Input.ConfirmPassword" id="login-pw2" autocomplete="new-password" aria-required="true"  />
             <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+            <i id="password-toggle-icon" onclick="togglePasswordVisibility2()" class="fa-regular fa-eye-slash"></i>
             <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
         </div>
         <button id="registerSubmit" type="submit" class="my-btn">Register</button>
@@ -70,4 +74,78 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('login-pw');
+            var eyeIcon = document.getElementById('password-toggle-icon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
+    <script>
+        function togglePasswordVisibility2() {
+            var passwordInput = document.getElementById('login-pw2');
+            var eyeIcon = document.getElementById('password-toggle-icon2');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
+    <script>
+        const emailInput = document.getElementById('email-input');
+        const checkIcon = document.getElementById('email-input-icon');
+
+        emailInput.addEventListener('input', function () {
+            const email = emailInput.value;
+            const isValid = validateEmail(email);
+
+            if (isValid) {
+                checkIcon.style.display = 'inline-block';
+            } else {
+                checkIcon.style.display = 'none';
+            }
+        });
+
+        function validateEmail(email) {
+            // Use a regular expression for email validation
+            const emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+
+    <script>
+        const nameInput = document.getElementById('name-input');
+        const checkIconName = document.getElementById('name-input-icon');
+
+        nameInput.addEventListener('input', function () {
+            const name = nameInput.value;
+            const isValid = validateName(name);
+
+            if (isValid) {
+                checkIconName.style.display = 'inline-block';
+            } else {
+                checkIconName.style.display = 'none';
+            }
+        });
+
+        function validateName(name) {
+            const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+$/;
+            return nameRegex.test(name);
+        }
+    </script>
 }

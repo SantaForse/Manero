@@ -10,7 +10,7 @@
     Title = "Verify your phone number",
     BackButtonLink = string.IsNullOrEmpty(Request.Headers["Referer"].ToString()) ? "/DefaultFallbackURL" : Request.Headers["Referer"].ToString()
     })
-<div class="d-grid" style="margin-top: 5rem">
+<div class="d-grid" style="width: 90%; padding: 0 2rem; margin: auto; margin-top: 5rem">
     <section class="mt-3">
         <p>Enter your OTP code here.</p>
         <form id="account" method="post">
@@ -24,13 +24,12 @@
             </div>
             <span asp-validation-for="Input.OTPCode" class="text-danger"></span>
             <p></p>
-            <input type="text" asp-for="Input.OTPCode" id="fullOtpCode" name="fullOtpCode" />
+            <input type="text" asp-for="Input.OTPCode" id="fullOtpCode" name="fullOtpCode" style="display: none;"/>
             <p>Didn't recieve the OPT? <a href="#">Resend.</a></p>
             <button type="submit" class="w-100 my-btn">VERIFY</button>
         </form>
     </section>
 </div>
-/// THE INPUT VALIDTION DOES NOT WORK YET
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script>
@@ -42,7 +41,7 @@
                 otpCode += input.value;
             });
 
-            document.getElementById('fullOtpCode').value = otpCode;
+            document.getElementById('fullOtpCode').value = otpCode
         });
 
         document.querySelectorAll('.otp-digit').forEach((input, index, array) => {
