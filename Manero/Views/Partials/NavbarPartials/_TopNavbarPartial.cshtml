@@ -8,17 +8,17 @@
     @* Lets you swap beteen burger or arrow *@
     @if (Model.Burger == false)
     {
-        @* Should take you back to the parent page *@
-        <a href="" class="less-symbol" style="color: #111111;"><i class="fa-solid fa-angle-left"></i></a>
+        @* Takes you back to the previous page *@
+        <a href="javascript:void(0);" class="less-symbol" style="color: #111111;" onclick="window.history.back();"><i class="fa-solid fa-angle-left"></i></a>
     } else
     {
         <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="less-symbol" style="color: #111111;"><i class="fa-regular fa-bars-staggered"></i></button>
 
-        @* Zahras sidebar code with other css *@
+        @* Zahras sidebar code with other css and html *@
         <div class="pop-out-burger-contact offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample">
             <div class="burger-contact-page">
                 <div class="container">
-                    @* <div class="contact-us"> *@
+                    @* <div class="contact-us"> This div seems to be unnecessary *@
                         <div class="contact-title">Contact us</div>
                         <div class="contact-info">
                             <div class="info">
@@ -82,10 +82,12 @@
         @if (Model.ShoppingCart == true)
         {
             <div class="orange-ball"><p>$0</p></div>
-            <a href="" class="big-screen-symbols"><i class="fa-light fa-house-chimney"></i></a>
-            <a href="" class="big-screen-symbols"><i class="fa-light fa-magnifying-glass"></i></a>
-            <a href="" class="big-screen-symbols"><i class="fa-light fa-heart"></i></a>
-            <a href="" class="big-screen-symbols"><i class="fa-light fa-circle-user"></i></a>
+
+            @* The first four might not be needed *@
+            <a href="#" class="big-screen-symbols"><i class="fa-light fa-house-chimney"></i></a>
+            <a href="#" class="big-screen-symbols"><i class="fa-light fa-magnifying-glass"></i></a>
+            <a href="#" class="big-screen-symbols"><i class="fa-light fa-heart"></i></a>
+            <a href="#" class="big-screen-symbols"><i class="fa-light fa-circle-user"></i></a>
             <a asp-controller="Profile" asp-action="Cart" class="shopping-bag-symbol" style="color: #626262;"><i class="fa-light fa-bag-shopping"></i></a>
         }
 
