@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Product">
+    <meta name="viewport" content="width=device=width, initial-scale=1.0">
+    <title>Product</title>
+    <script src="https://kit.fontawesome.com/41c8b474e2.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="/css/product18.css" rel="stylesheet">
+</head>
+<boDy>
+
+    <section class="top-navbar container">
+        <a href="" class="less-symbol" style="color: #111111;" ><i class="fa-solid fa-angle-left"></i></a>
+        
+        <h3>Filter</h3>
+        <div class="shopping-bag-with-ball">
+            <div class="orange-ball"><p>$0</p></div>
+            <a href="" class="big-screen-symbols"><i class="fa-light fa-house-chimney"></i></a>
+            <a href="" class="big-screen-symbols"><i class="fa-light fa-magnifying-glass"></i></a>
+            <a href="" class="big-screen-symbols"><i class="fa-light fa-heart"></i></a>
+            <a href="" class="big-screen-symbols"><i class="fa-light fa-circle-user"></i></a>
+            <a href="" class="shopping-bag-symbol" style="color: #626262;"><i class="fa-light fa-bag-shopping"></i></a>
+        </div>
+    </section> 
+
+    <section class="filter-section container">
+        <div class="product-size">
+            <h3>Size</h3>
+            <div class="sizes">
+                <button>XS</button>
+                <button>S</button>
+                <button>M</button>
+                <button>L</button>
+                <button>XL</button>
+                <button>XXL</button>
+            </div>
+        </div>
+        <div class="product-color">
+            <h3>Color</h3>
+            <div class="product-colors">
+                <button class="red"></button>
+                <button class="ligt-blue"></button>
+                <button class="beige"></button>
+                <button class="dark-blue"></button>
+                <button class="black"></button>
+            </div>
+        </div>
+        <p class="filter-price">Price</p>
+        <div class="range_container">
+            <div class="sliders_control">
+               <input id="fromSlider" type="range" value="10" min="0" max="500"/>
+               <input id="toSlider" type="range" value="30" min="0" max="500"/>
+            </div>
+            <div class="form_control">
+              <div class="form_control_container">
+                  <div class="form_control_container__time">$</div>
+                  <input class="form_control_container__time__input" type="number" id="fromInput" value="10" min="0" max="500"/>
+                </div>
+                <div class="form_control_container">
+                  <div class="form_control_container__time">$</div>
+                  <input class="form_control_container__time__input" type="number" id="toInput" value="30" min="0" max="500"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="tick-button-categories">
+            <label class="form-control">
+                <input type="checkbox" name="checkbox1" />
+                <p class="green-checkbox">SALE</p>
+            </label>
+
+            <label class="form-control">
+                <input type="checkbox" name="checkbox2" />
+                <p class="yellow-checkbox">NEW</p>
+            </label>
+
+            <label class="form-control">
+                <input type="checkbox" name="checkbox3" />
+                <p class="purple-checkbox">TOP</p>
+            </label>
+        </div>
+
+        <div class="tag-section">
+            <p>Tags</p>
+            <button class="tag-button">KIDS</button>
+            <button class="tag-button">SPORT</button>
+            <button class="tag-button">DRESS</button>
+            <button class="tag-button">PANTS</button>
+            <button class="tag-button">T-SHIRT</button>
+            <button class="tag-button">HAT</button>
+            <button class="tag-button">UNISEX</button>
+            <button class="tag-button">BAG</button>
+            <button class="tag-button">ACCESSORIES</button>
+            <button class="tag-button">SHOES</button>
+            <button class="tag-button">POLO</button>
+        </div>
+
+        <div class="review-button container">
+            <button class="black-button">APPLY FILTERS</button>
+        </div>
+     
+
+    </section>
+
+</boDy>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script defer src="/js/script.js"></script>
+</html>

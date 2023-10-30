@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="compilerconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="BuildWebCompiler" Version="1.12.405" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.12" />
@@ -32,12 +28,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="compilerconfig.json" />
     <_ContentIncludedByDefault Remove="Views\Shared\_AccountHeader.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="compilerconfig.json" />
     <None Include="wwwroot\static-images\pattern.svg" />
     <None Include="wwwroot\static-images\placeholder_promocode.svg" />
     <None Include="wwwroot\static-images\promocode_img.svg" />

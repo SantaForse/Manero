@@ -1,0 +1,57 @@
+
+  .circle-container {
+    position: relative;
+   
+  }
+  
+  .white-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  
+  .text {
+    font-family: "Mulish", sans-serif;
+    font-weight: bold;
+    color: black;
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+  }
+  
+  .pagination {
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1.5px solid black;
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .circle-line {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    z-index: 1;
+  }
