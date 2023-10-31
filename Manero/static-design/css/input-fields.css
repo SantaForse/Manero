@@ -1,0 +1,26 @@
+/* cred Anton */
+
+input {
+    border: solid 1px var(--color-light-blue);
+    padding: 0.8rem 1.9rem;
+    border-radius: 5rem;
+    width: 100%;
+    outline: 1px solid var(--color-theme);
+}
+
+.input-title {
+    position: relative;
+    top: 2.7rem;
+    background-color: var(--color-white);
+    max-width: fit-content;
+    padding: 0 1rem;
+    left: 1.4rem;
+}
+
+.input-title p {
+    font-size: 0.75rem;
+    font-weight: var(--semibold-font);
+    color: var(--color-text-gray);
+}
+
+

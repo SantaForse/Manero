@@ -46,7 +46,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="compilerconfig.json" />
     <_ContentIncludedByDefault Remove="Views\Shared\_AccountHeader.cshtml" />
   </ItemGroup>
 

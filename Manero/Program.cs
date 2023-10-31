@@ -57,7 +57,6 @@ using (var scope = scopeFactory.CreateScope())
     }
 }
 
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -79,7 +78,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+	pattern: "{controller=Welcome}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();
