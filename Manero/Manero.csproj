@@ -62,6 +62,7 @@
     <None Include="wwwroot\js\site.js" />
     <None Include="wwwroot\static-images\paymentcard.png" />
     <None Include="wwwroot\static-images\placeholder_promocode.svg" />
+    <None Include="wwwroot\static-images\stock-images\balenciaga-shoe.webp" />
   </ItemGroup>
 
 </Project>
