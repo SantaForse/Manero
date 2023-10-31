@@ -1,0 +1,11 @@
+﻿@* For now these two are static, I might make them into a viewmodel when I have the time *@
+
+@model Manero.ViewModels.BannerViewModel
+
+
+<section class="banner_section_@Model.FlexSide">
+    <div class="container">
+        <h1>@Model.Title</h1>
+        <a asp-controller="@Model.ButtonLink" asp-action="Index" class="white_button">@Model.ButtonText</a>
+    </div>
+</section>
