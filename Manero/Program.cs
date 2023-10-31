@@ -5,10 +5,15 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("DefaultManeroConnectionSql") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+=======
 // Determine the appropriate connection string based on the environment
 string? connectionString = builder.Environment.IsDevelopment()
     ? builder.Configuration.GetConnectionString("DevelopmentConnection")
     : builder.Configuration.GetConnectionString("DefaultConnection");
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
