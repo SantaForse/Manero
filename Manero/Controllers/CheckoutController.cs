@@ -14,6 +14,16 @@ namespace Manero.Controllers
         public IActionResult Index(CheckoutViewModel viewModel)
         {
             //return order sucessful view if sucessful, otherwise return order failed view.
+            return RedirectToAction("OrderFailed");
+        }
+
+        public IActionResult OrderFailed()
+        {
+            return View();
+        }
+
+        public IActionResult OrderSuccessful()
+        {
             return View();
         }
     }

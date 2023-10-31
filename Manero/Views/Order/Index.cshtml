@@ -1,10 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Cart";
+    ViewData["Title"] = "Order";
 }
 
 <section class="shoppingcart-product">
     <div class="title">Order</div>
     <hr>
+
+    <partial name="/Views/Partials/CartAndCheckoutPartials/_CartProductPartial.cshtml" />
 
     <partial name="/Views/Partials/CartAndCheckoutPartials/_CartProductPartial.cshtml" />
 
@@ -33,7 +35,9 @@
                 <div>Total</div>
                 <div>$41.69</div>
             </div>
-
         </div>
+        <button type="submit" class="black_button">PROCEED TO CHECKOUT</button>
+
+
     </div>
 </section>

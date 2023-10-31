@@ -16,7 +16,7 @@
 
     <div class="checkout_details">
         <!-- Should loop out all objects. But static for now. -->
-        <button class="order_details container" type="button" data-toggle="collapse" data-target="#my_order">
+        <button class="order_details container" type="button" data-bs-toggle="collapse" data-bs-target="#my_order">
             <div class="order_title container">
                 <h1>My order</h1>
                 <h1>£40,9</h1>
@@ -45,7 +45,7 @@
         </button>
 
         <div class="shipping_details container">
-            <button class="shipping_title container" type="button" data-toggle="collapse" data-target="#my_shipping">
+            <button class="shipping_title container" type="button" data-bs-toggle="collapse" data-bs-target="#my_shipping">
                 <div class="shipping_text">
                     <h1>Shipping details</h1>
                     <h1>Genericstreet nr 23, Faketown, Långtbortistan... </h1>
@@ -80,7 +80,7 @@
         </div>
 
         <div class="payment_method container">
-            <button class="payment_title container" type="button" data-toggle="collapse" data-target="#my_payment">
+            <button class="payment_title container" type="button" data-bs-toggle="collapse" data-bs-target="#my_payment">
                 <div class="payment_text">
                     <h1>Payment method</h1>
                     <h1>7741 ******** 6644</h1>
@@ -125,7 +125,7 @@
         </div>
     </div>
 
-    <form id="order_form" class="container mt-5" action="#" novalidate>
+    <form id="order_form" class="container mt-5" action="#" method="post" novalidate>
         <div class="order_comment">
             <label class="input-title" for="checkout_comment">COMMENT</label>
             <textarea class="input" id="checkout_comment" name="checkout_comment" type="textarea" placeholder="Enter your comment"></textarea>
