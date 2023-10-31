@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Order";
+}
+
+<section class="shoppingcart-product">
+    <div class="title">Order</div>
+    <hr>
+
+    <partial name="/Views/Partials/CartAndCheckoutPartials/_CartProductPartial.cshtml" />
+
+    <partial name="/Views/Partials/CartAndCheckoutPartials/_CartProductPartial.cshtml" />
+
+    <hr>
+    <div class="promocode-applied">
+        <div class="promocode">
+            <div>promocode-applied</div>
+            <div><i class="fa-regular fa-check"></i></div>
+        </div>
+
+        <div class="subtotalanddis">
+            <div class="subtotal">
+                <div>Subtotal</div>
+                <div>$45.98</div>
+            </div>
+            <div class="discount">
+                <div>Discount</div>
+                <div>-4.29</div>
+            </div>
+            <div class="delivery">
+                <div>Delivery</div>
+                <div><i>Free</i></div>
+            </div>
+            <hr>
+            <div class="total">
+                <div>Total</div>
+                <div>$41.69</div>
+            </div>
+        </div>
+        <button type="submit" onclick="window.location.href = '@Url.Action("index", "Checkout")'" class="black_button">PROCEED TO CHECKOUT</button>
+
+
+    </div>
+</section>

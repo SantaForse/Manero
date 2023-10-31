@@ -1,0 +1,168 @@
+body {
+  
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+    .onboardPage{
+  
+      .container {
+        position: relative;
+        top: 241px
+      
+      }
+        
+      .big-circle {
+          width: 418px;
+          height: 418px;
+          border-radius: 50%;
+          background-color: white;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          // top: 49%;
+          
+      
+       
+        
+        .vertical-line {
+          width: 1px; 
+          background-color: black;
+          position: absolute;
+          top: 10%; 
+          left: 50%; 
+          height: 30px; 
+          border-radius: 50px; 
+        }
+        
+        
+        .onboarding-title {
+          font-family: "Mulish", sans-serif;
+          font-weight: bold;
+          color: black;
+          position: absolute;
+          top: 30%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 32px;
+          text-align: center; 
+        
+        }
+        
+        p {
+          text-align: center; 
+          font-size: 16px; 
+          position: absolute;
+        
+        }
+      
+        button {
+          background-color: black;
+          color: white;
+          border: none;
+          padding: 0.95rem;
+          width: 55%;
+          border-radius: 5rem;
+          font-size: 0.875rem;
+          font-weight: semibold;
+          position: absolute;
+          bottom: 105px; 
+          left: 50%; 
+          transform: translateX(-50%); 
+        }
+        
+        
+        .onboarding-pagination {
+          display: flex;
+          justify-content: center;
+        }
+        
+           .dot {
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            border-radius: 50%;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s;
+            position: relative;
+            margin: 0 5px;  
+            top: 130px;
+      
+          }
+          
+          .onboarding-pagination:nth-child(1) {
+            margin-right:10px;
+          }
+          
+           .onboarding-pagination:nth-child(2) {
+          }
+          
+         .onboarding-pagination:nth-child(3) {
+            margin-left:10px;
+          }
+      
+          .dot.active {
+            width: 25px;
+            background-color: transparent;
+            border: 2px solid black;
+            height: 10px;
+            border-radius: 50px;
+          } 
+      
+          .black-line {
+              width: 115px;
+              background-color: black;
+              border: 1.5px solid black;
+              height: 2px;
+              border-radius: 50px;
+              position: absolute;
+              top: 93%;
+              left: 50%;
+              transform: translateX(-50%) scale(1.2);
+            } 
+          }
+          .bigcircle-line {
+            width: 466px; 
+            height: 466px;
+            border-radius: 50%;
+            border: 5px solid white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+              
+            }
+          }
+      
+        }
+  
+        @media (min-width: 576px) {
+          .container{  
+   
+             
+           }
+      }
+
+        @media(max-width:768px){
+          .container{  
+             
+            
+          }
+    }
+
+     @media (min-width: 1200px) {
+            .container{  
+         
+          }
+
+  }

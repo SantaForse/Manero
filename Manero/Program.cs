@@ -2,14 +2,24 @@ using manero.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("DefaultManeroConnectionSql") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+=======
+// Determine the appropriate connection string based on the environment
+string? connectionString = builder.Environment.IsDevelopment()
+    ? builder.Configuration.GetConnectionString("DevelopmentConnection")
+    : builder.Configuration.GetConnectionString("DefaultConnection");
+
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-	options.UseSqlServer(connectionString));
+{
+    options.UseSqlServer(connectionString);
+});
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
