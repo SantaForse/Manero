@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Partials\**" />
+    <Compile Remove="wwwroot\static-design\**" />
+    <Content Remove="Views\Partials\**" />
+    <Content Remove="wwwroot\static-design\**" />
+    <EmbeddedResource Remove="Views\Partials\**" />
+    <EmbeddedResource Remove="wwwroot\static-design\**" />
+    <None Remove="Views\Partials\**" />
+    <None Remove="wwwroot\static-design\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="compilerconfig.json" />
   </ItemGroup>
 
