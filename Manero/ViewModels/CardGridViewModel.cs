@@ -1,4 +1,6 @@
-﻿namespace Manero.ViewModels;
+﻿using Manero.Models;
+
+namespace Manero.ViewModels;
 
 public class CardGridViewModel
 {
@@ -9,5 +11,7 @@ public class CardGridViewModel
     public string ButtonLink { get; set; } = null!;
     
     public int CardNr { get; set; }
+
+    public List<ProductEntity> Products { get; set; } = null!;
 
 }

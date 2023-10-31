@@ -1,5 +1,6 @@
 ﻿@using Manero.ViewModels;
 
+
 @{
     ViewData["Title"] = "Manero - Home";
 
@@ -21,36 +22,45 @@
         };
 
 
-//For the grids with cards
+//Card grids
+    var fancySetting = new CardGridViewModel()
+            {
+                Title = "Fancy wear!",
+                ButtonLink = "Shopping",
+                ButtonText = "all looks",
+                CardNr = 7 
+            };
+
     var bestSellers = new CardGridViewModel()
             {
                 Title = "Best Sellers",
                 ButtonLink = "Shopping",
                 ButtonText = "Shop now",
                 CardNr = 6
-        };
+            };
+
     var featuredProducts = new CardGridViewModel()
-        {
-            Title = "Featured products",
-            ButtonLink = "Shopping",
-            ButtonText = "view all",
-            CardNr = 9
-        };
-    var fancySetting = new CardGridViewModel()
-        {
-            Title = "Fancy wear!",
-            ButtonLink = "Shopping",
-            ButtonText = "all looks",
-            CardNr = 7
-        };
+            {
+                Title = "Featured products",
+                ButtonLink = "Shopping",
+                ButtonText = "view all",
+                CardNr = 9,
+                Products = Model
+            };
+
     var newProducts = new CardGridViewModel()
-        {
-            Title = "New designs",
-            ButtonLink = "Shopping",
-            ButtonText = "get them first",
-            CardNr = 5
-        };
+            {
+                Title = "New designs",
+                ButtonLink = "Shopping",
+                ButtonText = "get them first",
+                CardNr = 5
+            };
+
+
 }
+
+
+
 
 <partial name="/Views/Partials/_ShowcasePartial.cshtml" />
 
