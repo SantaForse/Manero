@@ -1,3 +1,41 @@
-﻿
-<partial name="/Views/Partials/UserAddressPartials/_UserAddressAddPartial.cshtml" />
+﻿<head>
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+</head>
 
+<section class="add-address">
+
+
+    <div class="container">
+        <div class="navigation-header">
+            <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
+            <h4>Add address</h4>
+            <div></div>
+        </div>
+    </div>
+    <div class="body-frame">
+        <div class="address-container">
+            <div class="center-content">
+                <div class="top-page"></div>
+
+                <div class="container">
+                    <form>
+                        <div class="input-title">
+                            <p>TITLE</p>
+                        </div>
+                        <input type="text" placeholder="Mom">
+                        <div class="input-address"><p>ENTER A NEW ADDRESS</p></div>
+                        <input type="text" placeholder="3646 S 58th Ave, Cicero, IL 60804, U...">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Use current location.
+                        </label>
+                        <button type="submit">SAVE ADDRESS</button>
+                    </form>
+                </div>
+
+                <div class="black-line"></div>
+            </div>
+        </div>
+    </div>
+</section>
