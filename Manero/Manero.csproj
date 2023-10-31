@@ -8,18 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Partials\**" />
+    <Compile Remove="Views\UserAddress\**" />
     <Compile Remove="wwwroot\static-design\**" />
-    <Content Remove="Views\Partials\**" />
+    <Content Remove="Views\UserAddress\**" />
     <Content Remove="wwwroot\static-design\**" />
-    <EmbeddedResource Remove="Views\Partials\**" />
+    <EmbeddedResource Remove="Views\UserAddress\**" />
     <EmbeddedResource Remove="wwwroot\static-design\**" />
-    <None Remove="Views\Partials\**" />
+    <None Remove="Views\UserAddress\**" />
     <None Remove="wwwroot\static-design\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
+    <Content Remove="wwwroot\css\zahra-edited.css" />
+    <Content Remove="wwwroot\css\zahra.css.map" />
+    <Content Remove="wwwroot\js\site.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +52,17 @@
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="wwwroot\css\anton.css" />
+    <None Include="wwwroot\css\christian-shared.css" />
+    <None Include="wwwroot\css\christian-order-history.css" />
+    <None Include="wwwroot\css\sami.css" />
+    <None Include="wwwroot\css\christian-user-profile.css" />
+    <None Include="wwwroot\css\site.css" />
+    <None Include="wwwroot\css\zahra-edited.css" />
+    <None Include="wwwroot\css\zahra-edited.css.map" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\static-images\paymentcard.png" />
+    <None Include="wwwroot\static-images\placeholder_promocode.svg" />
   </ItemGroup>
 
 </Project>

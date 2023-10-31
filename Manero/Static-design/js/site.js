@@ -86,8 +86,3 @@ toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
 fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
 toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
 
-// order-history-18 //
-function toggleVisibility() {
-  var element = document.getElementById("order-details");
-  element.classList.toggle("d-none");
-}

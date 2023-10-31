@@ -1,0 +1,692 @@
+/* added /christian */
+.add-address ..body-frame-frame {
+    background-color: #FFFFFF;
+}
+.sign-out ..body-frame-frame {
+    background-color: #000000;
+}
+
+
+
+@charset "UTF-8";
+/* Jag importerar inte SF Pro Text, då det verkar vara en Apple font.  */
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&display=swap");
+
+:root {
+    /* Colours */
+    --color-theme: #DBE3F5;
+    --color-theme-black: #111111;
+    --color-white: #FFFFFF;
+    --color-text-gray: #626262;
+    --color-text-red: #F4303C;
+    --color-text-blue: #B3B9C7;
+    --color-text-yellow: #EF962D;
+    --color-stars: #FFBE00;
+    --color-new: #CFA93F;
+    --color-sale: #69864D;
+    --color-top: #864D7D;
+    --color-success: #00824B;
+    --color-fail: #F4303C; /* This is the same colour as text red */
+    --color-light-blue: #DBE3F5;
+    /* Font-details */
+    --font-mulish: "Mulish", sans-serif;
+    --light-font: 300;
+    --regular-font: 400;
+    --semibold-font: 600;
+    --bold-font: 700;
+}
+
+/* Det under kan troligtvis tas bort */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.body {
+    margin-bottom: 60px;
+}
+
+.big-title {
+    font-family: var(--font-mulish);
+    font-size: 32px;
+    font-weight: var(--bold-font);
+    color: var(--color-theme-black);
+}
+
+.mid-title {
+    font-family: var(--font-mulish);
+    font-size: 22px;
+    font-weight: var(--bold-font);
+    color: var(--color-theme-black);
+}
+
+p {
+    font-family: var(--font-mulish);
+    font-size: 16px;
+    color: var(--color-text-gray);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-theme-black);
+}
+
+/**************************************************/
+.bg-color1 {
+    background-color: #DBE3F5;
+}
+
+.bg-color2 {
+    background-color: #FFFFFF;
+}
+
+.bg-color3 {
+    background-color: #000000;
+}
+
+/**************************************************/
+.circle-container {
+    position: relative;
+}
+
+.white-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.text {
+    font-family: "Mulish", sans-serif;
+    font-weight: bold;
+    color: black;
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+}
+
+.pagination {
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1.5px solid black;
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.circle-line {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.body-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+    .body-frame .onboardPage .container {
+        position: relative;
+        top: 241px;
+    }
+
+    .body-frame .onboardPage .big-circle {
+        width: 418px;
+        height: 418px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .body-frame .onboardPage .big-circle .vertical-line {
+            width: 1px;
+            background-color: black;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            height: 30px;
+            border-radius: 50px;
+        }
+
+        .body-frame .onboardPage .big-circle .onboarding-title {
+            font-family: "Mulish", sans-serif;
+            font-weight: bold;
+            color: black;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .body-frame .onboardPage .big-circle p {
+            text-align: center;
+            font-size: 16px;
+            position: absolute;
+        }
+
+        .body-frame .onboardPage .big-circle button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 0.95rem;
+            width: 55%;
+            border-radius: 5rem;
+            font-size: 0.875rem;
+            font-weight: semibold;
+            position: absolute;
+            bottom: 105px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .body-frame .onboardPage .big-circle .onboarding-pagination {
+            display: flex;
+            justify-content: center;
+        }
+
+        .body-frame .onboardPage .big-circle .dot {
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            border-radius: 50%;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s;
+            position: relative;
+            margin: 0 5px;
+            top: 130px;
+        }
+
+        .body-frame .onboardPage .big-circle .onboarding-pagination:nth-child(1) {
+            margin-right: 10px;
+        }
+
+        .body-frame .onboardPage .big-circle .onboarding-pagination:nth-child(3) {
+            margin-left: 10px;
+        }
+
+        .body-frame .onboardPage .big-circle .dot.active {
+            width: 25px;
+            background-color: transparent;
+            border: 2px solid black;
+            height: 10px;
+            border-radius: 50px;
+        }
+
+        .body-frame .onboardPage .big-circle .black-line {
+            width: 115px;
+            background-color: black;
+            border: 1.5px solid black;
+            height: 2px;
+            border-radius: 50px;
+            position: absolute;
+            top: 93%;
+            left: 50%;
+            transform: translateX(-50%) scale(1.2);
+        }
+
+    .body-frame .onboardPage .bigcircle-line {
+        width: 466px;
+        height: 466px;
+        border-radius: 50%;
+        border: 5px solid white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+    }
+
+.body-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+    .body-frame .signoutPage .container {
+        position: relative;
+        top: -35px;
+    }
+
+        .body-frame .signoutPage .container .signout-circle {
+            width: 290px;
+            height: 290px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* z-index: 2; */
+        }
+
+        .body-frame .signoutPage .container .Stext {
+            font-family: "Mulish", sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+            color: black;
+            /* z-index: 3; */
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 215px;
+            text-align: center;
+            transform: translate(-50%, -50%);
+        }
+
+        .body-frame .signoutPage .container .button-container {
+            text-align: center;
+        }
+
+            .body-frame .signoutPage .container .button-container button {
+                background-color: black;
+                color: white;
+                border: none;
+                padding: 0.95rem;
+                width: 140px;
+                border-radius: 5rem;
+                font-size: 0.875rem;
+                font-weight: semiBold;
+                margin-top: 150px;
+                display: block;
+            }
+
+                .body-frame .signoutPage .container .button-container button.btn-cancel {
+                    background-color: white;
+                    color: black;
+                    border: none;
+                    padding: 0.95rem;
+                    width: 100%;
+                    border-radius: 5rem;
+                    font-size: 0.875rem;
+                    font-weight: semiBold;
+                    margin-top: 10px;
+                    display: block;
+                }
+
+        .body-frame .signoutPage .container .signout-line {
+            width: 332px;
+            height: 332px;
+            border-radius: 50%;
+            border: 5px solid white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+        }
+
+.leave-review {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+    .leave-review .center-content {
+        text-align: center;
+    }
+
+        .leave-review .center-content .review-title {
+            font-size: 18px;
+            font-weight: semiBold;
+            font-family: "Mulish", sans-serif;
+            color: black;
+        }
+
+        .leave-review .center-content .review-image {
+            margin-top: 41px;
+        }
+
+        .leave-review .center-content .vertical-line {
+            width: 1px;
+            background-color: black;
+            position: absolute;
+            top: 33%;
+            left: 50%;
+            height: 30px;
+            border-radius: 50px;
+        }
+
+        .leave-review .center-content .review-paragraph {
+            font-size: 22px;
+            font-weight: bold;
+            color: black;
+            font-family: "Mulish", sans-serif;
+            margin-top: 68px;
+        }
+
+        .leave-review .center-content .star-rating i {
+            font-size: 35px;
+            color: #DBE3F5;
+        }
+
+        .leave-review .center-content .second-text {
+            font-size: 16px;
+            color: #626262;
+            font-family: "Mulish", sans-serif;
+            margin-top: 20px;
+        }
+
+        .leave-review .center-content label[for=comments] {
+            position: relative;
+            top: 1.8rem;
+            background-color: white;
+            max-width: -moz-fit-content;
+            max-width: fit-content;
+            padding: 0 1rem;
+            left: -8rem;
+            font-size: 12px;
+            font-family: "Mulish", sans-serif;
+        }
+
+        .leave-review .center-content input#comments {
+            margin-top: 1rem;
+            border: solid 1px #DBE3F5;
+            padding: 3rem 2.2rem;
+            border-radius: 1rem;
+            width: 100%;
+            outline: none;
+        }
+
+            .leave-review .center-content input#comments::-moz-placeholder {
+                position: absolute;
+                top: 20px;
+                font-size: 14px;
+                font-family: "Mulish", sans-serif;
+                color: #A0ADCC;
+            }
+
+            .leave-review .center-content input#comments::placeholder {
+                position: absolute;
+                top: 20px;
+                font-size: 14px;
+                font-family: "Mulish", sans-serif;
+                color: #A0ADCC;
+            }
+
+        .leave-review .center-content button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 0.95rem;
+            width: 100%;
+            border-radius: 5rem;
+            font-size: 0.875rem;
+            font-weight: semiBold;
+            margin-top: 53px;
+        }
+
+        .leave-review .center-content .black-line {
+            width: 115px;
+            background-color: black;
+            border: 1.5px solid black;
+            height: 2px;
+            border-radius: 50px;
+            position: absolute;
+            top: 92%;
+            left: 50%;
+            transform: translateX(-50%) scale(1.2);
+        }
+
+.body-frame .address-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+    .body-frame .address-container .center-content {
+        text-align: center;
+    }
+
+    .body-frame .address-container .atext {
+        font-size: 18px;
+        font-weight: semibold;
+        margin-bottom: 20px;
+    }
+
+    .body-frame .address-container .top-page {
+        background-color: #DBE3F5;
+        width: 100vw;
+        height: 390px;
+    }
+
+    .body-frame .address-container .input-title,
+    .body-frame .address-container .input-address {
+        position: relative;
+        top: 2.7rem;
+        background-color: white;
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+        padding: 0 1rem;
+        left: 1.4rem;
+    }
+
+        .body-frame .address-container .input-title p,
+        .body-frame .address-container .input-address p {
+            font-size: 12px;
+            font-weight: 600;
+            color: #626262;
+        }
+
+    .body-frame .address-container input {
+        margin-top: 1rem;
+        border: solid 1.5px #DBE3F5;
+        padding: 0.8rem 2.2rem;
+        border-radius: 5rem;
+        width: 100%;
+        outline: none;
+    }
+
+    .body-frame .address-container .custom-checkboxx {
+        display: flex;
+        align-items: center;
+        margin-top: 22px;
+        justify-content: left;
+        margin-left: 40px;
+        color: #626262;
+    }
+
+        .body-frame .address-container .custom-checkboxx input[type=checkbox] {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            margin-top: 0px;
+        }
+
+    .body-frame .address-container button {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 0.95rem;
+        width: 100%;
+        border-radius: 5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-top: 18px;
+    }
+
+    .body-frame .address-container .blackk-line {
+        width: 115px;
+        background-color: black;
+        border: 1.5px solid black;
+        height: 2px;
+        border-radius: 50px;
+        position: absolute;
+        bottom: 11px;
+        left: 50%;
+        transform: translateX(-50%) scale(1.2);
+    }
+
+@media (max-width: 768px) {
+    .body-frame .address-container input, .body-frame .address-container button, .body-frame .address-container .custom-checkbox {
+        width: 330px;
+    }
+}
+
+/* commented out @christian
+.body-frame {
+    background-color: black;
+}
+*/
+
+    .body-frame .contactPage {
+        margin-left: 40px;
+    }
+
+        .body-frame .contactPage .container {
+            color: white;
+        }
+
+        .body-frame .contactPage .contact-us {
+            margin-top: 84px;
+        }
+
+        .body-frame .contactPage .contact-title {
+            font-weight: bold;
+            font-size: 22px;
+            /* text-align: start; */
+            margin-bottom: 55px;
+        }
+
+        .body-frame .contactPage .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            font-size: 14px;
+        }
+
+        .body-frame .contactPage .info {
+            display: flex;
+            align-items: center;
+        }
+
+            .body-frame .contactPage .info i {
+                margin-right: 10px;
+            }
+
+        .body-frame .contactPage .separator {
+            margin-top: 3px;
+            border: 0;
+            border-top: 1px solid white;
+            width: 100vw;
+        }
+
+        .body-frame .contactPage .track {
+            margin-top: 260px;
+            color: white;
+            font-size: 14px;
+            font-family: "Mulish", sans-serif;
+        }
+
+        .body-frame .contactPage .p-relative {
+            position: relative;
+        }
+
+        .body-frame .contactPage .input-contact {
+            position: relative;
+            top: 2.7rem;
+            background-color: black;
+            max-width: -moz-fit-content;
+            max-width: fit-content;
+            padding: 0 1rem;
+            left: 1.4rem;
+        }
+
+        .body-frame .contactPage p {
+            font-size: 0.75rem;
+            font-weight: semibold;
+            color: white;
+            font-size: 14px;
+            font-family: "Mulish", sans-serif;
+        }
+
+        .body-frame .contactPage input {
+            margin-top: 1rem;
+            border: solid 1px gray;
+            padding: 0.8rem 2.2rem;
+            border-radius: 5rem;
+            width: 50%;
+            outline: none;
+            background-color: black;
+        }
+
+        .body-frame .contactPage .input-contact input[type=text] {
+            width: 224px;
+        }
+
+        .body-frame .contactPage button {
+            background-color: grey;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 37px;
+            font-size: 24px;
+            position: absolute;
+            right: 4px;
+            bottom: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+
+@media (max-width: 768px) {
+    input, .custom-checkbox {
+        width: 330px;
+    }
+}
+/*# sourceMappingURL=styles.css.map */

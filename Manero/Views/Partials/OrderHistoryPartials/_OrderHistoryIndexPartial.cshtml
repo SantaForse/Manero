@@ -1,0 +1,60 @@
+﻿<head>
+    <link rel="stylesheet" href="~/css/christian-order-history.css" asp-append-version="true" />
+</head>
+
+<section class="order-history">
+    <div class="container">
+
+
+        <div class="d-flex justify-content-between align-items-center px-3 my-4">
+            <a asp-controller="userprofile" asp-action="userprofileindex"><i class="fa-solid fa-chevron-left"></i></a>
+            <h4>Order History</h4>
+            <div></div>
+        </div>
+
+        <div class="frame">
+            <div class="order-container">
+                <div class="order-summary" onclick="toggleVisibility()">
+
+                    <div class="order-summary-top">
+                        <div class="order-number">#100345</div>
+                        <div class="order-status status-delivered">
+                            Delivered
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="order-summary-bottom">
+                        <div class="order-date">Feb 02, 2022 at 8:32 PM</div>
+                        <div class="order-total">$354.32</div>
+                    </div>
+
+                </div>
+
+                <div class="order-details d-none" id="order-details">
+                    <div class="order-item">
+                        <div class="product-item-name" id="">Kids Red Hoodie, S, pink</div>
+                        <div>
+                            <span class="product-item-quantity" id="">1 x</span>
+                            <span class="product-item-price" id="">$34.95</span>
+                        </div>
+                    </div>
+                    <div class="order-links">
+                        <a class="" asp-controller="" asp-action="">
+                            <i class="fa-solid fa-repeat pe-1"></i>repeat order</a>
+                        <a class="" asp-controller="" asp-action="">
+                            leave a review<i class="fa-solid fa-chevron-right ps-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleVisibility() {
+        var element = document.getElementById("order-details");
+        element.classList.toggle("d-none");
+    }
+</script>
