@@ -57,10 +57,34 @@
             };
 
 
+
+    var HomePage = new NavbarViewModel()
+            {
+                Burger = true,
+                MiddleData = "Manero",
+                ShoppingCart = true
+
+            };
+
+
+    var SearchPage = new NavbarViewModel()
+            {
+                Burger = true,
+                MiddleData = "Search",
+                ShoppingCart = true
+
+            };
+
+    var TitlePage = new NavbarViewModel()
+            {
+                Burger = false,
+                MiddleData = "Best sellers",
+                ShoppingCart = true
+
+            };
 }
 
-
-
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="TitlePage" />
 
 <partial name="/Views/Partials/_ShowcasePartial.cshtml" />
 

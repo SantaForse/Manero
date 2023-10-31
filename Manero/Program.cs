@@ -5,15 +5,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultManeroConnectionSql") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-=======
 // Determine the appropriate connection string based on the environment
 string? connectionString = builder.Environment.IsDevelopment()
     ? builder.Configuration.GetConnectionString("DevelopmentConnection")
     : builder.Configuration.GetConnectionString("DefaultConnection");
-
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -30,7 +25,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
-
 
 var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
 using (var scope = scopeFactory.CreateScope())
@@ -78,7 +72,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Welcome}/{action=Index}/{id?}");
+	pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();
