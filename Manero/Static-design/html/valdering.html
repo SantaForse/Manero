@@ -1,0 +1,43 @@
+För .NET:
+
+  - Validera namnet när användaren skriver i registreringsformuläret:
+
+    [Display(Name = "Name*")]
+    [Required(ErrorMessage = "Please enter a valid name.")]
+    [RegularExpression(@"^[a-öA-Ö]+(?:[ é'-][a-öA-Ö]+)*$", ErrorMessage = "You need to enter a valid Name.")]
+    public string Name { get; set; } = null!;
+
+
+*************************************************************************************************************************
+
+För .NET:
+
+Validera lösenordet när användaren skriver i registreringsformuläret:
+
+   [Display(Name = "Password*")]
+   [DataType(DataType.Password)]
+   [Required(ErrorMessage = "Please enter a valid password (at least 6 characters, including uppercase, lowercase, and a number).")]
+   [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{6,}$", ErrorMessage = "You need to enter a valid Password.")]
+   public string Password { get; set; } = null!;
+
+
+   [Display(Name = "Confirm Password*")]
+   [DataType(DataType.Password)]
+   [Required(ErrorMessage = "Please confirm the Password.")]
+   [Compare(nameof(Password), ErrorMessage = "The Passwords don't match.")]
+   public string ConfirmPassword { get; set; } = null!;
+
+**************************************************************************************************************************
+
+
+För .NET:
+
+Validera epostaddressen när användaren skriver i inloggningsformuläret
+
+   [Display(Name = "E-mail*")]
+       [DataType(DataType.EmailAddress)]
+     [Required(ErrorMessage = "Please enter your E-mail.")]
+       public string Email { get; set; } = null!;
+
+
+********************************************************************************************************************************
