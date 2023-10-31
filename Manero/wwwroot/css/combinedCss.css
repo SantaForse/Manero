@@ -2970,6 +2970,8 @@ input[type="range"] {
 /*
 ***************************Zahra***********************/
 
+/* Welcome page */
+
 .bg-color1 {
     background-color: #DBE3F5;
 }
@@ -2983,8 +2985,11 @@ input[type="range"] {
 }
 
 .circle-container {
-    position: relative;
-    top: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
     .circle-container .container .white-circle {
@@ -3040,6 +3045,8 @@ input[type="range"] {
         z-index: 1;
     }
 
+/* Onboarding page */
+
 .onboardPage {
     display: flex;
     justify-content: center;
@@ -3050,7 +3057,7 @@ input[type="range"] {
 
     .onboardPage .container {
         position: relative;
-        top: 240px;
+        top: 241px;
     }
 
         .onboardPage .container .big-circle {
@@ -3172,6 +3179,8 @@ input[type="range"] {
             z-index: 1;
         }
 
+/* SignOut page */
+
 .signoutPage {
     display: flex;
     justify-content: center;
@@ -3256,9 +3265,15 @@ input[type="range"] {
             box-sizing: border-box;
         }
 
+/* Contact page */
+
 .contactPage {
     margin-left: 40px;
+    height: 100vh;
+    margin: 0;
+    display: flex;
 }
+
 
     .contactPage .container {
         color: white;
@@ -3414,7 +3429,7 @@ input[type="range"] {
             margin-top: 20px;
         }
 
-        .leave-review .center-content label[for=comments] {
+        .leave-review .center-content label[for=Comments] {
             position: relative;
             top: 1.8rem;
             background-color: white;
@@ -3475,31 +3490,33 @@ input[type="range"] {
             transform: translateX(-50%) scale(1.2);
         }
 
-body .address-container {
+/* Add adress */
+
+.address-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-    body .address-container .center-content {
+    .address-container .center-content {
         text-align: center;
     }
 
-    body .address-container .atext {
+    .address-container .atext {
         font-size: 18px;
         font-weight: semibold;
         margin-bottom: 20px;
     }
 
-    body .address-container .top-page {
+    .address-container .top-page {
         background-color: #DBE3F5;
         width: 100vw;
         height: 390px;
     }
 
-    body .address-container .input-title,
-    body .address-container .input-address {
+    .address-container .input-title,
+    .address-container .input-address {
         position: relative;
         top: 2.7rem;
         background-color: white;
@@ -3509,14 +3526,14 @@ body .address-container {
         left: 1.4rem;
     }
 
-        body .address-container .input-title p,
-        body .address-container .input-address p {
+        .address-container .input-title p,
+        .address-container .input-address p {
             font-size: 12px;
             font-weight: 600;
             color: #626262;
         }
 
-    body .address-container input {
+    .address-container input {
         margin-top: 1rem;
         border: solid 1.5px #DBE3F5;
         padding: 0.8rem 2.2rem;
@@ -3525,7 +3542,7 @@ body .address-container {
         outline: none;
     }
 
-    body .address-container .custom-checkboxx {
+    .address-container .custom-checkboxx {
         display: flex;
         align-items: center;
         margin-top: 22px;
@@ -3534,14 +3551,14 @@ body .address-container {
         color: #626262;
     }
 
-        body .address-container .custom-checkboxx input[type=checkbox] {
+        .address-container .custom-checkboxx input[type=checkbox] {
             width: 18px;
             height: 18px;
             margin-right: 10px;
             margin-top: 0px;
         }
 
-    body .address-container button {
+    .address-container button {
         background-color: black;
         color: white;
         border: none;
@@ -3553,7 +3570,7 @@ body .address-container {
         margin-top: 18px;
     }
 
-    body .address-container .blackk-line {
+    .address-container .blackk-line {
         width: 115px;
         background-color: black;
         border: 1.5px solid black;
@@ -3566,7 +3583,7 @@ body .address-container {
     }
 
 @media (max-width: 768px) {
-    body .address-container input, body .address-container button, body .address-container .custom-checkbox {
+    .address-container input, .address-container button, .address-container .custom-checkbox {
         width: 330px;
     }
 }

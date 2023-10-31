@@ -1,16 +1,16 @@
-body {
+
+.onboardPage {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
 
-    .onboardPage {
+    .container {
+        position: relative;
+        top: 242px;
 
-        .container {
-            position: relative;
-            top: 241px
-        }
+
 
         .big-circle {
             width: 418px;
@@ -77,40 +77,41 @@ body {
             .onboarding-pagination {
                 display: flex;
                 justify-content: center;
-            }
 
-            .dot {
-                width: 10px;
-                height: 10px;
-                background-color: black;
-                border-radius: 50%;
-                text-decoration: none;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transition: transform 0.2s;
-                position: relative;
-                margin: 0 5px;
-                top: 130px;
-            }
 
-            .onboarding-pagination:nth-child(1) {
-                margin-right: 10px;
-            }
+                .dot {
+                    width: 10px;
+                    height: 10px;
+                    background-color: black;
+                    border-radius: 50%;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: transform 0.2s;
+                    position: relative;
+                    margin: 0 5px;
+                    top: 130px;
+                }
 
-            .onboarding-pagination:nth-child(2) {
-            }
+                .onboarding-pagination:nth-child(1) {
+                    margin-right: 10px;
+                }
 
-            .onboarding-pagination:nth-child(3) {
-                margin-left: 10px;
-            }
+                .onboarding-pagination:nth-child(2) {
+                }
 
-            .dot.active {
-                width: 25px;
-                background-color: transparent;
-                border: 2px solid black;
-                height: 10px;
-                border-radius: 50px;
+                .onboarding-pagination:nth-child(3) {
+                    margin-left: 10px;
+                }
+
+                .dot.active {
+                    width: 25px;
+                    background-color: transparent;
+                    border: 2px solid black;
+                    height: 10px;
+                    border-radius: 50px;
+                }
             }
 
             .black-line {
@@ -136,27 +137,22 @@ body {
             left: 50%;
             transform: translate(-50%, -50%);
             box-sizing: border-box;
+            z-index: 1;
         }
     }
 }
-  
-        @media (min-width: 576px) {
-          .container{  
-   
-             
-           }
-      }
 
-        @media(max-width:768px){
-          .container{  
-             
-            
-          }
+@media (min-width: 576px) {
+    .container {
     }
+}
 
-     @media (min-width: 1200px) {
-            .container{  
-         
-          }
+@media(max-width:768px) {
+    .container {
+    }
+}
 
-  }
+@media (min-width: 1200px) {
+    .container {
+    }
+}
