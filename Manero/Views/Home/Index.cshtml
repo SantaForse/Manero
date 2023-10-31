@@ -28,7 +28,8 @@
                 Title = "Fancy wear!",
                 ButtonLink = "Shopping",
                 ButtonText = "all looks",
-                CardNr = 7 
+                CardNr = 7,
+                Products = Model
             };
 
     var bestSellers = new CardGridViewModel()
@@ -36,7 +37,8 @@
                 Title = "Best Sellers",
                 ButtonLink = "Shopping",
                 ButtonText = "Shop now",
-                CardNr = 6
+                CardNr = 6,
+                Products = Model
             };
 
     var featuredProducts = new CardGridViewModel()
@@ -53,7 +55,8 @@
                 Title = "New designs",
                 ButtonLink = "Shopping",
                 ButtonText = "get them first",
-                CardNr = 5
+                CardNr = 5,
+                Products = Model
             };
 
 
@@ -86,8 +89,6 @@
 
 <partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
 
-<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="TitlePage" />
-
 <partial name="/Views/Partials/_ShowcasePartial.cshtml" />
 
 <partial name="/Views/Partials/Card-Partials/_BestSellersPartial.cshtml" model="@bestSellers" />
@@ -104,6 +105,6 @@
 
 <partial name="/Views/Partials/Card-Partials/_BestSellersPartialV2.cshtml" model="@newProducts" />
 
-
+<partial name="/Views/Partials/NavbarPartials/_BottomNavbarPartial.cshtml" />
 
 
