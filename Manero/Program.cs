@@ -26,30 +26,30 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
-var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
-using (var scope = scopeFactory.CreateScope())
-{
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+//var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+//using (var scope = scopeFactory.CreateScope())
+//{
+//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
-    // Initialize roles
-    if (!await roleManager.RoleExistsAsync("Admin"))
-    {
-        await roleManager.CreateAsync(new IdentityRole("Admin"));
-    }
+//    // Initialize roles
+//    if (!await roleManager.RoleExistsAsync("Admin"))
+//    {
+//        await roleManager.CreateAsync(new IdentityRole("Admin"));
+//    }
 
-    // Initialize first admin user
-    if (!userManager.Users.Any())
-    {
-        var adminUser = new IdentityUser { UserName = "admin@example.com", Email = "admin@example.com" };
-        var result = await userManager.CreateAsync(adminUser, "Admin@123");
+//    // Initialize first admin user
+//    if (!userManager.Users.Any())
+//    {
+//        var adminUser = new IdentityUser { UserName = "admin@example.com", Email = "admin@example.com" };
+//        var result = await userManager.CreateAsync(adminUser, "Admin@123");
 
-        if (result.Succeeded)
-        {
-            await userManager.AddToRoleAsync(adminUser, "Admin");
-        }
-    }
-}
+//        if (result.Succeeded)
+//        {
+//            await userManager.AddToRoleAsync(adminUser, "Admin");
+//        }
+//    }
+//}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
