@@ -1,0 +1,84 @@
+﻿@* For now these two are static, I might make them into a viewmodel when I have the time *@
+
+@model Manero.ViewModels.CardGridViewModel
+
+
+<section class="featured_products_section_v2 mb-5 ">
+    <div class="container">
+        <div class="best_sellers_title">
+            <h1>@Model.Title</h1>
+            <a asp-controller="@Model.ButtonLink" asp-action="Index">@Model.ButtonText <span>&#62;</span></a>
+        </div>
+        <!-- Grid with autofill function -->
+        <div class="big_card_grid">
+
+
+            @foreach (var product in Model.Products)
+            {
+
+                <!-- start of card -->
+                <div class="product_card">
+                    <div class="card_top">
+                        <!-- can be changed, between classes:
+                                "card_tag_new, card_tag_sale and card_tag_top".
+                            see the options below -->
+                        @if (product.ProductTag == "new")
+                        {
+                            <div class="card_tag_new">NEW</div>
+                        }
+                        else if (product.ProductTag == "sale")
+                        {
+                            <div class="card_tag_sale">SALE</div>
+                        }
+                        else if (product.ProductTag == "top")
+                        {
+                            <div class="card_tag_top">TOP</div>
+                        }
+                        else
+                        {
+                            <div class="card_tag"></div>
+                        }
+
+
+                        <img src="/static-images/stock-images/white-shoe.jpg" alt="product">
+                        <div class="card_options">
+                            <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
+                            <a asp-controller="Shoppingcart" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
+                        </div>
+                    </div>
+                    <div class="card_bottom">
+                        <div class="card_rating">
+                            <div class="card_stars">
+
+                                @for (int i = 0; i < product.ProductRating; i++)
+                                {
+                                    <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
+                                }
+
+                                @for (int i = 0; i < (5 - product.ProductRating); i++)
+                                {
+                                    <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
+
+                                }
+
+                            </div>
+                            <p>(3)</p>
+                        </div>
+
+                        @* Should later go to individual shopping cards site... *@
+                        <a asp-controller="Products" asp-action="@(product.ProductName)" class="card_title">@product.ProductName </a>
+                        <div class="card_price">
+                            <p>@product.ProductPrice</p>
+                            <p>£12.9</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of card -->
+            }
+
+
+
+
+        </div>
+    </div>
+</section>

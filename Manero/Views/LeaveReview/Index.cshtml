@@ -1,0 +1,27 @@
+﻿@model Manero.ViewModels.CommentViewModel
+
+
+    <section class="leave-review bg-color2">
+        <div class="container">
+        <div class="center-content">
+        <div class="review-title ">Leave a review</div>
+        <img class="review-image" src="~/static-images/reviewImg.png" alt="Review Image">
+        <div class="v-line"></div>
+        <p class="review-paragraph">Please rate the quality of <br> service for the order!</p>
+        <div class="star-rating">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+        <p class="second-text">Your comments and suggestions help us <br> improve the service quality better!</p>
+            <form method="post">
+            <label asp-for="Comments">COMMENT</label>
+                <input id="comments" asp-for="NewCommentText" type="text" placeholder="Enter your comment" />
+                <button  type="submit">SUBMIT</button>
+            </form>
+        <div class="end-line"></div>
+    </div>
+    </div>
+ </section>

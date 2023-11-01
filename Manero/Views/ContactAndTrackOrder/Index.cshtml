@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "_LayoutWithoutNavbar";
+
+}
+@model Manero.ViewModels.TrackViewModel
+
+    <div class="bg-color3">
+        <div class="contactPage">
+            <div class="container">
+                <div class="contact-us">
+                    <div class="contact-title">Contact us</div>
+                    <div class="contact-info">
+                        <div class="info">
+                            <i class="fa-regular fa-location-dot"></i>
+                            <p>27 Division St, New York,<br> NY 10002, USA</p>
+                        </div>
+                        <hr class="separator">
+                        <div class="info">
+                            <i class="fa-regular fa-envelope"></i>
+                            <p>manerosale@mail.com<br>manerosupport@mail.com</p>
+                        </div>
+                        <hr class="separator">
+                        <div class="info">
+                            <i class="fa-regular fa-phone"></i>
+                            <p>+17  123456789<br>+17  987654321</p>
+                        </div>
+                        <hr class="separator">
+
+                        <form class="form">
+                            <div class="p-relative">
+
+                                <div class="track">Track your order</div>
+                                <div class="input-contact"><p>ORDER NUMBER</p></div>
+                                <input type="text" placeholder="100345" style="width: 224px;">
+
+                                <button type="submit" class="button">
+                                    <i class="fa-solid fa-arrow-right-long"></i>
+                                </button>
+
+                            </div>
+                        </form>
+
+               @*      <form method="post">
+                        <div class="p-relative">
+                            <div class="track">Track your order</div>
+                            <div class="input-contact">
+                                <p>ORDER NUMBER</p>
+                            </div>
+                            <input asp-for="OrderNumber" class="form-control" style="width: 224px" placeholder="100345">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </button>
+                        </div>
+                    </form> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

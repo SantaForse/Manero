@@ -1,0 +1,95 @@
+﻿
+@model Manero.ViewModels.NavbarViewModel
+
+
+
+<section class="top-navbar container">
+
+    @* Lets you swap beteen burger or arrow *@
+    @if (Model.Burger == false)
+    {
+        @* Takes you back to the previous page *@
+        <a href="javascript:void(0);" class="less-symbol" style="color: #111111;" onclick="window.history.back();"><i class="fa-solid fa-angle-left"></i></a>
+    } else
+    {
+        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="less-symbol" style="color: #111111;"><i class="fa-regular fa-bars-staggered"></i></button>
+
+        @* Zahras sidebar code with other css and html *@
+        <div class="pop-out-burger-contact offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample">
+            <div class="burger-contact-page">
+                <div class="container">
+                    @* <div class="contact-us"> This div seems to be unnecessary *@
+                        <div class="contact-title">Contact us</div>
+                        <div class="contact-info">
+                            <div class="info">
+                                <i class="fa-regular fa-location-dot"></i>
+                                <p>27 Division St, New York,<br> NY 10002, USA</p>
+                            </div>
+                            
+                            <div style="width:100%; border: white solid 1px; border-style: solid none none none; padding-top: 15px;" class="info">
+                                <i class="fa-regular fa-envelope"></i>
+                                <p>manerosale@mail.com<br>manerosupport@mail.com</p>
+                            </div>
+
+                            <div style=" width:100%; border: white solid 1px; border-style: solid none solid none; padding-top: 15px;" class="info">
+                                <i class="fa-regular fa-phone"></i>
+                                <p>+17  123456789<br>+17  987654321</p>
+                            </div>
+
+                            <form class="form">
+                                <div class="contact-burger-bottom">
+                                    <h3 class="track">Track your order</h3>
+                                    <p class="input-title">ORDER NUMBER</p>
+                                    <input  type="text" placeholder="100345" style="width: 224px;">
+
+                                    <button type="submit" class="button">
+                                        <i class="fa-solid fa-arrow-right-long"></i>
+                                    </button>
+
+                                </div>
+                            </form>
+
+
+                        </div>
+                    @* </div> *@
+                </div>
+            </div>
+        </div>
+    }
+
+
+    @* Lets you choose what the middle display should be on each page *@
+    @if (Model.MiddleData == "Manero")
+    {
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/static-images/logo.png" alt="logo"></a>
+    
+    }else if (Model.MiddleData == "Search")
+    {
+        <div class="search-input second-navbar">
+            <div class="search-button"><i class="fa-light fa-magnifying-glass"></i></div>
+            <input type="text" class="input" placeholder="Search">
+        </div>
+    } else
+    {
+    @* Maybe this one should automatically show the page title or something? *@
+        <h3>@Model.MiddleData</h3>
+    }
+
+
+    <div class="shopping-bag-with-ball">
+        
+    @* Lets you decide over displaying cart or not *@
+        @if (Model.ShoppingCart == true)
+        {
+            <div class="orange-ball"><p>$0</p></div>
+
+            @* The first four might not be needed *@
+            <a href="#" class="big-screen-symbols"><i class="fa-light fa-house-chimney"></i></a>
+            <a href="#" class="big-screen-symbols"><i class="fa-light fa-magnifying-glass"></i></a>
+            <a href="#" class="big-screen-symbols"><i class="fa-light fa-heart"></i></a>
+            <a href="#" class="big-screen-symbols"><i class="fa-light fa-circle-user"></i></a>
+            <a asp-controller="Profile" asp-action="Cart" class="shopping-bag-symbol" style="color: #626262;"><i class="fa-light fa-bag-shopping"></i></a>
+        }
+
+    </div>
+</section> 

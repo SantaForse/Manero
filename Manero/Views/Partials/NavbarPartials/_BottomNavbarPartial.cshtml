@@ -1,0 +1,25 @@
+﻿
+
+
+
+<section class="bottom-navbar">
+    <a asp-controller="Home" asp-action="Index"><i class="fa-light fa-house-chimney"></i></a>
+
+    @* Should go to search by category *@
+    <a asp-controller="Home" asp-action="Index"><i class="fa-light fa-magnifying-glass"></i></a>
+
+    @* Should go to shopping cart *@
+    <a asp-controller="Profile" asp-action="Cart"><i class="fa-light fa-bag-shopping"></i></a>
+
+    @* Should go to wishlist *@
+    <a asp-controller="Home" asp-action="Index"><i class="fa-light fa-heart"></i></a>
+
+    @* Should go to user-profile *@
+    <a asp-controller="Home" asp-action="Index"><i class="fa-light fa-circle-user"></i></a>
+</section>
+
+<footer class=" footer text-muted" >
+    <div class="container" style="display:flex; justify-content:flex-end; align-items: flex-end;">
+        &copy; 2023 - manero - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>

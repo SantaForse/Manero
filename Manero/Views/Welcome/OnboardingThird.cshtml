@@ -1,0 +1,31 @@
+﻿@* @{
+    Layout = null;
+}
+ *@
+
+@{
+    Layout = "_LayoutWithoutNavbar";
+
+}
+
+    <div class="onboardPage bg-color1">
+        <div class="container">
+            <div class="big-circle">
+                <div class="vertical-line"></div>
+                <div class="onboarding-title">Door To Door</div>
+                <p>Labore sunt culpa excepteur culpa ipsum.<br>Labore occaecat ex nisi mollit.</p>
+                <button onclick="window.location.href = '@Url.Action("index", "home")'">
+                    GET STARTED
+                </button>
+                <div class="onboarding-pagination">
+                    <a class="dot" asp-controller="welcome" asp-action="onboardingFirst"></a>
+                    <a class="dot" asp-controller="welcome" asp-action="onboardingSecond"></a>
+                    <a class="dot active" asp-controller="welcome" asp-action="onboardingThird"></a>
+                </div>
+                <div class="black-line"></div>
+            </div>
+            <div class="bigcircle-line"></div>
+        </div>
+    </div>
+
+
