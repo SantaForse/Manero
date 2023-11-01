@@ -10,7 +10,7 @@
     Title = "Verify your phone number",
     BackButtonLink = string.IsNullOrEmpty(Request.Headers["Referer"].ToString()) ? "/DefaultFallbackURL" : Request.Headers["Referer"].ToString()
     })
-<div class="d-grid" style="margin-top: 5rem">
+<div class="d-grid" style="width: 90%; padding: 0 2rem; margin: auto; margin-top: 5rem">
     @if (!string.IsNullOrEmpty(Model.SmsSentMessage))
     {
         <p>@Model.SmsSentMessage</p>
