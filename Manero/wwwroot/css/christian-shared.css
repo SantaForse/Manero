@@ -33,3 +33,10 @@ input {
         font-weight: var(--semibold-font);
         color: var(--color-text-gray);
     }
+
+.navigation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}

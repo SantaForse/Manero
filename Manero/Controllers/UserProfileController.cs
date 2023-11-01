@@ -5,10 +5,47 @@ namespace Manero.Controllers
     public class UserProfileController : Controller
     {
 
-        public IActionResult UserProfileIndex()
+        public IActionResult Index()
         {
             return View();
         }
+
+
+
+        public IActionResult UserAddress()
+        {
+            return View();
+        }        
+        
+
+
+        public IActionResult UserAddressAdd()
+        {
+            return View();
+        }
+
+
+
+        public IActionResult UserOrderHistory()
+        {
+            return View();
+        }
+
+
+
+        public IActionResult UserPaymentMethods()
+        {
+            return View();
+        }
+
+
+
+        public IActionResult UserPaymentMethodAdd()
+        {
+            return View();
+        }
+
+
 
         public IActionResult UserProfileEdit()
         {
@@ -17,22 +54,7 @@ namespace Manero.Controllers
 
 
 
-
-
-        public IActionResult UserAddressIndex()
-        {
-            return View();
-        }
-        public IActionResult UserAddressAdd()
-        {
-            return View();
-        }
-
-
-
-
-
-        public IActionResult UserPromoCodesIndex()
+        public IActionResult UserPromoCodes()
         {
             return View();
         }

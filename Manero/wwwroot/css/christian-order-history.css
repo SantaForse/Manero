@@ -1,5 +1,3 @@
-@import url('site.css');
-@import url('christian-shared.css');
 
  .status-delivered {
     color: #00824B;
@@ -36,7 +34,7 @@
     flex-direction: column;
     justify-content: center;
     /*border-top: 3px solid var(--color-theme);*/
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
 .order-history .order-summary:hover {
