@@ -30,8 +30,11 @@ a {
     color: var(--color-text-gray);
 }
 
+/*Detta är standard settings */
+/*
+******************************************************************************************************
 
-
+*******************************************************************************************************/
 input {
     border: solid 1px var(--color-light-blue);
     padding: 0.8rem 1.9rem;
@@ -124,7 +127,11 @@ input {
     }
 
 
-/* Search input */
+/* Santa top navbar */
+/*
+******************************************************************************************************
+
+*******************************************************************************************************/
 .search-input {
     display: flex;
     flex-direction: row;
@@ -277,6 +284,9 @@ input {
     .product-img .product-img-border {
         border: 1px solid var(--color-theme);
     }
+   
+/*
+Product details*/
 
 .product-details {
     display: flex;
@@ -438,7 +448,7 @@ input {
     }
 
 
-
+/*Reviews santa*/
 .reviews .review-heading {
     margin-top: 45px;
     margin-bottom: 25px;
@@ -520,6 +530,8 @@ input {
             color: var(--color-text-gray);
         }
 
+
+
 #write-a-comment {
     text-align: center;
 }
@@ -570,8 +582,8 @@ input {
         font-size: 18px;
         font-weight: var(--semibold-font);
     }
-
-
+/*
+filter section*/
 .filter-section .product-color {
     margin-top: 20px;
 }
@@ -745,6 +757,16 @@ input[type="range"] {
         .filter-section .tag-section .tag-button:hover {
             background-color: var(--color-theme);
         }
+
+
+
+/*
+Jespers css*/
+
+/*
+******************************************************************************************************
+
+*******************************************************************************************************/
 
 .big-screen-product .showcase-text {
     display: none;
@@ -1133,7 +1155,8 @@ input[type="range"] {
 
 
 
-/* Checkout, on one page */
+/* Jespers checkout section */
+
 .checkout_section .checkout_border {
     border: 2px solid hsl(222, 57%, 85%);
     border-style: none none solid none;
@@ -1248,8 +1271,9 @@ input[type="range"] {
                 }
 
 
-/* Design about shipping */
+/* Jespers design about shipping */
 /* and design about payment method */
+
 .shipping_details {
     width: 100%;
 }
@@ -1473,6 +1497,13 @@ input[type="range"] {
     }
 
 
+/*
+Samis css*/
+
+/*
+******************************************************************************************************
+
+*******************************************************************************************************/
 .container .icon-path {
     display: grid;
     grid: 40px /auto auto auto auto auto;
@@ -1559,9 +1590,7 @@ input[type="range"] {
 }
 
 
-/* ***********************************************************************
-*********************************************************************** */
-
+/* Sami wish list*/
 
 .wish-list .title {
     margin: 10px 0px;
@@ -1612,8 +1641,6 @@ input[type="range"] {
 
 
 
-
-
 .wish-list .product-info .product-icons .product-icons-box {
     display: grid;
     grid-template-columns: auto;
@@ -1638,10 +1665,7 @@ input[type="range"] {
 
 
 
-/* ***********************************************************************
-*********************************************************************** */
-
-
+/* också sami */
 
 .myaddress-section .container .section-title {
     text-align: center;
@@ -1686,8 +1710,7 @@ input[type="range"] {
 }
 
 
-/* ***********************************************************************
-*********************************************************************** */
+/* samis css */
 
 .shoppingcart-product .title {
     margin: 10px 0px;
@@ -1736,8 +1759,6 @@ input[type="range"] {
         }
 
 
-
-
 .promocode-applied .promocode {
     display: flex;
     margin: 20px;
@@ -1781,8 +1802,14 @@ input[type="range"] {
         justify-content: space-between;
     }
 
-/* User profile */
 
+
+
+/* Christians css */
+/*
+******************************************************************************************************
+
+*******************************************************************************************************/
 .user-profile {
     font-family: var(--font-mulish);
 }
@@ -1913,8 +1940,14 @@ input[type="range"] {
         margin-top: 2.3rem;
     }
 
+
+/* Antons css */
 /* Payment Method osv */
 
+/*
+******************************************************************************************************
+
+*******************************************************************************************************/
 .promocodes-header, .payment-header, .edit-card-header {
     font-size: 1.125rem;
     font-weight: var(--semibold-font);
@@ -2233,9 +2266,6 @@ input[type="range"] {
 
 /* Order Confirmation */
 
-
-
-
 .order-confirmation {
     font-family: var(--font-mulish);
 }
@@ -2442,9 +2472,6 @@ input[type="range"] {
             display: flex;
             justify-content: space-between;
         }
-
-/*
-Zahras css */
 
 
 /* Different medias */
@@ -3065,17 +3092,6 @@ Zahras css */
                     }
 
 
-    /*do not know what that piece of code was for
-        
-        .pop-out-burger-contact .burger-contact-page .input-contact {
-        position: relative;
-        top: 2.7rem;
-        background-color: var(--color-theme-black);
-        max-width: fit-content;
-        padding: 0 1rem;
-        left: 1.4rem;
-    }*/
-
                     .pop-out-burger-contact .burger-contact-page .contact-info .form .contact-burger-bottom .input-title {
                         font-weight: var(--semibold-font);
                         color: var(--color-text-blue);
@@ -3129,7 +3145,8 @@ Zahras css */
                             color: var(--color-theme);
                         }
 
-***************************Zahra***********************/
+/****************************Zahra***********************/
+
 /* Welcome page */
 .bg-color1 {
     background-color: #DBE3F5;
