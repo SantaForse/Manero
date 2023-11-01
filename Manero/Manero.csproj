@@ -19,10 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="compilerconfig.json" />
     <Content Remove="wwwroot\css\zahra-edited.css" />
     <Content Remove="wwwroot\css\zahra.css.map" />
-    <Content Remove="wwwroot\js\site.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,9 +35,6 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-  </ItemGroup>
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Shared\_AccountHeader.cshtml" />
@@ -50,7 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="compilerconfig.json" />
     <None Include="wwwroot\css\anton.css" />
     <None Include="wwwroot\css\christian-shared.css" />
     <None Include="wwwroot\css\christian-order-history.css" />
@@ -59,7 +53,6 @@
     <None Include="wwwroot\css\site.css" />
     <None Include="wwwroot\css\zahra-edited.css" />
     <None Include="wwwroot\css\zahra-edited.css.map" />
-    <None Include="wwwroot\js\site.js" />
     <None Include="wwwroot\static-images\paymentcard.png" />
     <None Include="wwwroot\static-images\placeholder_promocode.svg" />
     <None Include="wwwroot\static-images\stock-images\balenciaga-shoe.webp" />
