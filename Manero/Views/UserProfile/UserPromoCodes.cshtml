@@ -1,0 +1,80 @@
+﻿<head>
+    <link rel="stylesheet" href="~/css/anton.css" asp-append-version="true" />
+</head>
+
+<section class="promocodes-header container">
+    <div class="_title">
+        <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
+        <h4>My promocodes</h4>
+        <div></div>
+    </div>
+    <div class="buttons">
+        <button class="_active">Current</button>
+        <button>Used</button>
+    </div>
+</section>
+
+<section class="my-promocodes container">
+    <hr />
+    <div class="promocode">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex gap-3">
+                <img src="/static-images/placeholder_promocode.svg" />
+                <div class="mt-3">
+                    <h4>Acme Co.</h4>
+                    <p class="discount-amount">50% off</p>
+                    <p class="expire-date">Valid until June 30, 2022</p>
+                </div>
+            </div>
+            <button><i class="fa-light fa-copy"></i></button>
+        </div>
+        <hr />
+    </div>
+
+    <div class="promocode">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex gap-3">
+                <img src="/static-images/placeholder_promocode.svg" />
+                <div class="mt-3">
+                    <h4>Barone LLC.</h4>
+                    <p class="discount-amount yellow-discount">30% off</p>
+                    <p class="expire-date">Valid until June 30, 2022</p>
+                </div>
+            </div>
+            <button><i class="fa-light fa-copy"></i></button>
+        </div>
+        <hr />
+    </div>
+
+    <div class="promocode">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex gap-3">
+                <img src="/static-images/placeholder_promocode.svg" />
+                <div class="mt-3">
+                    <h4>Abstergo Ltd.</h4>
+                    <p class="discount-amount green-discount">15% off</p>
+                    <p class="expire-date">Valid until June 30, 2022</p>
+                </div>
+            </div>
+            <button><i class="fa-light fa-copy"></i></button>
+        </div>
+        <hr />
+    </div>
+</section>
+
+<section class="no-promocodes container d-none">
+    <img src="/images/promocode_img.svg" />
+    <div class="vertical-line"></div>
+    <h4>Your don’t have promocodes yet!</h4>
+    <p>Qui ex aute ipsum duis. Incididunt adipisicing voluptate laborum</p>
+    <div class="input-title">
+        <p>ENTER THE VOUCHER</p>
+    </div>
+    <input type="text" />
+    <div>
+        <button class="black-button">SUBMIT</button>
+    </div>
+
+
+</section>
+

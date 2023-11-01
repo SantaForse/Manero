@@ -1,0 +1,20 @@
+﻿<head>
+    <link rel="stylesheet" href="~/css/zahra-edited.css" asp-append-version="true" />
+</head>
+
+<section class="sign-out">
+    <div class="body-frame bg-color3">
+        <div class="signoutPage">
+            <div class="container">
+                <div class="signout-circle">
+                    <div class="Stext">Are you sure you want <br>to sign out ?</div>
+                    <div class="button-container">
+                        <button type="submit">SURE</button>
+                        <button onclick="window.location.href = '@Url.Action("index", "userprofile")'">CANCEL</button>
+                    </div>
+                </div>
+                <div class="signout-line"></div>
+            </div>
+        </div>
+    </div>
+</section>
