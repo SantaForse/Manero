@@ -172,30 +172,31 @@
     flex-direction: column;
     font-size: 15px;
   }
-  
-  .flex-item-left {
+
+.flex-item-left {
     background-color: #FFFFFF;
     display: grid;
-    grid-template-columns: auto auto auto;
-  }
+    /* grid-template-columns: auto auto auto; //christian */
+    grid-template-columns: 3rem auto 3rem;
+}
 
   .flex-item-left > div {
     padding: 10px 10px;
   }
 
   .black-circle {
-    grid-row: 1 / 3;
+    /* grid-row: 1 / 3; */
     margin: auto;
   }
 
-  .info {
-    grid-row: 1 / 3;
-  }
+.info {
+    /* grid-row: 1 / 3; */
+}
 
-  .pancel {
-    grid-row: 1 / 3;
-      margin: auto;
-  }
+.pancel {
+    /* grid-row: 1 / 3; */
+    margin: auto;
+}
 
 
   .myaddress-section .container .flex-container .add {

@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  
+    .signoutPage{
+  
+      .container {
+        position: relative;
+        top:-35px;
+      
+      .signout-circle{
+        width: 290px;
+        height: 290px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* z-index: 2; */
+      }
+      
+      .Stext {
+        font-family: "Mulish", sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        color: black;
+        /* z-index: 3; */
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: 215px;
+        text-align: center;
+       
+        transform: translate(-50%, -50%);
+      }
+      
+      .button-container {
+        text-align: center;
+    
+      button {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 0.95rem;
+        width: 140px;
+        border-radius: 5rem;
+        font-size: 0.875rem;
+        font-weight: semiBold;
+        margin-top: 150px; 
+        display: block;
+      }
+      button.btn-cancel {
+        background-color: white;
+        color: black;
+        border: none;
+        padding: 0.95rem;
+        width: 100%;
+        border-radius: 5rem;
+        font-size: 0.875rem;
+        font-weight: semiBold;
+        margin-top: 10px; 
+        display: block; 
+      }
+    }
+    
+      
+      .signout-line {
+        width: 332px;
+        height: 332px;
+        border-radius: 50%;
+        border: 5px solid white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+       
+      }  
+    }
+    }
+  }

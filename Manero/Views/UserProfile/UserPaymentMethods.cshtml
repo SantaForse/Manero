@@ -1,5 +1,5 @@
 ﻿@{
-    //ViewData["Title"] = "My profile";
+    ViewData["Title"] = "Payment methods";
 }
 
 <head>
@@ -10,7 +10,7 @@
 <section class="payment-header container">
     <div class="navigation-header">
         <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
-        <h4>My address</h4>
+        <h5>@ViewData["Title"]</h5>
         <div></div>
     </div>
 </section>

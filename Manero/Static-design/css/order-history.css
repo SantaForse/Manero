@@ -1,0 +1,84 @@
+@import url('site.css');
+
+ .status-delivered {
+    color: #00824B;
+}  
+.status-shipping {
+    color: #F4303C;
+}  
+ .status-canceled {
+    color: #F4303C;
+}  
+
+
+.order-history {
+    font-family: var(--font-mulish);
+}
+
+.order-history a {
+    color: var(--color-theme-black);
+    text-decoration: none;
+}
+
+.order-history .container {
+    padding: 0;
+}
+
+
+
+.order-history .order-container {
+    border-bottom: 3px solid var(--color-theme);
+}
+
+.order-history .order-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 3px solid var(--color-theme);
+    padding: 1rem 1.5rem;
+}
+
+.order-history .order-summary:hover {
+    cursor: pointer;
+}
+
+    .order-history .order-summary-top {
+        display: flex;
+        justify-content: space-between;
+    }
+        .order-history .order-summary .order-number {
+            font-size: 16pt;
+            font-weight: var(--semibold-font);
+        }
+        .order-history .order-summary .order-status {
+            font-size: 14pt;
+        }
+
+        
+    .order-history .order-summary-bottom {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12pt;
+    }
+        .order-history .order-summary .order-total {
+            font-weight: var(--bold-font);
+        }
+    
+    .order-history .order-details {
+        background-color: #F4F7FC;
+        border-top: 3px solid var(--color-theme);
+        padding: 1rem 1.5rem;
+    }
+        .order-history .order-details .order-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12pt;
+        }
+    
+            .order-history .order-details .order-links {
+                padding-top: 2rem;
+                display: flex;
+                justify-content: space-between;
+            }
+
+    

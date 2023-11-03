@@ -1,4 +1,8 @@
-﻿<head>
+﻿@{
+    ViewData["Title"] = "My address";
+}
+
+<head>
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 </head>
 
@@ -9,7 +13,7 @@
     <div class="container">
         <div class="navigation-header">
             <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
-            <h4>My address</h4>
+            <h5>@ViewData["Title"]</h5>
             <div></div>
         </div>
 
@@ -47,7 +51,7 @@
                 </div>
             </div>
             <hr>
-            <a asp-controller="userprofile" asp-action="useraddressadd" class="add">
+            <a asp-controller="userprofile" asp-action="useraddressadd" class="add mt-5">
                 <div class="plus"><i class="fa-regular fa-plus"></i></div>
                 <div class="add-address">
                     <p>Add a new address</p>

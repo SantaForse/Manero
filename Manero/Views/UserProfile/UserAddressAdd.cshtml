@@ -1,14 +1,17 @@
-﻿<head>
+﻿@{
+    ViewData["Title"] = "Payment methods";
+}
+
+<head>
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 </head>
 
 <section class="add-address">
 
-
     <div class="container">
         <div class="navigation-header">
             <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
-            <h4>Add address</h4>
+            <h5>@ViewData["Title"]</h5>
             <div></div>
         </div>
     </div>

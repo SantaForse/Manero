@@ -46,10 +46,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\css\anton.css" />
-    <None Include="wwwroot\css\christian-shared.css" />
-    <None Include="wwwroot\css\christian-order-history.css" />
     <None Include="wwwroot\css\sami.css" />
-    <None Include="wwwroot\css\christian-user-profile.css" />
     <None Include="wwwroot\css\site.css" />
     <None Include="wwwroot\css\zahra-edited.css" />
     <None Include="wwwroot\css\zahra-edited.css.map" />
