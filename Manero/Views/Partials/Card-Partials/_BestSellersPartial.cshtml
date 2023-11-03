@@ -11,31 +11,29 @@
      <!-- Grid with cards that go outside of window, introduce javascript scroll -->
         <div class="big_card_slider">
 
-            @{
-                int nr = 0;
-            }
-
-            @while (nr < Model.CardNr)
+            @foreach (var product in Model.Products)
             {
-                nr++; 
 
                 <!-- start of card -->
                 <div class="product_card">
                     <div class="card_top">
+
                         <!-- can be changed, between classes:
                                 "card_tag_new, card_tag_sale and card_tag_top".
                             see the options below -->
-                        
-                        @if(nr == 2)
+                        @if (product.ProductTag == "new")
                         {
                             <div class="card_tag_new">NEW</div>
-                        }else if (nr == 3)
+                        }
+                        else if (product.ProductTag == "sale")
                         {
                             <div class="card_tag_sale">SALE</div>
-                        }else if (nr == 4)
+                        }
+                        else if (product.ProductTag == "top")
                         {
                             <div class="card_tag_top">TOP</div>
-                        } else
+                        }
+                        else
                         {
                             <div class="card_tag"></div>
                         }
@@ -50,20 +48,27 @@
                     <div class="card_bottom">
                         <div class="card_rating">
                             <div class="card_stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
+
+                                @for (int i = 0; i < product.ProductRating; i++)
+                                {
+                                    <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
+                                }
+
+                                @for (int i = 0; i < (5 - product.ProductRating); i++)
+                                {
+                                    <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
+
+                                }
+
                             </div>
                             <p>(3)</p>
                         </div>
 
                 @* Should later go to individual shopping cards site... *@
-                        <a asp-controller="Shopping" asp-action="Index" class="card_title">Prada shoe</a>
+                        <a asp-controller="Products" asp-action="@(product.ProductName)" class="card_title">@product.ProductName </a>
                         <div class="card_price">
-                            <p>£20.9</p>
-                            <p>£12.9</p>
+                            <p>@product.ProductPrice</p>
+                            <p>£22.9</p>
                         </div>
                     </div>
                 </div>
