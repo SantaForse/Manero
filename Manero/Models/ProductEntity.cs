@@ -18,6 +18,8 @@ public class ProductEntity
 
     public string ProductTag { get; set; } = null!;
 
+    public List<string>? Categories { get; set; } 
+
 
     //Should probably have tags, and quantity in sizes and colours later
     // and connected to Reviews ofc ^^

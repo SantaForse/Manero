@@ -1,8 +1,12 @@
-﻿
+﻿@model Manero.ViewModels.CardGridViewModel
+
 @*Shouldnt be a static list of course ^^ *@
 
 @{
-    string[] categories = {"Men", "Women", "Kids", "Sale", "Shopping", "Sport", "Fishing"};
+    List<string> allCategories = Model.Products
+            .SelectMany(p => p.Categories)
+            .Distinct()
+            .ToList();
 }
 
 
@@ -10,11 +14,11 @@
     <div class="container">
         <div class="category_balls">
 
-            @if(categories != null)
+            @if(allCategories != null)
             {
-                @foreach (var category in categories)
+                @foreach (var category in allCategories)
                 {
-                    <a asp-controller="Shopping" asp-action="@category" class="category_ball">
+                    <a asp-controller="Category" asp-action="@category" class="category_ball">
                         <div class="category_image">
                             <img src="/static-images/stock-images/black-shoe.jpg" alt="category image">
                         </div>
