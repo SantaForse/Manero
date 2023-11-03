@@ -1,8 +1,25 @@
-﻿<!-- part by: christian -->
+﻿@using Manero.ViewModels
+@model Manero.ViewModels.OrderViewModel
 
-<head>
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
-</head>
+<!-- part by: christian -->
+@{
+    ViewData["Title"] = "Order history";
+
+
+
+    //placeholder
+    var placeholderOrder = new OrderViewModel()
+            {
+                OrderNumber = 123456,
+                OrderDate = DateTime.Now.AddDays(-2),
+                OrderStatus = "Delivered",
+                OrderTotal = 354.32M,
+
+                OrderItem = "Kids Red Hoodie, S, pink",
+                OrderItemQuantity = 1,
+                OrderItemPrice = 34.95M
+            };
+}
 
 <section class="order-history ps-5">
 
@@ -14,51 +31,13 @@
             <div></div>
         </div>
 
-        <div class="frame">
-            <div class="order-container">
-                <div class="order-summary" onclick="toggleVisibility()">
 
-                    <div class="order-summary-top">
-                        <div class="order-number">#100345</div>
-                        <div class="order-status status-delivered">
-                            Delivered
-                            <i class="fa-solid fa-check"></i>
-                        </div>
-                    </div>
 
-                    <div class="order-summary-bottom">
-                        <div class="order-date">Feb 02, 2022 at 8:32 PM</div>
-                        <div class="order-total">$354.32</div>
-                    </div>
+        <partial name="/Views/Partials/UserProfilePartials/_UserOrderHistoryPartial.cshtml" model="placeholderOrder" />
 
-                </div>
 
-                <div class="order-details d-none" id="order-details">
-                    <div class="order-item">
-                        <div class="product-item-name" id="">Kids Red Hoodie, S, pink</div>
-                        <div>
-                            <span class="product-item-quantity" id="">1 x</span>
-                            <span class="product-item-price" id="">$34.95</span>
-                        </div>
-                    </div>
-                    <div class="order-links">
-                        <a class="" asp-controller="" asp-action="">
-                            <i class="fa-solid fa-repeat pe-1"></i>repeat order
-                        </a>
-                        <a class="" asp-controller="" asp-action="">
-                            leave a review<i class="fa-solid fa-chevron-right ps-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        
     </div>
 </section>
 
-<script>
-    function toggleVisibility() {
-        var element = document.getElementById("order-details");
-        element.classList.toggle("d-none");
-    }
-</script>
+

@@ -1,7 +1,22 @@
-﻿<!-- part by: christian -->
+﻿@using Manero.ViewModels;
+@model Manero.ViewModels.UserProfileViewModel
+
 @{
     ViewData["Title"] = "User Profile";
+
+
+
+var placeholderModel = new UserProfileViewModel()
+        {
+            FirstName = "Kristin",
+            LastName = "Watson",
+                ImageUrl = "/static-images/pexels-andrea-piacquadio-733872.jpg"
+        };
+
 }
+
+
+<!-- part by: christian -->
 
 <head>
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
@@ -16,17 +31,19 @@
                     <div class="right"></div>
                 </div>
                 <div class="frame">
-                    <img src="" />
+
+                        <img src=@placeholderModel.ImageUrl />
+
                     <div class="frame-icon">
                         <a asp-controller="UserProfile" asp-action="UserProfileEdit"><i class="fa-solid fa-pen-to-square"></i></a>
                     </div>
                 </div>
-                <h5>Firstname Lastname</h5>
-                <h6>firstname.lastname@domain.com</h6>
+                <h5>@placeholderModel.FirstName @placeholderModel.LastName</h5>
+                <h6>@placeholderModel.Email</h6>
             </div>
             <div class="navigation-fields">
                 <a class="navigation-field" asp-controller="UserProfile" asp-action="UserAddress">
-                    <div>
+                    <div class="left">
                         <i class="fa-solid fa-gift"></i>
                         <div class="label">My address</div>
                     </div>
@@ -40,7 +57,7 @@
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <a class="navigation-field" asp-controller="UserProfile" asp-action="UserPaymentMethods">
-                    <div>
+                    <div class="left">
                         <i class="fa-solid fa-gift"></i>
                         <div class="label">Payment method</div>
                     </div>
@@ -48,14 +65,14 @@
                 </a>
 
                 <a class="navigation-field" asp-controller="UserProfile" asp-action="UserPromoCodes">
-                    <div>
+                    <div class="left">
                         <i class="fa-solid fa-gift"></i>
                         <div class="label">My promocodes</div>
                     </div>
                     <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <a class="navigation-field" asp-controller="UserProfileSignOut" asp-action="UserProfileSignOutIndex">
-                    <div>
+                <a class="navigation-field" asp-controller="SignOut" asp-action="Index">
+                    <div class="left">
                         <i class="fa-solid fa-gift"></i>
                         <div class="label">Sign out</div>
                     </div>
