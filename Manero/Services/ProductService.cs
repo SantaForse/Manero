@@ -8,6 +8,8 @@ public class ProductService
 
     private List<ProductEntity> siteProducts;
 
+
+    //This static list should ofcourse be moved to db later
     public ProductService()
     {
         siteProducts = new List<ProductEntity>
