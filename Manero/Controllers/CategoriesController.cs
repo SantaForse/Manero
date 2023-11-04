@@ -2,9 +2,9 @@
 
 namespace Manero.Controllers
 {
-    public class OrderHistoryController : Controller
+    public class CategoriesController : Controller
     {
-        public IActionResult OrderHistoryIndex()
+        public IActionResult Index()
         {
             return View();
         }

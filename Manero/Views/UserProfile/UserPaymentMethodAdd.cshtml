@@ -1,12 +1,16 @@
-﻿<head>
-    <link rel="stylesheet" href="~/css/anton.css" asp-append-version="true" />
+﻿@{
+    //ViewData["Title"] = "My profile";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
     <script defer src="~/js/site.js"></script>
 </head>
 
 <section class="payment-header container">
-    <div class="_title">
-        <a asp-controller="UserProfile" asp-action="UserProfileIndex"><i class="fa-solid fa-chevron-left"></i></a>
-        <h5>Payment method</h5>
+    <div class="navigation-header">
+        <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
+        <h4>Add card</h4>
         <div></div>
     </div>
 </section>
@@ -14,7 +18,7 @@
 <section class="saved-cards container">
     <div class="d-flex justify-content-between">
         <div>Cards</div>
-        <a class="add-card" asp-controller="paymentmethod" asp-action="paymentmethodadd">Add a new card <a href=""> <i class="fa-light fa-plus ms-4"></i></a></a>
+        <a class="add-card" asp-controller="UserProfile" asp-action="UserPaymentMethodAdd">Add a new card <a href=""> <i class="fa-light fa-plus ms-4"></i></a></a>
     </div>
 
     <div class="slider">

@@ -7,7 +7,7 @@
     Title = "Sign in",
     BackButtonLink = string.IsNullOrEmpty(Request.Headers["Referer"].ToString()) ? "/DefaultFallbackURL" : Request.Headers["Referer"].ToString()    
     })
-<div class="d-grid" style="margin-top: 5rem">
+<div class="d-grid" style="margin-top: 5rem; padding: 0 2rem;">
     <div class="d-grid justify-content-center align-items-center">
         <h1 class="big-title">Welcome Back!</h1>
         <p style="text-align: center">Sign in to continue</p>
@@ -16,13 +16,15 @@
         <form id="account" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="mb-3 input-holder">
-                <input asp-for="Input.Email" autocomplete="username" aria-required="true" />
+                <input id="email-input" asp-for="Input.Email" autocomplete="username" aria-required="true" />
                 <label asp-for="Input.Email">Email</label>
+                <i class="fa-regular fa-check" style="display: none"></i>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="mb-3 input-holder">
-                <input asp-for="Input.Password" autocomplete="current-password" aria-required="true" />
+                <input asp-for="Input.Password" id="login-pw" autocomplete="current-password" aria-required="true" />
                 <label asp-for="Input.Password">Password</label>
+                <i id="password-toggle-icon" onclick="togglePasswordVisibility()" class="fa-regular fa-eye-slash"></i>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
             <div class="d-flex justify-content-between">
@@ -84,4 +86,41 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById('login-pw');
+            var eyeIcon = document.getElementById('password-toggle-icon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            }
+        }
+    </script>
+    <script>
+    const emailInput = document.getElementById('email-input');
+    const checkIcon = document.querySelector('.fa-check');
+
+    emailInput.addEventListener('input', function () {
+        const email = emailInput.value;
+        const isValid = validateEmail(email);
+
+        if (isValid) {
+            checkIcon.style.display = 'inline-block';
+        } else {
+            checkIcon.style.display = 'none';
+        }
+    });
+
+    function validateEmail(email) {
+        // Use a regular expression for email validation
+        const emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+        return emailRegex.test(email);
+    }
+</script>
 }

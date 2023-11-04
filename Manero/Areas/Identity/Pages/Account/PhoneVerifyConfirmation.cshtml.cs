@@ -37,6 +37,8 @@ namespace Manero.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                var otpCode = Input.OTPCode;
+
+                ModelState.AddModelError(string.Empty, "Invalid OTP.");
             }
 
             return Page();

@@ -1,6 +1,3 @@
-@import url('site.css');
-@import url('christian-shared.css');
-
 
 .user-profile {
     font-family: var(--font-mulish);
@@ -85,30 +82,39 @@
         align-items: center;
         height: 5rem;
         border-top: 1px solid var(--color-theme);
-        padding: 0 1rem;
     }
 
-        .user-profile .navigation-field div {
+        .user-profile .navigation-field .left {
             display: flex;
             justify-content: start;
             align-items: center;
             min-width: fit-content;
         }
-        .user-profile .navigation-field .label {
+            .user-profile .navigation-field .left i {
+                max-width: 2rem;
+            }
+
+       .user-profile .navigation-field .label {
             min-width: fit-content;
             padding-left: 1rem;
+        }
+        .user-profile .navigation-field i {
+            max-width: 2rem;
         }
 
 
 
 
-.user-profile form {
-    margin: 0 1rem;
-}
+
     .user-profile .input-title {
         top: 22px;
         padding: 0 0.5rem;
     }
-    .user-profile form button {
-        margin-top: 2.3rem;
+    .user-profile form {
+        margin: 0;
     }
+        .user-profile form button {
+            margin-top: 2.3rem;
+        }
+
+ 

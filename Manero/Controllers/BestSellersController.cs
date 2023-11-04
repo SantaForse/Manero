@@ -2,14 +2,18 @@
 
 namespace Manero.Controllers
 {
-    public class PaymentMethodController : Controller
+    public class BestSellersController : Controller
     {
-        public IActionResult PaymentMethodIndex()
+        public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult PaymentMethodAdd()
+
+
+
+
+        public IActionResult ProductFilter()
         {
             return View();
         }
