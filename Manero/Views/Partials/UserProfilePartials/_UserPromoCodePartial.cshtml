@@ -9,10 +9,10 @@
                 @if (Model.Discount >= 40) {
                     <p class="discount-amount red-discount">@Model.Discount%</p>
                 } 
-                else if (Model.Discount < 0.4M && Model.Discount >= 20) {
-                    <p class="discount-amount yellow-discount">@Model.Discount%</p>
-                } else {
+                else if (Model.Discount <= 20) {
                     <p class="discount-amount green-discount">@Model.Discount%</p>
+                } else {
+                    <p class="discount-amount yellow-discount">@Model.Discount%</p>
                 }
                 <p class="expire-date">Valid until @Model.ExpirationDate</p>
             </div>
