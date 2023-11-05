@@ -1,11 +1,17 @@
-﻿<!-- part by: christian -->
+﻿@using Manero.ViewModels;
+@model Manero.ViewModels.UserProfileViewModel
+
+<!-- part by: christian -->
 @{
     ViewData["Title"] = "Edit profile";
+
+    var placeholderUser = new UserProfileViewModel
+    {
+        ImageUrl = "/static-images/pexels-andrea-piacquadio-733872.jpg"
+    };
 }
 
-<head>
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
-</head>
+
 
 <section class="user-profile">
     <div class="container">
@@ -23,31 +29,36 @@
                     <div class="right"></div>
                 </div>
                 <div class="frame">
-                    <img src="" />
-                    <div class="frame-icon"><i class="fa-solid fa-camera"></i></div>
+                    <img src=@placeholderUser.ImageUrl />
+                    <div class="frame-icon">
+                        <a asp-controller="UserProfile" asp-action="UserProfileEdit"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </div>
                 </div>
             </div>
 
-            <form action="/action_page.php">
-                <div class="input-title">
-                    <p>NAME</p>
-                </div>
-                <input type="text" id="fname" name="fname">
+            <form class="" method="post" novalidate>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="input-title">
-                    <p>EMAIL</p>
+                <div class="my-3">
+                    <label asp-for="FirstName" class="label-text"></label>
+                    <input asp-for="FirstName" value="" />
                 </div>
-                <input type="text" id="fname" name="fname">
-
-                <div class="input-title">
-                    <p>PHONE NUMBER</p>
+                <div class="my-3">
+                    <label asp-for="LastName" class="label-text"></label>
+                    <input asp-for="LastName" value="" />
                 </div>
-                <input type="text" id="fname" name="fname">
-
-                <div class="input-title">
-                    <p>LOCATION</p>
+                <div class="my-3">
+                    <label asp-for="Email" class="label-text"></label>
+                    <input asp-for="Email" value="" />
                 </div>
-                <input type="text" id="fname" name="fname">
+                <div class="my-3">
+                    <label asp-for="Phone" class="label-text"></label>
+                    <input asp-for="Phone" value="" />
+                </div>
+                <div class="my-3">
+                    <label asp-for="Location" class="label-text"></label>
+                    <input asp-for="Location" value="" />
+                </div>
 
                 <button input type="submit" value="Submit">SUBMIT</button>
             </form>

@@ -5,12 +5,12 @@
     ViewData["Title"] = "User Profile";
 
 
-
-var placeholderModel = new UserProfileViewModel()
+//placeholder
+var placeholderUser = new UserProfileViewModel()
         {
             FirstName = "Kristin",
             LastName = "Watson",
-                ImageUrl = "/static-images/pexels-andrea-piacquadio-733872.jpg"
+            ImageUrl = "/static-images/pexels-andrea-piacquadio-733872.jpg"
         };
 
 }
@@ -32,14 +32,14 @@ var placeholderModel = new UserProfileViewModel()
                 </div>
                 <div class="frame">
 
-                        <img src=@placeholderModel.ImageUrl />
+                    <img src=@placeholderUser.ImageUrl />
 
                     <div class="frame-icon">
                         <a asp-controller="UserProfile" asp-action="UserProfileEdit"><i class="fa-solid fa-pen-to-square"></i></a>
                     </div>
                 </div>
-                <h5>@placeholderModel.FirstName @placeholderModel.LastName</h5>
-                <h6>@placeholderModel.Email</h6>
+                <h5>@placeholderUser.FirstName @placeholderUser.LastName</h5>
+                <h6>@placeholderUser.Email</h6>
             </div>
             <div class="navigation-fields">
                 <a class="navigation-field" asp-controller="UserProfile" asp-action="UserAddress">

@@ -1,6 +1,6 @@
 /* shared ---------------------------------------------------------------*/
 
-button {
+.user-profile button {
     background-color: var(--color-theme-black);
     color: var(--color-white);
     border: none;
@@ -13,7 +13,7 @@ button {
 
 /* cred Anton */
 
-input {
+.user-profile input {
     border: solid 1px var(--color-light-blue);
     padding: 0.8rem 1.9rem;
     border-radius: 5rem;
@@ -21,20 +21,18 @@ input {
     outline: 1px solid var(--color-theme);
 }
 
-.input-title {
+.user-profile .label-text {
     position: relative;
-    top: 2.7rem;
+    top: 0.6rem;
     background-color: var(--color-white);
     max-width: fit-content;
-    padding: 0 1rem;
+    padding: 0 0.6rem;
     left: 1.4rem;
-}
 
-    .input-title p {
-        font-size: 0.75rem;
-        font-weight: var(--semibold-font);
-        color: var(--color-text-gray);
-    }
+    font-weight: var(--semibold-font);
+    color: var(--color-text-gray);
+    text-transform: uppercase;
+}
 
 .navigation-header {
     display: flex;
@@ -94,13 +92,14 @@ input {
             .user-profile .presentation .frame img {
                 position: absolute;
                 border-radius: 50%;
-                height: 120px;
-                width: 120px;
+                height: 122px;
+                width: 122px;
                 position: absolute;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
-                overflow: hidden
+                overflow: hidden;
+                border: none;
             }
 
             .user-profile .presentation .frame .frame-icon {
@@ -265,4 +264,36 @@ input {
                 justify-content: space-between;
             }
 
-    
+/* add card ----------------------------------------------------------- */
+
+.card-details .label-text {
+    display: flex;
+    padding: 0 0 0 2.2rem;
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: var(--semibold-font);
+    color: var(--color-text-gray);
+    text-transform: uppercase;
+}
+.card-details input {
+    padding-top: 0.3rem;
+}
+
+
+/* add address --------------------------------------------------------- */
+
+.add-address .input-container {
+    position: relative;
+    margin-top: 1rem;
+}
+    .add-address .input-container .label-text {
+        position: absolute;
+        top: 0.3rem;
+        background-color: var(--color-white);
+        max-width: fit-content;
+        padding: 0 0.6rem;
+        left: 1.4rem;
+        font-weight: var(--semibold-font);
+        color: var(--color-text-gray);
+        text-transform: uppercase;
+    }
