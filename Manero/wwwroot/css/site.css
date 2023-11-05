@@ -52,7 +52,7 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+/* We cannot have such parts in, it interferes with the whole page..
 body {
   margin-bottom: 60px;
-}
+}*/
