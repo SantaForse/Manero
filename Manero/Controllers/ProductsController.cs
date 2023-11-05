@@ -39,4 +39,11 @@ public class ProductsController : Controller
         return View(product);
     }
 
+    [Route("Products/Reviews")]
+    public IActionResult Reviews()
+    {
+        //Should populate all reviews ofc...
+        return View();
+    }
+
 }

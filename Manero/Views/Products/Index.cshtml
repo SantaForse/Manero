@@ -1,75 +1,89 @@
-﻿@* All products / or something *@
+﻿@using Manero.ViewModels;
+@* All products / or something *@
+
+
+@{
+    var ProductPage = new NavbarViewModel()
+            {
+                Burger = false,
+                MiddleData = "All Products",
+                ShoppingCart = true
+            };
+}
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="ProductPage" />
+
+
+<div class="container mt-5">
+    <div class="big_card_grid">
 
 
 
+        @foreach (var product in Model)
+        {
+            var rating = product.ProductRating;
 
-<div class="big_card_slider">
-
-    
-
-    @foreach (var product in Model)
-    {
-        var rating = product.ProductRating;
-
-        <!-- start of card -->
-        <div class="product_card">
-            <div class="card_top">
-                <!-- can be changed, between classes:
-                        "card_tag_new, card_tag_sale and card_tag_top".
-                    see the options below -->
-                @if (product.ProductTag == "new")
-                {
-                    <div class="card_tag_new">NEW</div>
-                }
-                else if (product.ProductTag == "sale")
-                {
-                    <div class="card_tag_sale">SALE</div>
-                }
-                else if (product.ProductTag == "top")
-                {
-                    <div class="card_tag_top">TOP</div>
-                }
-                else
-                {
-                    <div class="card_tag"></div>
-                }
+            <!-- start of card -->
+            <div class="product_card">
+                <div class="card_top">
+                    <!-- can be changed, between classes:
+                            "card_tag_new, card_tag_sale and card_tag_top".
+                        see the options below -->
+                    @if (product.ProductTag == "new")
+                    {
+                        <div class="card_tag_new">NEW</div>
+                    }
+                    else if (product.ProductTag == "sale")
+                    {
+                        <div class="card_tag_sale">SALE</div>
+                    }
+                    else if (product.ProductTag == "top")
+                    {
+                        <div class="card_tag_top">TOP</div>
+                    }
+                    else
+                    {
+                        <div class="card_tag"></div>
+                    }
 
 
-                <img src="/static-images/stock-images/balenciaga-shoe.webp" alt="product">
-                <div class="card_options">
-                    <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
-                    <a asp-controller="Shoppingcart" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
-                </div>
-            </div>
-            <div class="card_bottom">
-                <div class="card_rating">
-                    <div class="card_stars">
-
-
-                        @for (int i = 0; i < rating; i++)
-                        {
-                            <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
-                        }
-
-                        @for (int i = 0; i < (5 - rating); i++)
-                        {
-                            <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
-
-                        }
+                    <img src="/static-images/stock-images/stock@(product.Id).jpg" alt="product">
+                    <div class="card_options">
+                        <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
+                        <a asp-controller="Shoppingcart" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
                     </div>
-                    <p>(3)</p>
                 </div>
+                <div class="card_bottom">
+                    <div class="card_rating">
+                        <div class="card_stars">
 
-                @* Should later go to individual shopping cards site... *@
-                <a asp-controller="Products" asp-action="Product" asp-route-productName="@product.ProductName">@product.ProductName</a>
-                <div class="card_price">
-                    <p>£@product.ProductPrice</p>
-                    <p>£12.9</p>
+
+                            @for (int i = 0; i < rating; i++)
+                            {
+                                <a href="#"><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
+                            }
+
+                            @for (int i = 0; i < (5 - rating); i++)
+                            {
+                                <a href="#"><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
+
+                            }
+                        </div>
+                        <p>(3)</p>
+                    </div>
+
+                    @* Should later go to individual shopping cards site... *@
+                    <a asp-controller="Products" asp-action="Product" asp-route-productName="@product.ProductName">@product.ProductName</a>
+                    <div class="card_price">
+                        <p>£@product.ProductPrice</p>
+                        <p>£12.9</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- end of card -->
-    }
+            <!-- end of card -->
+        }
 
+
+    </div>
 
 </div>

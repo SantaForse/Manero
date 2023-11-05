@@ -1,12 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Manero.Models;
+using Manero.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Manero.Controllers
+namespace Manero.Controllers;
+
+public class WishListController : Controller
 {
-    public class WishListController : Controller
+    //Services
+    private readonly ProductService productService;
+
+    public WishListController(ProductService productService)
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        this.productService = productService;
+    }
+
+
+
+    //Views
+    public IActionResult Index()
+    {
+        //Should populate view with only liked products
+        List<ProductEntity> siteProducts = productService.GetAllProducts();
+        return View(siteProducts);
     }
 }
