@@ -1,4 +1,35 @@
-﻿<head>
+﻿@using Manero.ViewModels
+@model Manero.ViewModels.UserProfileViewModel
+
+@{
+    ViewData["Title"] = "My address";
+
+
+    // placeholder
+    var homeAddress = new UserProfileViewModel() {
+        AddressCategory = "Home",
+        StreetNumber = "8000",
+        StreetName = "S. Kirkland Ave",
+        City = "Chicago"
+    };
+    var workAddress = new UserProfileViewModel() {
+        AddressCategory = "Work",
+        StreetNumber = "500",
+        StreetName = "E. Burlington St",
+        City = "Chicago"
+    };
+    var otherAddress = new UserProfileViewModel() {
+                AddressCategory = "Home",
+                StreetNumber = "900",
+                StreetName = "Des Plaines Ave",
+                City = "Chicago"
+    };
+}
+
+
+
+
+<head>
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 </head>
 
@@ -9,45 +40,21 @@
     <div class="container">
         <div class="navigation-header">
             <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
-            <h4>My address</h4>
+            <h5>@ViewData["Title"]</h5>
             <div></div>
         </div>
 
         <div class="flex-container">
-            <div class="flex-item-left">
-                <div class="black-circle"><i class="fa-sharp fa-regular fa-home fa-xl"></i></div>
-                <div class="info">
-                    <h5>Home</h5>
-                    <p>8000 S Kirkland Ave. Chicago...</p>
-                </div>
-                <div class="pancel">
-                    <i class="fa-thin fa-pencil"></i>
-                </div>
-            </div>
-            <hr>
-            <div class="flex-item-left">
-                <div class="black-circle"><i class="fa-regular fa-briefcase fa-xl"></i></div>
-                <div class="info">
-                    <h5>Work</h5>
-                    <p>8000 S Kirkland Ave. Chicago...</p>
-                </div>
-                <div class="pancel">
-                    <i class="fa-thin fa-pencil"></i>
-                </div>
-            </div>
-            <hr>
-            <div class="flex-item-left">
-                <div class="black-circle"><i class="fa-regular fa-location-dot fa-xl"></i></div>
-                <div class="info">
-                    <h5>Other</h5>
-                    <p>8000 S Kirkland Ave. Chicago...</p>
-                </div>
-                <div class="pancel">
-                    <i class="fa-thin fa-pencil"></i>
-                </div>
-            </div>
-            <hr>
-            <a asp-controller="userprofile" asp-action="useraddressadd" class="add">
+
+
+
+            <partial name="/Views/Partials/UserProfilePartials/_UserAddressPartial.cshtml" model="homeAddress"/>
+            <partial name="/Views/Partials/UserProfilePartials/_UserAddressPartial.cshtml" model="workAddress" />
+            <partial name="/Views/Partials/UserProfilePartials/_UserAddressPartial.cshtml" model="otherAddress" />
+
+
+
+            <a asp-controller="userprofile" asp-action="useraddressadd" class="add mt-5">
                 <div class="plus"><i class="fa-regular fa-plus"></i></div>
                 <div class="add-address">
                     <p>Add a new address</p>

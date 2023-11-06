@@ -1,0 +1,299 @@
+/* shared ---------------------------------------------------------------*/
+
+.user-profile button {
+    background-color: var(--color-theme-black);
+    color: var(--color-white);
+    border: none;
+    padding: 0.95rem;
+    width: 100%;
+    border-radius: 5rem;
+    font-size: 0.875rem;
+    font-weight: var(--semibold-font);
+}
+
+/* cred Anton */
+
+.user-profile input {
+    border: solid 1px var(--color-light-blue);
+    padding: 0.8rem 1.9rem;
+    border-radius: 5rem;
+    width: 100%;
+    outline: 1px solid var(--color-theme);
+}
+
+.user-profile .label-text {
+    position: relative;
+    top: 0.6rem;
+    background-color: var(--color-white);
+    max-width: fit-content;
+    padding: 0 0.6rem;
+    left: 1.4rem;
+
+    font-weight: var(--semibold-font);
+    color: var(--color-text-gray);
+    text-transform: uppercase;
+}
+
+.navigation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+/* user profile ---------------------------------------------------------*/
+
+.user-profile {
+    font-family: var(--font-mulish);
+}
+
+    .user-profile a {
+        color: var(--color-theme-black);
+        text-decoration: none;
+    }
+
+    .user-profile .container {
+        padding: 0;
+    }
+
+    .user-profile .frame {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .user-profile .presentation {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .user-profile .presentation .line-container {
+            height: 30px;
+            width: 100%;
+        }
+
+            .user-profile .presentation .line-container :first-child {
+                height: 100%;
+                width: 50%;
+                border-right: 1px solid var(--color-theme-black);
+            }
+
+
+        .user-profile .presentation .frame {
+            position: relative;
+            border: 6px solid var(--color-theme);
+            border-radius: 50%;
+            height: 132px;
+            width: 132px;
+            margin: 2rem 0;
+        }
+            .user-profile .presentation .frame img {
+                position: absolute;
+                border-radius: 50%;
+                height: 122px;
+                width: 122px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                overflow: hidden;
+                border: none;
+            }
+
+            .user-profile .presentation .frame .frame-icon {
+                background-color: var(--color-theme);
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                margin: 2rem;
+                position: absolute;
+                left: 50px;
+                top: 50px;
+            }
+
+                .user-profile .presentation .frame .frame-icon i {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+        .user-profile .presentation h5 {
+            color: var(--color-theme-black);
+            font-weight: var(--bold-font);
+            font-size: 2rem;
+        }
+
+        .user-profile .presentation h6 {
+            color: var(--color-text-gray);
+            font-weight: var(--regular-font);
+            font-size: 1rem;
+            padding-bottom: 2rem;
+        }
+
+    .user-profile .navigation-fields {
+        border-bottom: 1px solid var(--color-theme);
+    }
+
+    .user-profile .navigation-field {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 5rem;
+        border-top: 1px solid var(--color-theme);
+    }
+
+        .user-profile .navigation-field .left {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            min-width: fit-content;
+        }
+
+            .user-profile .navigation-field .left i {
+                max-width: 2rem;
+            }
+
+        .user-profile .navigation-field .label {
+            min-width: fit-content;
+            padding-left: 1rem;
+        }
+
+        .user-profile .navigation-field i {
+            max-width: 2rem;
+        }
+
+
+
+    .user-profile .input-title {
+        top: 22px;
+        padding: 0 0.5rem;
+    }
+
+    .user-profile form {
+        margin: 0;
+    }
+
+        .user-profile form button {
+            margin-top: 2.3rem;
+        }
+
+
+/* order history ------------------------------------------------------- */
+
+ .status-delivered {
+    color: #00824B;
+}  
+.status-shipping {
+    color: #F4303C;
+}  
+ .status-canceled {
+    color: #F4303C;
+}  
+
+
+.order-history {
+    font-family: var(--font-mulish);
+}
+
+.order-history a {
+    color: var(--color-theme-black);
+    text-decoration: none;
+}
+
+.order-history .container {
+    padding: 0;
+}
+
+
+
+.order-history .order-container {
+    border-bottom: 3px solid var(--color-theme);
+}
+
+.order-history .order-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*border-top: 3px solid var(--color-theme);*/
+    padding: 1rem 0;
+}
+
+.order-history .order-summary:hover {
+    cursor: pointer;
+}
+
+    .order-history .order-summary-top {
+        display: flex;
+        justify-content: space-between;
+    }
+        .order-history .order-summary .order-number {
+            font-size: 16pt;
+            font-weight: var(--semibold-font);
+        }
+        .order-history .order-summary .order-status {
+            font-size: 14pt;
+        }
+
+        
+    .order-history .order-summary-bottom {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12pt;
+    }
+        .order-history .order-summary .order-total {
+            font-weight: var(--bold-font);
+        }
+    
+    .order-history .order-details {
+        background-color: #F4F7FC;
+        border-top: 3px solid var(--color-theme);
+        padding: 1rem;
+    }
+        .order-history .order-details .order-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12pt;
+        }
+    
+            .order-history .order-details .order-links {
+                padding-top: 2rem;
+                display: flex;
+                justify-content: space-between;
+            }
+
+/* add card ----------------------------------------------------------- */
+
+.card-details .label-text {
+    display: flex;
+    padding: 0 0 0 2.2rem;
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: var(--semibold-font);
+    color: var(--color-text-gray);
+    text-transform: uppercase;
+}
+.card-details input {
+    padding-top: 0.3rem;
+}
+
+
+/* add address --------------------------------------------------------- */
+
+.add-address .input-container {
+    position: relative;
+    margin-top: 1rem;
+}
+    .add-address .input-container .label-text {
+        position: absolute;
+        top: 0.3rem;
+        background-color: var(--color-white);
+        max-width: fit-content;
+        padding: 0 0.6rem;
+        left: 1.4rem;
+        font-weight: var(--semibold-font);
+        color: var(--color-text-gray);
+        text-transform: uppercase;
+    }

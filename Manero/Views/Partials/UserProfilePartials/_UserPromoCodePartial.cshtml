@@ -1,0 +1,23 @@
+﻿@model Manero.ViewModels.PromoCodeViewModel
+
+<div class="promocode">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex gap-3">
+            <img src="@Model.ImageUrl" />
+            <div class="mt-3">
+                <h4>@Model.Title</h4>
+                @if (Model.Discount >= 40) {
+                    <p class="discount-amount red-discount">@Model.Discount%</p>
+                } 
+                else if (Model.Discount <= 20) {
+                    <p class="discount-amount green-discount">@Model.Discount%</p>
+                } else {
+                    <p class="discount-amount yellow-discount">@Model.Discount%</p>
+                }
+                <p class="expire-date">Valid until @Model.ExpirationDate</p>
+            </div>
+        </div>
+        <button><i class="fa-light fa-copy"></i></button>
+    </div>
+    <hr />
+</div>

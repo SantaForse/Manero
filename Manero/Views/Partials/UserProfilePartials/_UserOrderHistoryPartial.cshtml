@@ -1,0 +1,44 @@
+﻿@model Manero.ViewModels.OrderViewModel
+
+<div class="frame">
+    <div class="order-container">
+        <div class="order-summary" onclick="toggleVisibility()">
+
+            <div class="order-summary-top">
+                <div class="order-number">@Model.OrderNumber</div>
+                <div class="order-status status-delivered">@Model.OrderStatus<i class="fa-solid fa-check"></i>
+            </div>
+            </div>
+
+            <div class="order-summary-bottom">
+                <div class="order-date">@Model.OrderDate</div>
+                <div class="order-total">$@Model.OrderTotal</div>
+            </div>
+        </div>
+
+        <div class="order-details d-none" id="order-details">
+            <div class="order-item">
+                <div class="product-item-name" id="">@Model.OrderItem</div>
+                <div>
+                    <span class="product-item-quantity" id="">@Model.OrderItemQuantity x</span>
+                    <span class="product-item-price" id="">$@Model.OrderItemPrice</span>
+                </div>
+            </div>
+            <div class="order-links">
+                <a class="" asp-controller="" asp-action="">
+                    <i class="fa-solid fa-repeat pe-1"></i>repeat order
+                </a>
+                <a class="" asp-controller="" asp-action="">
+                    leave a review<i class="fa-solid fa-chevron-right ps-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleVisibility() {
+        var element = document.getElementById("order-details");
+        element.classList.toggle("d-none");
+    }
+</script>

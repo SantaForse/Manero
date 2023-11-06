@@ -1,0 +1,126 @@
+@import url('buttons-chr.css');
+@import url('input-fields-chr.css');
+@import url('site.css');
+
+
+.user-profile {
+    font-family: var(--font-mulish);
+}
+
+.user-profile a {
+    color: var(--color-theme-black);
+    text-decoration: none;
+}
+
+.user-profile .container {
+    padding: 0;
+}
+
+.user-profile .frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.user-profile .presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+    .user-profile .presentation .line-container {
+        height: 30px;
+        width: 100%;
+    }
+        .user-profile .presentation .line-container :first-child {
+            height: 100%;
+            width: 50%;
+            border-right: 1px solid var(--color-theme-black);
+        }
+
+    .user-profile .presentation .frame {
+        position: relative;
+        border: 6px solid var(--color-theme);
+        border-radius: 50%;
+        height: 132px;
+        width: 132px;
+        margin: 2rem 0;
+    }
+        .user-profile .presentation .frame .frame-icon {
+            background-color: var(--color-theme);
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+            margin: 2rem;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+        .user-profile .presentation .frame .frame-icon i {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    .user-profile .presentation h5 {
+        color: var(--color-theme-black);
+        font-weight: var(--bold-font);
+        font-size: 2rem;
+    }
+    .user-profile .presentation h6 {
+        color: var(--color-text-gray);
+        font-weight: var(--regular-font);
+        font-size: 1rem;
+        padding-bottom: 2rem;
+    }
+
+.user-profile .navigation-fields {
+    border-bottom: 1px solid var(--color-theme);
+}
+
+    .user-profile .navigation-field {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        height: 5rem;
+        border-top: 1px solid var(--color-theme);
+    }
+        .user-profile .navigation-field > * {
+            display: flex;
+            align-items: center;
+        }
+        .user-profile .navigation-field :first-child {
+            flex: 1;
+            justify-content: center;
+            width: 4rem;
+        }
+        .user-profile .navigation-field .label {
+            flex: 4;
+            min-width: fit-content;
+        }
+        .user-profile .navigation-field :last-child {
+            flex: 1;
+            justify-content: center;
+            width: 3rem;
+        }
+            .user-profile .navigation-field .sign-out {
+                flex: 5;
+                justify-content: start;
+            }
+
+
+
+
+
+.user-profile form {
+    margin: 0 2rem;
+}
+    .user-profile .input-title {
+        top: 22px;
+        padding: 0 0.5rem;
+    }
+    .user-profile form button {
+        margin-top: 2.3rem;
+    }

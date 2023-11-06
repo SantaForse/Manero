@@ -1,11 +1,37 @@
-﻿<head>
-    <link rel="stylesheet" href="~/css/anton.css" asp-append-version="true" />
-</head>
+﻿@using Manero.ViewModels
+@model Manero.ViewModels.PromoCodeViewModel
+
+@{
+    ViewData["Title"] = "My Promo codes";
+
+    // placeholder
+    var acme = new PromoCodeViewModel()
+            {
+                ImageUrl = "/static-images/placeholder_promocode.svg",
+                Title = "Acme Co.",
+                Discount = 50,
+                ExpirationDate = "June 30, 2022",
+            };
+    var barone = new PromoCodeViewModel()
+            {
+                ImageUrl = "/static-images/placeholder_promocode.svg",
+                Title = "Barone LLC.",
+                Discount = 30,
+                ExpirationDate = "June 30, 2022",
+            };
+    var abstergo = new PromoCodeViewModel()
+            {
+                ImageUrl = "/static-images/placeholder_promocode.svg",
+                Title = "Abstergo Ltd.",
+                Discount = 15,
+                ExpirationDate = "June 30, 2022",
+            };
+}
 
 <section class="promocodes-header container">
     <div class="_title">
         <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
-        <h4>My promocodes</h4>
+        <h5>@ViewData["Title"]</h5>
         <div></div>
     </div>
     <div class="buttons">
@@ -16,50 +42,11 @@
 
 <section class="my-promocodes container">
     <hr />
-    <div class="promocode">
-        <div class="d-flex justify-content-between">
-            <div class="d-flex gap-3">
-                <img src="/static-images/placeholder_promocode.svg" />
-                <div class="mt-3">
-                    <h4>Acme Co.</h4>
-                    <p class="discount-amount">50% off</p>
-                    <p class="expire-date">Valid until June 30, 2022</p>
-                </div>
-            </div>
-            <button><i class="fa-light fa-copy"></i></button>
-        </div>
-        <hr />
-    </div>
 
-    <div class="promocode">
-        <div class="d-flex justify-content-between">
-            <div class="d-flex gap-3">
-                <img src="/static-images/placeholder_promocode.svg" />
-                <div class="mt-3">
-                    <h4>Barone LLC.</h4>
-                    <p class="discount-amount yellow-discount">30% off</p>
-                    <p class="expire-date">Valid until June 30, 2022</p>
-                </div>
-            </div>
-            <button><i class="fa-light fa-copy"></i></button>
-        </div>
-        <hr />
-    </div>
+    <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="acme" />
+    <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="barone" />    
+    <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="abstergo" />
 
-    <div class="promocode">
-        <div class="d-flex justify-content-between">
-            <div class="d-flex gap-3">
-                <img src="/static-images/placeholder_promocode.svg" />
-                <div class="mt-3">
-                    <h4>Abstergo Ltd.</h4>
-                    <p class="discount-amount green-discount">15% off</p>
-                    <p class="expire-date">Valid until June 30, 2022</p>
-                </div>
-            </div>
-            <button><i class="fa-light fa-copy"></i></button>
-        </div>
-        <hr />
-    </div>
 </section>
 
 <section class="no-promocodes container d-none">

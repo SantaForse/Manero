@@ -1,65 +1,69 @@
-﻿@{
-    //ViewData["Title"] = "My profile";
+﻿@model Manero.ViewModels.PaymentCardAddViewModel
+
+@{
+    ViewData["Title"] = "Add new card";
+
+    string placeholderName = "Firstname Lastname";
+    string placeholderNumber = "1111 2222 3333 4444";
+    string placeholderDate = "00/00";
+    string placeholderCode = "123";
 }
 
-<head>
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
-    <script defer src="~/js/site.js"></script>
-</head>
 
-<section class="payment-header container">
-    <div class="navigation-header">
-        <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
-        <h4>Add card</h4>
+<section class="edit-card-header container">
+    <div class="_title">
+        <a asp-controller="UserProfile" asp-action="UserPaymentMethods"><i class="fa-solid fa-chevron-left"></i></a>
+        <h5>@ViewData["Title"]</h5>
         <div></div>
     </div>
 </section>
 
-<section class="saved-cards container">
-    <div class="d-flex justify-content-between">
-        <div>Cards</div>
-        <a class="add-card" asp-controller="UserProfile" asp-action="UserPaymentMethodAdd">Add a new card <a href=""> <i class="fa-light fa-plus ms-4"></i></a></a>
-    </div>
+<section class="edit-card container">
 
-    <div class="slider">
-        <div class="_card">
+    <div class="vertical-line"></div>
+    <div class="d-flex justify-content-center">
+        <div class="_card mt-3">
             <img src="/static-images/paymentcard.png" />
             <i class="fa-brands fa-cc-visa"></i>
-            <p class="card-number">7741   6588   2123   6644</p>
-            <p class="card-name">KRISTIN</p>
-            <p class="expire">EXP.END</p>
-        </div>
-
-        <div class="_card">
-            <i class="fa-brands fa-cc-visa"></i>
-            <p class="card-number">7741   6588   2123   6644</p>
-            <p class="card-name">KRISTIN</p>
-            <p class="expire">EXP.END</p>
-            <img src="/static-images/paymentcard.png" />
-        </div>
-
-        <div class="_card">
-            <i class="fa-brands fa-cc-visa"></i>
-            <p class="card-number">7741   6588   2123   6644</p>
-            <p class="card-name">KRISTIN</p>
-            <p class="expire">EXP.END</p>
-            <img src="/static-images/paymentcard.png" />
+            <p class="card-number">@placeholderNumber</p>
+            <p class="card-name">@placeholderName</p>
+            <p class="expire">@placeholderDate</p>
         </div>
     </div>
+
+
 </section>
 
-<section class="payment-methods container">
-    <div class="d-flex justify-content-between">
-        <p class="_name">Apple Pay <i class="fa-solid fa-check ms-3"></i></p>
-        <a href="" class="edit-or-add"><i class="fa-light fa-pen-to-square"></i></a>
-    </div>
-    <div class="d-flex justify-content-between">
-        <p class="_name">Pay Pal<i class="fa-solid fa-check ms-3"></i></p>
-        <a href="" class="edit-or-add"><i class="fa-light fa-pen-to-square"></i></a>
-    </div>
-    <div class="d-flex justify-content-between">
-        <p class="_name">Payoneer</p>
-        <a href="" class="edit-or-add"><i class="fa-light fa-plus ms-4"></i></a>
-    </div>
+<section class="card-details container">
+    <form class="mb-3" method="post" novalidate>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="field-div mt-5">
+            <label asp-for="CardHolderName" class="label-text"></label>
+            <input asp-for="CardHolderName" value=@placeholderName />
+        </div>
+        <div class="d-flex justify-content-between card-number">
+            <div class="field-div">
+                <label asp-for="CardNumber" class="label-text"></label>
+                <input asp-for="CardNumber" value=@placeholderNumber />
+            </div>
+            <button><i class="fa-light fa-camera"></i></button>
+        </div>
+
+        <div class="d-flex">
+            <div class="field-div">
+                <label asp-for="CardExpirationDate" class="label-text"></label>
+                <input asp-for="CardExpirationDate" value=@placeholderDate />
+            </div>
+            <div class="field-div">
+                <label asp-for="CardCVV" class="label-text"></label>
+                <input asp-for="CardCVV" type="password" value=@placeholderCode />
+            </div>
+        </div>
+
+
+        <button type="submit" class="black-button mt-5">SAVE CARD</button>
+    </form>
 </section>
+
 

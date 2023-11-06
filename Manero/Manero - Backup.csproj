@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-manero-383dbe7a-53f2-43be-8a56-855878049799</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\UserAddress\**" />
+    <Compile Remove="wwwroot\static-design\**" />
+    <Content Remove="Views\UserAddress\**" />
+    <Content Remove="wwwroot\static-design\**" />
+    <EmbeddedResource Remove="Views\UserAddress\**" />
+    <EmbeddedResource Remove="wwwroot\static-design\**" />
+    <None Remove="Views\UserAddress\**" />
+    <None Remove="wwwroot\static-design\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\zahra-edited.css" />
+    <Content Remove="wwwroot\css\zahra.css.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildWebCompiler" Version="1.12.405" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.12">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\_AccountHeader.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\_AccountHeader.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\anton.css" />
+    <None Include="wwwroot\css\christian-shared.css" />
+    <None Include="wwwroot\css\christian-order-history.css" />
+    <None Include="wwwroot\css\sami.css" />
+    <None Include="wwwroot\css\christian-user-profile.css" />
+    <None Include="wwwroot\css\site.css" />
+    <None Include="wwwroot\css\zahra-edited.css" />
+    <None Include="wwwroot\css\zahra-edited.css.map" />
+    <None Include="wwwroot\static-images\paymentcard.png" />
+    <None Include="wwwroot\static-images\placeholder_promocode.svg" />
+    <None Include="wwwroot\static-images\stock-images\balenciaga-shoe.webp" />
+  </ItemGroup>
+
+</Project>

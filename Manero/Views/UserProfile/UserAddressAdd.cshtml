@@ -1,14 +1,16 @@
-﻿<head>
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
-</head>
+﻿@using Manero.ViewModels;
+@model Manero.ViewModels.UserProfileViewModel
+
+@{
+    ViewData["Title"] = "Add new address";
+}
 
 <section class="add-address">
 
-
     <div class="container">
         <div class="navigation-header">
-            <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
-            <h4>Add address</h4>
+            <a asp-controller="UserProfile" asp-action="UserAddress"><i class="fa-solid fa-chevron-left"></i></a>
+            <h5>@ViewData["Title"]</h5>
             <div></div>
         </div>
     </div>
@@ -18,14 +20,42 @@
                 <div class="top-page"></div>
 
                 <div class="container">
-                    <form>
+                    <form class="mt-5" method="post" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <!--
                         <div class="input-title">
                             <p>TITLE</p>
                         </div>
                         <input type="text" placeholder="Mom">
                         <div class="input-address"><p>ENTER A NEW ADDRESS</p></div>
+                        -->
+
+                        <div class="input-container">
+                            <label asp-for="AddressCategory" class="label-text"></label>
+                            <input asp-for="AddressCategory" value="" />
+                        </div>
+
+                        <div class="input-container">
+                            <label asp-for="StreetName" class="label-text"></label>
+                            <input asp-for="StreetName" value="" />
+                        </div>                   
+                        
+                        <div class="input-container">
+                            <label asp-for="StreetNumber" class="label-text"></label>
+                            <input asp-for="StreetNumber" value="" />
+                        </div>                   
+                        
+                        <div class="input-container">
+                            <label asp-for="City" class="label-text"></label>
+                            <input asp-for="City" value="" />
+                        </div>
+
+                        <!--
                         <input type="text" placeholder="3646 S 58th Ave, Cicero, IL 60804, U...">
                         <label class="custom-checkbox">
+                        -->
+
                             <input type="checkbox">
                             <span class="checkmark"></span>
                             Use current location.
