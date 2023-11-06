@@ -1,9 +1,24 @@
-﻿<section class="shop-by-category ">
+﻿@using Manero.ViewModels;
+
+@{
+    var CategoryPage = new NavbarViewModel()
+            {
+                Burger = false,
+                MiddleData = "Search",
+                ShoppingCart = true
+            };
+}
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="CategoryPage" />
+
+
+
+
+<section class="shop-by-category ">
     <div class="container">
         <div class="section-title">
-            <h2>Search</h2>
+            <h2>Search by category</h2>
         </div>
-        <hr>
 
         <div class="list-part">
             <div class="container">

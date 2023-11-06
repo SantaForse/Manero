@@ -10,7 +10,7 @@ This is the same partial as on wishlist later (but with items from different pla
     <div class="container">
         <div class="best_sellers_title">
             <h1>@Model.Title</h1>
-            <a asp-controller="@Model.ButtonLink" asp-action="Index">@Model.ButtonText <span>&#62;</span></a>
+            <a asp-controller="Category" asp-action="@Model.ButtonLink">@Model.ButtonText <span>&#62;</span></a>
         </div>
         <!-- Flex with limited amount -->
         <div class="small_card_flex">
@@ -45,7 +45,7 @@ This is the same partial as on wishlist later (but with items from different pla
                         }
 
 
-                        <img src="/static-images/stock-images/horse.jpg" alt="product">
+                        <img src="/static-images/stock-images/stock@(product.Id).jpg" alt="product">
                     </div>
                     <div class="card_right">
                         @* Should later go to individual shopping cards site... *@
@@ -74,7 +74,7 @@ This is the same partial as on wishlist later (but with items from different pla
                     </div>
                     <div class="small_card_options">
                         <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
-                        <a asp-controller="Shoppingcart" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
+                        <a asp-controller="Order" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
                     </div>
                 </div>
                 <!-- end of card -->

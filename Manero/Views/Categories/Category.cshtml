@@ -1,24 +1,38 @@
-﻿@* For now these two are static, I might make them into a viewmodel when I have the time *@
+﻿@using Manero.Models;
+@using Manero.ViewModels;
 
-@model Manero.ViewModels.CardGridViewModel
+@model List<ProductEntity>
+
+@{
+    var CategoryPage = new NavbarViewModel()
+            {
+                Burger = false,
+                MiddleData = "Search by Category",
+                ShoppingCart = true
+            };
+}
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="CategoryPage" />
 
 
-<section class="featured_products_section_v2 mb-5 ">
+<section class="best_sellers_section ">
     <div class="container">
         <div class="best_sellers_title">
-            <h1>@Model.Title</h1>
-            <a asp-controller="Category" asp-action="@Model.ButtonLink">@Model.ButtonText <span>&#62;</span></a>
+            
+            <h1><p>Category: </p> @ViewContext.RouteData.Values["productCategory"]</h1>
         </div>
-        <!-- Grid with autofill function -->
-        <div class="big_card_grid">
 
 
-            @foreach (var product in Model.Products)
+        <!-- Grid with cards that go outside of window, introduce javascript scroll -->
+        <div class="big_card_slider">
+
+            @foreach (var product in Model)
             {
 
                 <!-- start of card -->
                 <div class="product_card">
                     <div class="card_top">
+
                         <!-- can be changed, between classes:
                                 "card_tag_new, card_tag_sale and card_tag_top".
                             see the options below -->
@@ -43,7 +57,7 @@
                         <img src="/static-images/stock-images/stock@(product.Id).jpg" alt="product">
                         <div class="card_options">
                             <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
-                            <a asp-controller="Order" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
+                            <a asp-controller="Shoppingcart" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
                         </div>
                     </div>
                     <div class="card_bottom">
@@ -69,14 +83,12 @@
                         <a asp-controller="Products" asp-action="@(product.ProductName)" class="card_title">@product.ProductName </a>
                         <div class="card_price">
                             <p>@product.ProductPrice</p>
-                            <p>£12.9</p>
+                            <p>£22.9</p>
                         </div>
                     </div>
                 </div>
                 <!-- end of card -->
             }
-
-
 
 
         </div>

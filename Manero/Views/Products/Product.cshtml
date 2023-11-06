@@ -1,4 +1,5 @@
-﻿
+﻿@using Manero.ViewModels;
+
 @* Product details page *@
 
 @model Manero.Models.ProductEntity
@@ -7,12 +8,20 @@
 
     var rating = Model.ProductRating;
 
+    var ProductPage = new NavbarViewModel()
+            {
+                Burger = false,
+                MiddleData = "Manero",
+                ShoppingCart = true
+            };
 }
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="ProductPage" />
 
 <section class="big-screen-product">
 
     <div class="product-img">
-        <img src="/static-images/summer-top.jpg" alt="product-img">
+        <img src="/static-images/stock-images/stock@(Model.Id).jpg" alt="product">
         <div class="product-img-navigation">
             <div class="ball"><i class="fa-solid fa-circle"></i></div>
             <div class="ball"><i class="fa-solid fa-circle"></i></div>
@@ -24,31 +33,31 @@
     <div class="product-details container">
         <div class="product-heading-heart">
             <h1>@Model.ProductName</h1>
-            <a href=""><i class="fa-light fa-heart" style="color: #626262;"></i></a>
+            <a asp-controller="Wishlist" asp-action="Index"><i class="fa-light fa-heart" style="color: #626262;"></i></a>
         </div>
         <div class="raiting-stars">
 
 
             @for (int i = 0; i < rating; i++ )
             {
-                <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
+                <a href="#"><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
             }
 
             @for (int i = 0; i < (5 - rating); i++)
             {
-                <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
+                <a href="#"><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
 
             }
            
         @* Should show how many reviews there are *@
-            <p>(23)</p>
+            <p>(4)</p>
         </div>
         <div class="product-price-quantity">
             <h1 class="product-price">$@Model.ProductPrice</h1>
             <div class="plus-minus-button">
-                <a href=""><i class="fa-regular fa-minus" style="color: #111111;"></i></a>
+                <a href="#"><i class="fa-regular fa-minus" style="color: #111111;"></i></a>
                 <p>1</p>
-                <a href=""><i class="fa-regular fa-plus" style="color: #111111;"></i></a>
+                <a href="#"><i class="fa-regular fa-plus" style="color: #111111;"></i></a>
             </div>
         </div>
         <div class="product-size">
@@ -81,5 +90,10 @@
     <p>@Model.ProductDescription</p>
 </section>
 
+<div class="review-button container">
+    <button class="black-button">+ ADD TO CART</button>
+</div>
 
 @* Down here it should loop out the reviews connected to the Product *@
+
+<partial name="/Views/Partials/_ReviewsPartial.cshtml" />

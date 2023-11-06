@@ -8,7 +8,7 @@
     var bannerRight = new BannerViewModel()
         {
             Title = "Take 50% off now!",
-            ButtonLink = "Shoppping",
+            ButtonLink = "Sale",
             ButtonText = "SHOP NOW",
             FlexSide = "right"
         };
@@ -16,7 +16,7 @@
     var bannerLeft = new BannerViewModel()
         {
             Title = "Look at the top sellers",
-            ButtonLink = "Shoppping",
+            ButtonLink = "Sale",
             ButtonText = "TOP SALES",
             FlexSide = "left"
         };
@@ -25,8 +25,8 @@
 //Card grids
     var fancySetting = new CardGridViewModel()
             {
-                Title = "Fancy wear!",
-                ButtonLink = "Shopping",
+                Title = "Top wear!",
+                ButtonLink = "Top",
                 ButtonText = "all looks",
                 CardNr = 7,
                 Products = Model
@@ -35,7 +35,7 @@
     var bestSellers = new CardGridViewModel()
             {
                 Title = "Best Sellers",
-                ButtonLink = "Shopping",
+                ButtonLink = "BestSellers",
                 ButtonText = "Shop now",
                 CardNr = 6,
                 Products = Model
@@ -44,7 +44,7 @@
     var featuredProducts = new CardGridViewModel()
             {
                 Title = "Featured products",
-                ButtonLink = "Shopping",
+                ButtonLink = "FeaturedProducts",
                 ButtonText = "view all",
                 CardNr = 9,
                 Products = Model
@@ -53,7 +53,7 @@
     var newProducts = new CardGridViewModel()
             {
                 Title = "New designs",
-                ButtonLink = "Shopping",
+                ButtonLink = "New",
                 ButtonText = "get them first",
                 CardNr = 5,
                 Products = Model
@@ -97,7 +97,7 @@
 
 <partial name="/Views/Partials/Card-Partials/_FeaturedProductsPartial.cshtml" model="@featuredProducts" />
 
-<partial name="/Views/Partials/_CategoryBallsPartial.cshtml" />
+<partial name="/Views/Partials/_CategoryBallsPartial.cshtml" model="@fancySetting" />
 
 <partial name="/Views/Partials/Card-Partials/_FeaturedProductsPartialV2.cshtml" model="@fancySetting" />
 

@@ -13,16 +13,16 @@
         </div>
     </div>
 
-
+@*  Changed so the toggle collapse works again -Jeppe *@
     <div class="checkout_details">
         <!-- Should loop out all objects. But static for now. -->
-        <button class="order_details container" type="button" data-bs-toggle="collapse" data-bs-target="#my_order">
+        <button class="order_details container" type="button" onclick="toggleVisibility('my_order')">
             <div class="order_title container">
                 <h1>My order</h1>
                 <h1>£40,9</h1>
             </div>
             <!-- This one contains the hidden information, toggle by button -->
-            <div class="collapse" id="my_order">
+            <div class="d-none" id="my_order">
                 <div class="basket">
                     <div class="basket_object">
                         <p>Black sneakers</p>
@@ -45,7 +45,7 @@
         </button>
 
         <div class="shipping_details container">
-            <button class="shipping_title container" type="button" data-bs-toggle="collapse" data-bs-target="#my_shipping">
+            <button class="shipping_title container" type="button" onclick="toggleVisibility('my_shipping')">
                 <div class="shipping_text">
                     <h1>Shipping details</h1>
                     <h1>Genericstreet nr 23, Faketown, Långtbortistan... </h1>
@@ -53,7 +53,7 @@
                 <a href="#">&#62;</a>
             </button>
             <!-- This one contains the hidden information, toggle by button -->
-            <div class="collapse" id="my_shipping">
+            <div class="d-none" id="my_shipping">
                 <iframe class="container" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d16281.287102260696!2d17.9565971!3d59.3302677!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ssv!2sse!4v1697737962574!5m2!1ssv!2sse" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="address_list">
                     <!-- loop out all addresses -->
@@ -80,7 +80,7 @@
         </div>
 
         <div class="payment_method container">
-            <button class="payment_title container" type="button" data-bs-toggle="collapse" data-bs-target="#my_payment">
+            <button class="payment_title container" type="button" onclick="toggleVisibility('my_payment')">
                 <div class="payment_text">
                     <h1>Payment method</h1>
                     <h1>7741 ******** 6644</h1>
@@ -88,7 +88,7 @@
                 <a href="#">&#62;</a>
             </button>
             <!-- This one contains the hidden information, toggle by button -->
-            <div class="collapse" id="my_payment">
+            <div class="d-none" id="my_payment">
                 <div class="payment_options">
                     <h1>Credit cards</h1>
                     <!-- The credit card has different attribute, and should be looped out -->
@@ -133,3 +133,11 @@
         <button type="submit" class="black_button">CONFIRM ORDER</button>
     </form>
 </section>
+
+
+<script>
+    function toggleVisibility(collapseId) {
+        var element = document.getElementById(collapseId);
+        element.classList.toggle("d-none");
+    }
+</script>

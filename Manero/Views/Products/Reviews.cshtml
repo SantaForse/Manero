@@ -1,17 +1,25 @@
-﻿@{
+﻿@using Manero.ViewModels;
+
+@{
     int count = 0;
     int nr = 0;
+
+    var ReviewsPage = new NavbarViewModel()
+        {
+            Burger = false,
+            MiddleData = "All Reviews",
+            ShoppingCart = true
+        };
 }
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="ReviewsPage" />
 
 
 <section class="reviews">
 
-    <div class="review-heading container">
-        <h2>Reviews (4)</h2>
-        <a asp-controller="Products" asp-action="Reviews">view all ></a>
-    </div>
+    <h2 class="m-5" style="text-align:center;">Reviews (4)</h2>
 
-@* For now they just loop out the same cards, will need products in db to loop out  *@
+    @* For now they just loop out the same cards, will need products in db to loop out  *@
     @while (count < 4)
     {
 
@@ -30,13 +38,13 @@
                     <div class="review-stars">
 
                         @* For now they are static *@
-                        
+
                         @for (int i = 0; i < (count - nr); i++)
                         {
                             <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
 
                         }
-                        
+
                         @for (int i = 0; i < (5 - count); i++)
                         {
                             <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
@@ -47,5 +55,7 @@
             </div>
         </div>
     }
+
+    <h1 id="write-a-comment" class="m-3">Write a comment? <a asp-controller="LeaveReview" asp-action="Index"><i class="fa-solid fa-comment"></i></a></h1>
 
 </section>

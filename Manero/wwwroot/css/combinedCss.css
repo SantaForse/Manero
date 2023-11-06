@@ -74,23 +74,24 @@ a {
     margin-bottom: 1rem;
 }
 
+/*Changed white button -Jeppe*/
 .white_button {
     background-color: var(--color-white);
     color: var(--color-theme-black);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: var(--semibold-font);
-    font-family: var(--font-mulish);
-    padding: 15px 25px;
-    border-radius: 45px;
     border: none;
+    padding: 0.95rem;
+    width: 100%;
+    border-radius: 5rem;
+    font-size: 0.875rem;
+    border: 4px solid var(--color-white);
+    font-weight: var(--semibold-font);
+    transition: all 200ms ease-in-out;
     text-align: center;
-    transition: color ease-in 250ms, background ease-in 250ms;
 }
 
     .white_button:hover {
-        background-color: var(--color-theme-black);
-        color: var(--color-white);
+        border: 4px solid var(--color-theme);
+        color: var(--color-theme-black);
     }
 
 .black-button {
@@ -110,23 +111,22 @@ a {
         border: 4px solid var(--color-theme);
     }
 
+/*Changed this button to look the same as all the others - Jeppe*/
 .black_button {
     background-color: var(--color-theme-black);
     color: var(--color-white);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: var(--semibold-font);
-    font-family: var(--font-mulish);
-    padding: 15px 25px;
-    border-radius: 45px;
     border: none;
-    text-align: center;
-    transition: color ease-in 250ms, background ease-in 250ms;
+    padding: 0.95rem;
+    width: 100%;
+    border-radius: 5rem;
+    font-size: 0.875rem;
+    border: 4px solid var(--color-theme-black);
+    font-weight: var(--semibold-font);
+    transition: all 200ms ease-in-out;
 }
 
     .black_button:hover {
-        background-color: var(--color-white);
-        color: var(--color-theme-black);
+        border: 4px solid var(--color-theme);
     }
 
 
