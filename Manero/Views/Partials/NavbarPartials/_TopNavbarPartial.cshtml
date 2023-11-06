@@ -61,7 +61,13 @@
     @* Lets you choose what the middle display should be on each page *@
     @if (Model.MiddleData == "Manero")
     {
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/static-images/logo.png" alt="logo"></a>
+       
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <div class="navbar-brand-border"></div>
+            <h1 class="page-title-topnavbar">Manero</h1>
+            </a>
+       
+        
     
     }else if (Model.MiddleData == "Search")
     {
@@ -72,7 +78,7 @@
     } else
     {
     @* Maybe this one should automatically show the page title or something? *@
-        <h3>@Model.MiddleData</h3>
+        <h3 id="topnavbar-special" class="page-title-topnavbar">@Model.MiddleData</h3>
     }
 
 
@@ -84,11 +90,12 @@
             <div class="orange-ball"><p>$0</p></div>
 
             @* The first four might not be needed *@
-            <a href="#" class="big-screen-symbols"><i class="fa-light fa-house-chimney"></i></a>
-            <a href="#" class="big-screen-symbols"><i class="fa-light fa-magnifying-glass"></i></a>
-            <a href="#" class="big-screen-symbols"><i class="fa-light fa-heart"></i></a>
-            <a href="#" class="big-screen-symbols"><i class="fa-light fa-circle-user"></i></a>
-            <a asp-controller="Profile" asp-action="Cart" class="shopping-bag-symbol" style="color: #626262;"><i class="fa-light fa-bag-shopping"></i></a>
+            <a asp-controller="Home" asp-action="Index" class="big-screen-menu">Home</a>
+            <a asp-controller="Categories" asp-action="Index" class="big-screen-menu">Search</a>
+            <a asp-controller="WishList" asp-action="Index" class="big-screen-menu">Wishlist</a>
+            <a asp-controller="Order" asp-action="Index" class="big-screen-menu">Shopping bag</a>
+            <a asp-controller="UserProfile" asp-action="Index" class="big-screen-menu">My Profile</a>
+            <a asp-controller="Order" asp-action="Index" class="shopping-bag-symbol" style="color: #626262;"><i class="fa-light fa-bag-shopping"></i></a>
         }
 
     </div>

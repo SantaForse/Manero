@@ -40,8 +40,9 @@ html {
   position: relative;
   min-height: 100%; }
 
-body {
-  margin-bottom: 60px; }
+/* we cannot have such parts, since it interferes with the whole page
+    body {
+  margin-bottom: 60px; }*/
 
 .big-title {
   font-family: var(--font-mulish);
