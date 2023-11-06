@@ -3578,10 +3578,10 @@ Samis css*/
         .leave-review .center-content .vertical-line {
             width: 1px;
             background-color: black;
-            position: absolute;
-            top: 33%;
+            position: relative;
+            bottom: -10px;
             left: 50%;
-            height: 30px;
+            height: 40px;
             border-radius: 50px;
         }
 
