@@ -1,27 +1,59 @@
-﻿@model Manero.ViewModels.CommentViewModel
+﻿@using Manero.Models;
+@using System.Linq
 
+@model Manero.ViewModels.ReviewViewModel
+<head>
+    <link rel="stylesheet" href="~/css/zahra.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @* <script src="~/js/starRating.js"></script> *@
+</head>
 
-    <section class="leave-review bg-color2">
-        <div class="container">
+<section class="leave-review bg-color2">
+    <div class="container">
         <div class="center-content">
-        <div class="review-title ">Leave a review</div>
-        <img class="review-image" src="~/static-images/reviewImg.png" alt="Review Image">
-        <div class="v-line"></div>
-        <p class="review-paragraph">Please rate the quality of <br> service for the order!</p>
-        <div class="star-rating">
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-        </div>
-        <p class="second-text">Your comments and suggestions help us <br> improve the service quality better!</p>
+            <div class="review-title">Leave a review</div>
+            <img class="review-image" src="~/static-images/reviewImg.png" alt="Review Image">
+            <div class="vertical-line"></div>
+            <p class="review-paragraph">Please rate the quality of <br> service for the order!</p>
+        
+            <div class="star-rating">
+                <i class=" ratingStar far fa-star"></i> 
+                <i class=" ratingStar far fa-star"></i>
+                <i class=" ratingStar far fa-star"></i>
+                <i class=" ratingStar far fa-star"></i>
+                <i class=" ratingStar far fa-star"></i>
+               
+            </div>
+
+            <p class="second-text">Your comments and suggestions help us <br> improve the service quality better!</p>
+
             <form method="post">
-            <label asp-for="Comments">COMMENT</label>
+                <label asp-for="NewCommentText">COMMENT</label>
                 <input id="comments" asp-for="NewCommentText" type="text" placeholder="Enter your comment" />
-                <button  type="submit">SUBMIT</button>
+                <button type="submit">SUBMIT</button>
             </form>
-        <div class="end-line"></div>
+
+            <div class="end-line"></div>
+        </div>
     </div>
-    </div>
- </section>
+</section>
+
+
+<script>
+    $(".ratingStar").hover(function () {
+        $(".ratingStar").addClass("far").removeClass("fas");
+
+        $(this).addClass("fas").removeClass("far");
+        $(this).prevAll(".ratingStar").addClass("fas").removeClass("far");
+    });
+</script>
+
+
+
+
+
+
+
+
+
+

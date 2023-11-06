@@ -6,11 +6,11 @@ namespace Manero.Controllers
 {
     public class LeaveReviewController : Controller
     {
-        private List<CommentModel> comments = new List<CommentModel>();
+        private List<ReviewModel> comments = new List<ReviewModel>();
 
         public IActionResult Index()
         {
-            var viewModel = new CommentViewModel
+            var viewModel = new ReviewViewModel
             {
                 Comments = comments
             };
@@ -18,13 +18,15 @@ namespace Manero.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddComment(CommentViewModel viewModel)
+        public IActionResult AddComment(ReviewViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                var newComment = new CommentModel
+                var newComment = new ReviewModel
                 {
-                    CommentText = viewModel.NewCommentText
+                    Rating = viewModel.Rating,
+                    CommentText = viewModel.NewCommentText,
+                    ReviewDate = DateTime.Now
                 };
                 comments.Add(newComment);
             }
@@ -32,5 +34,4 @@ namespace Manero.Controllers
             return RedirectToAction("Index");
         }
     }
-
 }
