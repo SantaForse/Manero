@@ -1,4 +1,25 @@
-﻿<section class="featured_products_section_v2">
+﻿@using Manero.Services;
+
+
+@inject ProductsService productService
+
+@{
+    var products = productService.GetProducts();
+}
+
+@foreach (var product in products)
+{
+    <h1>@product.ProductName</h1>
+
+    <img src="@product.ImageUrl" alt="product">
+
+    <h1>@product.Price</h1>
+
+}
+
+
+
+<section class="featured_products_section_v2">
     <div class="container">
         <div class="best_sellers_title">
             <a asp-controller="BestSellers" asp-action="ProductFilter"><h1><i class="fa-solid fa-filter"></i> Filters</h1></a>

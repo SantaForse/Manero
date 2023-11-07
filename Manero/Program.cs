@@ -1,4 +1,5 @@
 using manero.Data;
+using Manero.Data;
 using Manero.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
+builder.Services.AddDbContext<ProductDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DataSql")));
+
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
@@ -24,6 +28,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 //Im adding a product service for injection option - Jeppe 3/11
 builder.Services.AddSingleton<ProductService>();
+builder.Services.AddScoped<ProductsService>();
+
 
 builder.Services.AddControllersWithViews();
 

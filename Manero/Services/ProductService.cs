@@ -31,6 +31,8 @@ public class ProductService
         };
     }
 
+
+
     //Get all products
     public List<ProductEntity> GetAllProducts()
     {

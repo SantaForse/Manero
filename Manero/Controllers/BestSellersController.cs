@@ -1,16 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Manero.Models.Entities;
+using Manero.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Manero.Controllers
 {
     public class BestSellersController : Controller
     {
-        public IActionResult Index()
+        
+		private readonly ProductsService productsService;
+
+        public BestSellersController(ProductsService productsService)
         {
-            return View();
+            this.productsService = productsService;
         }
 
 
 
+
+        //Views
+        public IActionResult Index()
+        {
+            IEnumerable<ProductEntity> siteProducts = productsService.GetProducts();
+            return View(siteProducts);
+        }
 
 
         public IActionResult ProductFilter()
