@@ -1,12 +1,11 @@
-﻿@model Manero.ViewModels.CardGridViewModel
+﻿@using Manero.Services;
 
 @*Shouldnt be a static list of course ^^ *@
 
+@inject ProductsService productService
+
 @{
-    List<string> allCategories = Model.Products
-            .SelectMany(p => p.Categories)
-            .Distinct()
-            .ToList();
+    var allCategories = productService.GetAllCategories();
 }
 
 
@@ -18,11 +17,11 @@
             {
                 @foreach (var category in allCategories)
                 {
-                    <a asp-controller="Category" asp-action="@category" class="category_ball m-3">
+                    <a asp-controller="Category" asp-action="@category.CategoryName" class="category_ball m-3">
                         <div class="category_image">
                             <img src="/static-images/stock-images/stock1.webp" alt="category image">
                         </div>
-                        <p>@category</p>
+                        <p>@category.CategoryName</p>
                     </a>
                 }
             }
