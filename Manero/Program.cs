@@ -30,6 +30,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddSingleton<ProductService>();
 builder.Services.AddScoped<ProductsService>();
 
+//Im adding a service for tags /Santa
+builder.Services.AddScoped<TagsService>();
+
+
 
 builder.Services.AddControllersWithViews();
 
