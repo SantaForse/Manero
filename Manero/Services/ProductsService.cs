@@ -16,13 +16,33 @@ public class ProductsService
 
 
 
-
+    //Gets all products from product table in db
     public IEnumerable<ProductEntity> GetProducts()
+    {
+        return _context.Products.ToList();
+    }
+
+    //Gets products by tag
+    public IEnumerable<ProductEntity> GetProductsByTag()
     {
         return _context.Products.ToList();
     }
 
 
 
+    //Get product by name
+    public ProductEntity GetProductByName(string productName)
+    {
+        return _context.Products.FirstOrDefault(p => p.ProductName == productName)!;
+    }
+
+    //Get all categories from category table in db
+    public IEnumerable<CategoryEntity> GetAllCategories()
+    {
+        var category = _context.Categories.ToList();
+
+
+        return category;
+    }
 
 }

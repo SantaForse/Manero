@@ -21,7 +21,7 @@
 
         @foreach (var product in Model)
         {
-            var rating = product.ProductRating;
+            var rating = product.Rating;
 
             <!-- start of card -->
             <div class="product_card">
@@ -29,7 +29,7 @@
                     <!-- can be changed, between classes:
                             "card_tag_new, card_tag_sale and card_tag_top".
                         see the options below -->
-                    @if (product.ProductTag == "new")
+                    @* @if (product.ProductTag == "new")
                     {
                         <div class="card_tag_new">NEW</div>
                     }
@@ -44,10 +44,10 @@
                     else
                     {
                         <div class="card_tag"></div>
-                    }
+                    } *@
 
 
-                    <img src="/static-images/stock-images/stock@(product.Id).jpg" alt="product">
+                    <img src="@product.ImageUrl" alt="product">
                     <div class="card_options">
                         <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
                         <a asp-controller="Shoppingcart" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
@@ -75,8 +75,8 @@
                     @* Should later go to individual shopping cards site... *@
                     <a asp-controller="Products" asp-action="Product" asp-route-productName="@product.ProductName">@product.ProductName</a>
                     <div class="card_price">
-                        <p>£@product.ProductPrice</p>
-                        <p>£12.9</p>
+                        <p>£@product.Price</p>
+                        <p>£@product.SalePrice</p>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-﻿using Manero.Models;
+﻿using Manero.Models.Entities;
 using Manero.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,18 +7,17 @@ namespace Manero.Controllers;
 public class ProductsController : Controller
 {
     //Injection of services
-    private readonly ProductService productService;
+    private readonly ProductsService productsService;
 
-    public ProductsController(ProductService productService)
+    public ProductsController(ProductsService productsService)
     {
-        this.productService = productService;
+        this.productsService = productsService;
     }
-
 
     public IActionResult Index()
     {
         //Populates the view with a list of all products
-        List<ProductEntity> products = productService.GetAllProducts();
+        var products = productsService.GetProducts();
 
         return View(products);
     }
@@ -29,7 +28,7 @@ public class ProductsController : Controller
     public IActionResult Product(string productName)
     {
         //Populates the view with a single product, by name
-        ProductEntity product = productService.GetProductByName(productName);
+        ProductEntity product = productsService.GetProductByName(productName);
 
         if (product == null)
         {
