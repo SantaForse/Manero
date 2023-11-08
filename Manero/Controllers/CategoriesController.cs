@@ -27,18 +27,18 @@ public class CategoriesController : Controller
 
     //Routes to the specifik category page
     [Route("Category/{productCategory}")]
-    public IActionResult Category()
+    public IActionResult Category(string productCategory)
     {
+        
+        //This one gets one category from db and then creates that view 
+        CategoryEntity category = productsService.GetCategory(productCategory);
 
-        //Alternativt bör denna ladda upp alla producter från categories istället 
-        IEnumerable<String> categories = productsService.GetAllUniqueCategories();
-
-        if (categories == null)
+        if (category == null)
         {
             return NotFound();
         }
 
-        return View(categories);
+        return View(category);
     }
 
 

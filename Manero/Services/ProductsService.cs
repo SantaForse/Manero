@@ -44,6 +44,12 @@ public class ProductsService
         return category;
     }
 
+    //Get a single category
+    public CategoryEntity GetCategory(string productCategory)
+    {
+        return _context.Categories.FirstOrDefault(c => c.CategoryName == productCategory)!;
+    }
+
     //Get all categories from category table in db
     public IEnumerable<String> GetAllUniqueCategories()
     {
