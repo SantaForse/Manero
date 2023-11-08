@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Manero.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20231108103136_initial")]
+    [Migration("20231108152935_initial")]
     partial class initial
     {
         /// <inheritdoc />

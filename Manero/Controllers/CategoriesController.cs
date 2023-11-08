@@ -1,4 +1,5 @@
 ﻿using Manero.Models;
+using Manero.Models.Entities;
 using Manero.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,12 +9,14 @@ public class CategoriesController : Controller
 {
 
     //Injections
-    private readonly ProductService productService;
+    private readonly ProductsService productsService;
 
-    public CategoriesController(ProductService productService)
+    public CategoriesController(ProductsService productsService)
     {
-        this.productService = productService;
+        this.productsService = productsService;
     }
+
+
 
 
     //Views
@@ -24,16 +27,18 @@ public class CategoriesController : Controller
 
     //Routes to the specifik category page
     [Route("Category/{productCategory}")]
-    public IActionResult Category(string productCategory)
+    public IActionResult Category()
     {
-        List<ProductEntity> productsInCategory = productService.GetProductsByCategory(productCategory);
 
-        if (productsInCategory.Count == 0)
+        //Alternativt bör denna ladda upp alla producter från categories istället 
+        IEnumerable<String> categories = productsService.GetAllUniqueCategories();
+
+        if (categories == null)
         {
             return NotFound();
         }
 
-        return View(productsInCategory);
+        return View(categories);
     }
 
 

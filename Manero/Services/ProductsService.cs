@@ -36,13 +36,22 @@ public class ProductsService
         return _context.Products.FirstOrDefault(p => p.ProductName == productName)!;
     }
 
-    //Get all categories from category table in db
+    //Get all categoryEntities from category table in db
     public IEnumerable<CategoryEntity> GetAllCategories()
     {
         var category = _context.Categories.ToList();
 
-
         return category;
+    }
+
+    //Get all categories from category table in db
+    public IEnumerable<String> GetAllUniqueCategories()
+    {
+        var uniqueCategories = _context.Categories.Select(category => category.CategoryName)
+            .Distinct()
+            .ToList();
+
+        return uniqueCategories;
     }
 
 }

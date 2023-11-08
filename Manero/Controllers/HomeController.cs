@@ -13,21 +13,18 @@ namespace manero.Controllers
 		//Services
 		private readonly ILogger<HomeController> _logger;
 
-		private readonly ProductService productService;
 
-        public HomeController(ILogger<HomeController> logger, ProductService productService)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            this.productService = productService;
         }
 
 
 		//Views
         public IActionResult Index()
         {
-            //Populates the view with a list of all products
-            List<ProductEntity> siteProducts = productService.GetAllProducts();
-            return View(siteProducts);
+            
+            return View();
         }
 
         public IActionResult Privacy()
