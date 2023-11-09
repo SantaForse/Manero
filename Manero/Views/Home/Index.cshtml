@@ -9,16 +9,24 @@
         {
             Title = "Take 50% off now!",
             ButtonLink = "Sale",
-            ButtonText = "SHOP NOW",
+            ButtonText = "SHOP SALES",
             FlexSide = "right"
         };
+
+    var bannerMid = new BannerViewModel()
+            {
+                Title = "See the new arrivals",
+                ButtonLink = "New",
+                ButtonText = "NEW PRODUCTS",
+                FlexSide = "left"
+            };
 
     var bannerLeft = new BannerViewModel()
         {
             Title = "Look at the top sellers",
             ButtonLink = "Top",
             ButtonText = "TOP SALES",
-            FlexSide = "left"
+            FlexSide = "right"
         };
 
 
@@ -92,6 +100,8 @@
 <partial name="/Views/Partials/Site-Dividers/_BannerPartial.cshtml" model="@bannerLeft" />
 
 <partial name="/Views/Partials/Card-Partials/_FeaturedProductsPartial.cshtml" model="@featuredProducts" />
+
+<partial name="/Views/Partials/Site-Dividers/_BannerPartial.cshtml" model="@bannerMid" />
 
 <partial name="/Views/Partials/_CategoryBallsPartial.cshtml" model="@fancySetting" />
 
