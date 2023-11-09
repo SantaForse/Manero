@@ -22,10 +22,13 @@ public class ProductsService
         return _context.Products.ToList();
     }
 
-    //Gets products by tag
-    public IEnumerable<ProductEntity> GetProductsByTag()
+    //Gets products by category
+    public IEnumerable<ProductEntity> GetProductsByCategory(string categoryName)
     {
-        return _context.Products.ToList();
+        return _context.ProductCategories
+            .Where(pc => pc.Category.CategoryName == categoryName)
+            .Select(pc => pc.Product)
+            .ToList();
     }
 
 
@@ -50,7 +53,7 @@ public class ProductsService
         return _context.Categories.FirstOrDefault(c => c.CategoryName == productCategory)!;
     }
 
-    //Get all categories from category table in db
+    //Get all unique categories from category table in db
     public IEnumerable<String> GetAllUniqueCategories()
     {
         var uniqueCategories = _context.Categories.Select(category => category.CategoryName)
