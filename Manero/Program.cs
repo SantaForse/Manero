@@ -1,5 +1,6 @@
 using manero.Data;
 using Manero.Data;
+using Manero.Repositories;
 using Manero.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 //Im adding a product service for injection option - Jeppe 3/11
 builder.Services.AddSingleton<ProductService>();
 builder.Services.AddScoped<ProductsService>();
+
+//Adding Service and Repositories for retrieving user promo codes - Christian 9/11
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<PromoCodeRepo>();
+builder.Services.AddScoped<UserPromoCodeRepo>();
 
 
 builder.Services.AddControllersWithViews();

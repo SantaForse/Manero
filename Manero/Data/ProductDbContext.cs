@@ -5,7 +5,6 @@ namespace Manero.Data;
 
 public class ProductDbContext : DbContext
 {
-
     public ProductDbContext(DbContextOptions<ProductDbContext> options) : base(options)
     {
     }
@@ -13,6 +12,11 @@ public class ProductDbContext : DbContext
     public DbSet <ProductEntity> Products { get; set; }
     public DbSet<CategoryEntity> Categories { get; set; }
     public DbSet<ProductCategoryEntity> ProductCategories { get; set; }
+
+    public DbSet<PromoCodeEntity> PromoCodes { get; set; }
+    public DbSet<UserPromoCodeEntity> UserPromoCodes { get; set; }
+
+
 
 
     //Static example product
@@ -158,8 +162,7 @@ public class ProductDbContext : DbContext
                     ImageUrl = "/static-images/tactical-beard-brown.png",
                     ProductName = "Taktiskt skägg",
                     Price = 249
-                }
-                );
+                });
 
         modelBuilder.Entity<CategoryEntity>().HasData(
                 new CategoryEntity
@@ -204,9 +207,49 @@ public class ProductDbContext : DbContext
                     ProductId = 1,
                     CategoryId = 3,
                 });
-            }
-                
+
+        modelBuilder.Entity<PromoCodeEntity>().HasData(
+            new PromoCodeEntity
+            {
+                Id = 1,
+                ImageUrl = "/static-images/placeholder_promocode.svg",
+                Title = "Acme Co.",
+                Discount = 50,
+                ExpirationDate = "June 30, 2022",
+            },
+            new PromoCodeEntity
+            {
+                Id = 2,
+                ImageUrl = "/static-images/placeholder_promocode.svg",
+                Title = "Barone LLC.",
+                Discount = 30,
+                ExpirationDate = "June 30, 2022",
+            },
+            new PromoCodeEntity
+            {
+                Id = 3,
+                ImageUrl = "/static-images/placeholder_promocode.svg",
+                Title = "Abstergo Ltd.",
+                Discount = 15,
+                ExpirationDate = "June 30, 2022",
+            });
+        
+            modelBuilder.Entity<UserPromoCodeEntity>().HasData(
+            new UserPromoCodeEntity
+            {
+                UserId = "d61aac58a05f",
+                PromoCodeId = 1,
+            },
+            new UserPromoCodeEntity
+            {
+                UserId = "d61aac58a05f",
+                PromoCodeId =  2,
+            });
+        
+    }
 }
+                
+
 
 
 

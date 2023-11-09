@@ -12,7 +12,7 @@ using manero.Data;
 namespace Manero.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231109153749_init")]
+    [Migration("20231109183852_init")]
     partial class init
     {
         /// <inheritdoc />

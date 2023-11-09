@@ -1,5 +1,6 @@
-﻿@using Manero.ViewModels
-@model Manero.ViewModels.PromoCodeViewModel
+﻿@using Manero.Services
+@using Manero.ViewModels;
+@inject UserService userService
 
 @{
     ViewData["Title"] = "My Promo codes";
@@ -42,10 +43,10 @@
 
 <section class="my-promocodes container">
     <hr />
-
-    <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="acme" />
-    <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="barone" />    
-    <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="abstergo" />
+    @foreach (var promoCode in await userService.GetPromoCodesByUserId("d61aac58a05f"))
+    {
+        <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="promoCode" />
+    }
 
 </section>
 
