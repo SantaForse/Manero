@@ -1,10 +1,10 @@
 ﻿@using Manero.Services;
 @model Manero.ViewModels.CardGridViewModel
 
-@inject ProductsService productService
+@inject TagsService tagsService
 
 @{
-    var products = productService.GetProducts();
+    var products = tagsService.GetNewProducts();
 }
 
 <section class="featured_products_section_v2 mb-5 ">
@@ -17,31 +17,32 @@
         <div class="big_card_grid">
 
 
-            @foreach (var product in products)
+            @foreach (var product in await products)
             {
 
                 <!-- start of card -->
                 <div class="product_card">
                     <div class="card_top">
+
                         <!-- can be changed, between classes:
                                 "card_tag_new, card_tag_sale and card_tag_top".
                             see the options below -->
-                        @* @if (product.ProductTag == "new")
+                        @if (Model.ButtonLink == "New")
                         {
                             <div class="card_tag_new">NEW</div>
                         }
-                        else if (product.ProductTag == "sale")
+                        else if (Model.ButtonLink == "Sale")
                         {
                             <div class="card_tag_sale">SALE</div>
                         }
-                        else if (product.ProductTag == "top")
+                        else if (Model.ButtonLink == "Top")
                         {
                             <div class="card_tag_top">TOP</div>
                         }
                         else
                         {
                             <div class="card_tag"></div>
-                        } *@
+                        }
 
 
                         <img src="@product.ImageUrl" alt="product">
