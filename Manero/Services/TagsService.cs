@@ -13,6 +13,8 @@ public class TagsService
         _context = context;
     }
 
+    
+
 
     //Get a list of all the products
     public async Task<IEnumerable<ProductEntity>> GetProducts()
@@ -64,4 +66,26 @@ public class TagsService
     }
 
 
+    public string GetTag(string tagName)
+    {
+
+        List<string> tags = new List<string>
+        {
+        //One tag for each tagfunction
+            "Sale",
+            "Top",
+            "New"
+        };
+
+        foreach (var tag in tags)
+        {
+            if (tag == tagName)
+            {
+                return tag;
+            }
+        }
+
+        return null;
+
+    }
 }
