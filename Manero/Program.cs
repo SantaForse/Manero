@@ -26,8 +26,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-//Im adding a product service for injection option - Jeppe 3/11
-builder.Services.AddSingleton<ProductService>();
+//Im removing the old productService that i made, its now replaced entirely with the new service
 builder.Services.AddScoped<ProductsService>();
 
 //Im adding a service for tags /Santa

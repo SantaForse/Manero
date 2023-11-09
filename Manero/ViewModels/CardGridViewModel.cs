@@ -12,6 +12,4 @@ public class CardGridViewModel
     
     public int CardNr { get; set; }
 
-    public List<ProductEntity> Products { get; set; } = null!;
-
 }

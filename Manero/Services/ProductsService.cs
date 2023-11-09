@@ -22,10 +22,14 @@ public class ProductsService
         return _context.Products.ToList();
     }
 
-    //Gets products by tag
-    public IEnumerable<ProductEntity> GetProductsByTag()
+
+    //Gets products by category
+    public IEnumerable<ProductEntity> GetProductsByCategory(string categoryName)
     {
-        return _context.Products.ToList();
+        return _context.ProductCategories
+            .Where(pc => pc.Category.CategoryName == categoryName)
+            .Select(pc => pc.Product)
+            .ToList();
     }
 
 
@@ -36,13 +40,39 @@ public class ProductsService
         return _context.Products.FirstOrDefault(p => p.ProductName == productName)!;
     }
 
-    //Get all categories from category table in db
+
+    //Get all categoryEntities from category table in db
     public IEnumerable<CategoryEntity> GetAllCategories()
     {
         var category = _context.Categories.ToList();
 
-
         return category;
     }
 
+
+    //Get a single category by name
+    public CategoryEntity GetCategory(string productCategory)
+    {
+        return _context.Categories.FirstOrDefault(c => c.CategoryName == productCategory)!;
+    }
+
+
+    //Get all unique categories from category table in db
+    public IEnumerable<String> GetAllUniqueCategories()
+    {
+        var uniqueCategories = _context.Categories.Select(category => category.CategoryName)
+            .Distinct()
+            .ToList();
+
+        return uniqueCategories;
+    }
+
+    //Gets an IEnumerable list af all categoryEntities that a product has 
+    public IEnumerable<CategoryEntity> GetCategoriesForProduct(string productName)
+    {
+        return _context.ProductCategories
+            .Where(pc => pc.Product.ProductName == productName)
+            .Select(pc => pc.Category)
+            .ToList();
+    }
 }

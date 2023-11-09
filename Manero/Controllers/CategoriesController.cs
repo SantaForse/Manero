@@ -1,4 +1,5 @@
 ﻿using Manero.Models;
+using Manero.Models.Entities;
 using Manero.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,12 +9,14 @@ public class CategoriesController : Controller
 {
 
     //Injections
-    private readonly ProductService productService;
+    private readonly ProductsService productsService;
 
-    public CategoriesController(ProductService productService)
+    public CategoriesController(ProductsService productsService)
     {
-        this.productService = productService;
+        this.productsService = productsService;
     }
+
+
 
 
     //Views
@@ -26,14 +29,16 @@ public class CategoriesController : Controller
     [Route("Category/{productCategory}")]
     public IActionResult Category(string productCategory)
     {
-        List<ProductEntity> productsInCategory = productService.GetProductsByCategory(productCategory);
+        
+        //This one gets one category from db and then creates that view 
+        CategoryEntity category = productsService.GetCategory(productCategory);
 
-        if (productsInCategory.Count == 0)
+        if (category == null)
         {
             return NotFound();
         }
 
-        return View(productsInCategory);
+        return View(category);
     }
 
 
