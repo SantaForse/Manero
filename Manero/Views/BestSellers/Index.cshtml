@@ -1,20 +1,25 @@
 ﻿@using Manero.Services;
 
 
-@inject ProductsService productService
+@inject TagsService tagsService
 
 @{
-    var products = productService.GetProducts();
+    var products = tagsService.GetTopProducts();
 }
 
-@foreach (var product in products)
+@foreach (var product in await products)
 {
     <h1>@product.ProductName</h1>
 
-    <img src="@product.ImageUrl" alt="product">
-
     <h1>@product.Price</h1>
 
+    <p>@product.Rating</p>
+
+    <p>@product.Id</p>
+
+
+
+    <hr />
 }
 
 

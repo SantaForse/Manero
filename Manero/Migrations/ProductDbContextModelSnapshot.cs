@@ -123,7 +123,7 @@ namespace Manero.Migrations
                     b.Property<int?>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int>("SalePrice")
+                    b.Property<int?>("SalePrice")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

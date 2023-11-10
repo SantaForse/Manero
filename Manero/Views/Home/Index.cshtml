@@ -9,45 +9,50 @@
         {
             Title = "Take 50% off now!",
             ButtonLink = "Sale",
-            ButtonText = "SHOP NOW",
+            ButtonText = "SHOP SALES",
             FlexSide = "right"
         };
+
+    var bannerMid = new BannerViewModel()
+            {
+                Title = "See the new arrivals",
+                ButtonLink = "New",
+                ButtonText = "NEW PRODUCTS",
+                FlexSide = "left"
+            };
 
     var bannerLeft = new BannerViewModel()
         {
             Title = "Look at the top sellers",
-            ButtonLink = "Sale",
+            ButtonLink = "Top",
             ButtonText = "TOP SALES",
-            FlexSide = "left"
+            FlexSide = "right"
         };
 
 
 //Card grids
     var fancySetting = new CardGridViewModel()
             {
-                Title = "Top wear!",
-                ButtonLink = "Top",
-                ButtonText = "all looks",
-                CardNr = 7,
-                Products = Model
+                Title = "Fancy shoes",
+                ButtonLink = "Shoes",
+                ButtonText = "Shoep now",
+                CardNr = 7
             };
 
     var bestSellers = new CardGridViewModel()
             {
-                Title = "Best Sellers",
-                ButtonLink = "BestSellers",
-                ButtonText = "Shop now",
-                CardNr = 6,
-                Products = Model
+                Title = "Featured products",
+                ButtonLink = "products",
+                ButtonText = "View all",
+                CardNr = 6
             };
 
     var featuredProducts = new CardGridViewModel()
             {
-                Title = "Featured products",
-                ButtonLink = "FeaturedProducts",
-                ButtonText = "view all",
-                CardNr = 9,
-                Products = Model
+                Title = "All Dresses",
+                ButtonLink = "Dresses",
+                ButtonText = "Dress me",
+                CardNr = 9
             };
 
     var newProducts = new CardGridViewModel()
@@ -55,8 +60,7 @@
                 Title = "New designs",
                 ButtonLink = "New",
                 ButtonText = "get them first",
-                CardNr = 5,
-                Products = Model
+                CardNr = 5
             };
 
 
@@ -97,14 +101,15 @@
 
 <partial name="/Views/Partials/Card-Partials/_FeaturedProductsPartial.cshtml" model="@featuredProducts" />
 
+<partial name="/Views/Partials/Site-Dividers/_BannerPartial.cshtml" model="@bannerMid" />
+
 <partial name="/Views/Partials/_CategoryBallsPartial.cshtml" model="@fancySetting" />
 
-<partial name="/Views/Partials/Card-Partials/_FeaturedProductsPartialV2.cshtml" model="@fancySetting" />
+<partial name="/Views/Partials/Card-Partials/_FeaturedProductsPartialV2.cshtml" model="@newProducts" />
 
 <partial name="/Views/Partials/Site-Dividers/_BannerPartial.cshtml" model="@bannerRight" />
 
-<partial name="/Views/Partials/Card-Partials/_BestSellersPartialV2.cshtml" model="@newProducts" />
+<partial name="/Views/Partials/Card-Partials/_BestSellersPartialV2.cshtml" model="@fancySetting" />
 
-<partial name="/Views/Partials/NavbarPartials/_BottomNavbarPartial.cshtml" />
 
 

@@ -1,17 +1,27 @@
-﻿@model Manero.ViewModels.CardGridViewModel
+﻿@using Manero.Services;
+@model Manero.ViewModels.CardGridViewModel
+
+@inject ProductsService productService
+
+@{
+    //Gets all products, and populates the view
+    var products = productService.GetProducts();
+}
+
+
 
 <section class="best_sellers_section ">
     <div class="container">
         <div class="best_sellers_title">
             <h1>@Model.Title</h1>
-            <a asp-controller="Category" asp-action="@Model.ButtonLink">@Model.ButtonText <span>&#62;</span></a>
+            <a asp-controller="Products" asp-action="">@Model.ButtonText <span>&#62;</span></a>
         </div>
 
         
      <!-- Grid with cards that go outside of window, introduce javascript scroll -->
         <div class="big_card_slider">
 
-            @foreach (var product in Model.Products)
+            @foreach (var product in products)
             {
 
                 <!-- start of card -->
@@ -21,7 +31,7 @@
                         <!-- can be changed, between classes:
                                 "card_tag_new, card_tag_sale and card_tag_top".
                             see the options below -->
-                        @if (product.ProductTag == "new")
+                        @* @if (product.ProductTag == "new")
                         {
                             <div class="card_tag_new">NEW</div>
                         }
@@ -36,10 +46,10 @@
                         else
                         {
                             <div class="card_tag"></div>
-                        }
+                        } *@
 
 
-                        <img src="/static-images/stock-images/stock@(product.Id).jpg" alt="product">
+                        <img src="@product.ImageUrl" alt="product">
                         <div class="card_options">
                             <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
                             <a asp-controller="Order" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
@@ -49,12 +59,12 @@
                         <div class="card_rating">
                             <div class="card_stars">
 
-                                @for (int i = 0; i < product.ProductRating; i++)
+                                @for (int i = 0; i < product.Rating; i++)
                                 {
                                     <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
                                 }
 
-                                @for (int i = 0; i < (5 - product.ProductRating); i++)
+                                @for (int i = 0; i < (5 - product.Rating); i++)
                                 {
                                     <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
 
@@ -67,8 +77,8 @@
                 @* Should later go to individual shopping cards site... *@
                         <a asp-controller="Products" asp-action="@(product.ProductName)" class="card_title">@product.ProductName </a>
                         <div class="card_price">
-                            <p>@product.ProductPrice</p>
-                            <p>£22.9</p>
+                            <p>£@product.Price</p>
+                            <p>£@product.SalePrice</p>
                         </div>
                     </div>
                 </div>

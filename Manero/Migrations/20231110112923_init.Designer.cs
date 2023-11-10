@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Manero.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20231108103136_initial")]
-    partial class initial
+    [Migration("20231110112923_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -126,7 +126,7 @@ namespace Manero.Migrations
                     b.Property<int?>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int>("SalePrice")
+                    b.Property<int?>("SalePrice")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

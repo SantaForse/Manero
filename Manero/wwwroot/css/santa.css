@@ -154,6 +154,7 @@
     border: solid 2px var(--color-theme);
     border-style: solid none none none;
     padding: 20px;
+
 }
 
     .bottom-navbar a {
@@ -1165,6 +1166,9 @@ input[type="range"] {
         padding-right: 30px;
         padding-left: 30px;
         padding-top: 30px;
+        position:absolute;
+        width: 100%;
+        margin-top: 50px;
     }
 
         .footer-contact .footer-contact-info {

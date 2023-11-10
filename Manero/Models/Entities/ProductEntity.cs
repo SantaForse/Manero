@@ -10,8 +10,9 @@
         
         public int Price { get; set; }
 
-
-        public int SalePrice { get; set; }
+        //I will change it from obligatory, so we can
+        //choose if we want sale items /Santa
+        public int ? SalePrice { get; set; }
       
 
         public string ImageUrl { get; set; } = null!;
