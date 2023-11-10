@@ -32,6 +32,15 @@ public class ProductsService
             .ToList();
     }
 
+    //Förväxla inte dessa 2!
+    public IEnumerable<ProductEntity> SearchProductsByString(string categoryName)
+    {
+        return _context.ProductCategories
+            .Where(pc => pc.Category.CategoryName == categoryName)
+            .Select(pc => pc.Product)
+            .ToList();
+    }
+
 
     //Get product by name
     public ProductEntity GetProductByName(string productName)
