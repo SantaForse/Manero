@@ -4,14 +4,15 @@
 @inject ProductsService productService
 
 @{
-    var products = productService.GetProducts();
+    //Gets the product by category as stated in the buttonLink
+    var products = productService.GetProductsByCategory(Model.ButtonLink);
 }
 
 <section class="best_sellers_section_v2 mb-5">
     <div class="container">
         <div class="best_sellers_title">
             <h1>@Model.Title</h1>
-            <a asp-controller="Tag" asp-action="@Model.ButtonLink">@Model.ButtonText <span>&#62;</span></a>
+            <a asp-controller="Category" asp-action="@Model.ButtonLink">@Model.ButtonText <span>&#62;</span></a>
         </div>
         <!-- Flex with limited amount -->
         <div class="small_card_flex">

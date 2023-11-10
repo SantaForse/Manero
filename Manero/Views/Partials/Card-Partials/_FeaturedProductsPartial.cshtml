@@ -4,7 +4,7 @@
 @inject ProductsService productService
 
 @{
-    var products = productService.GetProducts();
+    var products = productService.GetProductsByCategory(Model.ButtonLink);
 }
 
 <section class="best_sellers_section  ">

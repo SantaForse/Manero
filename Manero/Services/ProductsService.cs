@@ -14,8 +14,8 @@ public class ProductsService
         _context = context;
     }
 
-
-
+    //Ill just divide the code a bit into regions, for cleaner code - Jeppe
+    #region Get Products
     //Gets all products from product table in db
     public IEnumerable<ProductEntity> GetProducts()
     {
@@ -33,13 +33,16 @@ public class ProductsService
     }
 
 
-
     //Get product by name
     public ProductEntity GetProductByName(string productName)
     {
         return _context.Products.FirstOrDefault(p => p.ProductName == productName)!;
     }
 
+    #endregion
+
+
+    #region Get Categories
 
     //Get all categoryEntities from category table in db
     public IEnumerable<CategoryEntity> GetAllCategories()
@@ -75,4 +78,7 @@ public class ProductsService
             .Select(pc => pc.Category)
             .ToList();
     }
+    #endregion
+
+
 }
