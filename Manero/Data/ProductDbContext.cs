@@ -208,6 +208,10 @@ public class ProductDbContext : DbContext
                     CategoryId = 3,
                 });
 
+
+
+        #region pre seeding promo codes data
+        
         modelBuilder.Entity<PromoCodeEntity>().HasData(
             new PromoCodeEntity
             {
@@ -215,7 +219,7 @@ public class ProductDbContext : DbContext
                 ImageUrl = "/static-images/placeholder_promocode.svg",
                 Title = "Acme Co.",
                 Discount = 50,
-                ExpirationDate = "June 30, 2022",
+                ExpirationDate = "June 1, 2024",
             },
             new PromoCodeEntity
             {
@@ -223,7 +227,7 @@ public class ProductDbContext : DbContext
                 ImageUrl = "/static-images/placeholder_promocode.svg",
                 Title = "Barone LLC.",
                 Discount = 30,
-                ExpirationDate = "June 30, 2022",
+                ExpirationDate = "May 1, 2022",
             },
             new PromoCodeEntity
             {
@@ -237,15 +241,21 @@ public class ProductDbContext : DbContext
             modelBuilder.Entity<UserPromoCodeEntity>().HasData(
             new UserPromoCodeEntity
             {
-                UserId = "d61aac58a05f",
+                UserId = "5ebe6c4c-409c-47fe-bed4-df34cdbd3a8a",
                 PromoCodeId = 1,
             },
             new UserPromoCodeEntity
             {
-                UserId = "d61aac58a05f",
+                UserId = "a106762b-162f-4e96-9c50-8f6b80298fd1",
                 PromoCodeId =  2,
+            },
+            new UserPromoCodeEntity
+            {
+                UserId = "a106762b-162f-4e96-9c50-8f6b80298fd1",
+                PromoCodeId = 3,
             });
-        
+
+        #endregion
     }
 }
                 

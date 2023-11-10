@@ -4,7 +4,6 @@ using Manero.Repositories;
 using Manero.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +26,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+
+
 //Im adding a product service for injection option - Jeppe 3/11
 builder.Services.AddSingleton<ProductService>();
 builder.Services.AddScoped<ProductsService>();
@@ -38,7 +39,6 @@ builder.Services.AddScoped<UserPromoCodeRepo>();
 
 
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
@@ -50,37 +50,38 @@ using (var scope = scopeFactory.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
+    
+    #region Initialize roles
     // Initialize roles
-//    if (!await roleManager.RoleExistsAsync("Admin"))
-//    {
-//        await roleManager.CreateAsync(new IdentityRole("Admin"));
-//    }
+    //    if (!await roleManager.RoleExistsAsync("Admin"))
+    //    {
+    //        await roleManager.CreateAsync(new IdentityRole("Admin"));
+    //    }
 
-//    // Initialize first admin user
-//    if (!userManager.Users.Any())
-//    {
-//        var adminUser = new IdentityUser { UserName = "admin@example.com", Email = "admin@example.com" };
-//        var adminUserResult = await userManager.CreateAsync(adminUser, "Admin@123");
+    //    // Initialize first admin user
+    //    if (!userManager.Users.Any())
+    //    {
+    //        var adminUser = new IdentityUser { UserName = "admin@example.com", Email = "admin@example.com" };
+    //        var adminUserResult = await userManager.CreateAsync(adminUser, "Admin@123");
 
-//        if (adminUserResult.Succeeded)
-//        {
-//            await userManager.AddToRoleAsync(adminUser, "Admin");
-//        }
+    //        if (adminUserResult.Succeeded)
+    //        {
+    //            await userManager.AddToRoleAsync(adminUser, "Admin");
+    //        }
 
-//        var userHans = new IdentityUser {
-//            Id = "a106762b-162f-4e96-9c50-8f6b80298fd1",
-//            UserName = "hans@maneromail.com", 
-//            Email = "hans@maneromail.com" 
-//        };
-//        var userHansResult = await userManager.CreateAsync(adminUser, "Bytmig123!");
+    //        var userHans = new IdentityUser {
+    //            Id = "a106762b-162f-4e96-9c50-8f6b80298fd1",
+    //            UserName = "hans@maneromail.com", 
+    //            Email = "hans@maneromail.com" 
+    //        };
+    //        var userHansResult = await userManager.CreateAsync(adminUser, "Bytmig123!");
 
-//        if (adminUserResult.Succeeded)
-//        {
-//            await userManager.AddToRoleAsync(adminUser, "User");
-//        }
-//    }
-//
+    //        if (adminUserResult.Succeeded)
+    //        {
+    //            await userManager.AddToRoleAsync(adminUser, "User");
+    //        }
+    //    }
+    #endregion
 }
 
 // Configure the HTTP request pipeline.
