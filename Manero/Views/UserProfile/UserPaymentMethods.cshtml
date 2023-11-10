@@ -16,15 +16,25 @@
         PaymentMethodPayPal = true,
         PaymentMethodPayoneer = false,
     };
+
+
+    var user = await userManager.GetUserAsync(User);
+    string userId = user.Id;
+
+    var HomePage = new NavbarViewModel()
+    {
+        Burger = true,
+        MiddleData = "Manero",
+        ShoppingCart = true
+
+    };
 }
 
-<head>
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
-</head>
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
 
 <section class="payment-header container">
     <div class="navigation-header">
-        <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
+        <a asp-area="Identity" asp-page="/Account/Manage/Index"><i class="fa-solid fa-chevron-left"></i></a>
         <h5>@ViewData["Title"]</h5>
         <div></div>
     </div>

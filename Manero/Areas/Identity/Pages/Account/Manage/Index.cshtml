@@ -1,9 +1,27 @@
 ﻿@page
 @model IndexModel
+@using Manero.ViewModels
 @{
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
+
+
+    var placeholderUser = new UserProfileViewModel
+    {
+        ImageUrl = "/static-images/pexels-miggy-rivera-5665104.jpg"
+    };
+
+
+    var HomePage = new NavbarViewModel()
+    {
+        Burger = true,
+        MiddleData = "Manero",
+        ShoppingCart = true
+
+    };
 }
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
 
 <section class="user-profile">
     <div class="container pt-5">
@@ -14,15 +32,13 @@
                     <div class="right"></div>
                 </div>
                 <div class="frame">
-
-                    <img src="" />
-
-                    <div class="frame-icon">
-                        <a asp-controller="UserProfile" asp-action="UserProfileEdit"><i class="fa-solid fa-pen-to-square"></i></a>
-                    </div>
+                    <img src=@placeholderUser.ImageUrl />
                 </div>
-                <h5>@Model.UserId</h5>
-                <h6>@Model.Username</h6>
+                <div class="frame-icon">
+                    <a asp-controller="UserProfile" asp-action="UserProfileEdit"><i class="fa-solid fa-pen-to-square"></i></a>
+                </div>
+                <h5>@Model.Username</h5>
+                <h6></h6>
             </div>
             <div class="navigation-fields">
                 <a class="navigation-field" asp-controller="UserProfile" asp-action="UserAddress">

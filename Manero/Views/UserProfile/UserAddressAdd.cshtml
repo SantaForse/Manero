@@ -3,7 +3,21 @@
 
 @{
     ViewData["Title"] = "Add new address";
+
+
+    var user = await userManager.GetUserAsync(User);
+    string userId = user.Id;
+
+    var HomePage = new NavbarViewModel()
+    {
+        Burger = true,
+        MiddleData = "Manero",
+        ShoppingCart = true
+
+    };
 }
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
 
 <section class="add-address">
 

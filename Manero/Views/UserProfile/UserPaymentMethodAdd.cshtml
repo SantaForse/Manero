@@ -1,4 +1,5 @@
 ﻿@model Manero.ViewModels.PaymentCardAddViewModel
+@using Manero.ViewModels
 
 @{
     ViewData["Title"] = "Add new card";
@@ -7,8 +8,21 @@
     string placeholderNumber = "1111 2222 3333 4444";
     string placeholderDate = "00/00";
     string placeholderCode = "123";
+
+
+    var user = await userManager.GetUserAsync(User);
+    string userId = user.Id;
+
+    var HomePage = new NavbarViewModel()
+    {
+        Burger = true,
+        MiddleData = "Manero",
+        ShoppingCart = true
+
+    };
 }
 
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
 
 <section class="edit-card-header container">
     <div class="_title">

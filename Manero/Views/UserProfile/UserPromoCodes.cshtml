@@ -6,36 +6,22 @@
     ViewData["Title"] = "My Promo codes";
 
     var user = await userManager.GetUserAsync(User);
+    string userId = user.Id;
 
-    @*
-    // placeholder
-    var acme = new PromoCodeViewModel()
-            {
-                ImageUrl = "/static-images/placeholder_promocode.svg",
-                Title = "Acme Co.",
-                Discount = 50,
-                ExpirationDate = "June 30, 2022",
-            };
-    var barone = new PromoCodeViewModel()
-            {
-                ImageUrl = "/static-images/placeholder_promocode.svg",
-                Title = "Barone LLC.",
-                Discount = 30,
-                ExpirationDate = "June 30, 2022",
-            };
-    var abstergo = new PromoCodeViewModel()
-            {
-                ImageUrl = "/static-images/placeholder_promocode.svg",
-                Title = "Abstergo Ltd.",
-                Discount = 15,
-                ExpirationDate = "June 30, 2022",
-            };
-    *@
+    var HomePage = new NavbarViewModel()
+    {
+        Burger = true,
+        MiddleData = "Manero",
+        ShoppingCart = true
+
+    };
 }
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
 
 <section class="promocodes-header container">
     <div class="_title">
-        <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
+        <a asp-area="Identity" asp-page="/Account/Manage/Index"><i class="fa-solid fa-chevron-left"></i></a>
         <h5>@ViewData["Title"]</h5>
         <div></div>
     </div>
@@ -47,7 +33,7 @@
 
 <section class="my-promocodes container">
     <hr />
-    @foreach (var promoCode in await userService.GetPromoCodesByUserId("d61aac58a05f"))
+    @foreach (var promoCode in await userService.GetPromoCodesByUserId(userId))
     {
         @if (promoCode != null) {
             <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="promoCode" />
