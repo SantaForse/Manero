@@ -18,6 +18,9 @@ Manero/*.sln.docstates
 # User-specific files (MonoDevelop/Xamarin Studio)
 Manero/*.userprefs
 
+# Migrations
+Manero/Migrations
+
 # Mono auto generated files
 Manero/mono_crash.*
 
