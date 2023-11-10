@@ -43,13 +43,15 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
-//var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
-//using (var scope = scopeFactory.CreateScope())
-//{
-//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
-//    // Initialize roles
+
+var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+using (var scope = scopeFactory.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+    // Initialize roles
 //    if (!await roleManager.RoleExistsAsync("Admin"))
 //    {
 //        await roleManager.CreateAsync(new IdentityRole("Admin"));
@@ -59,14 +61,27 @@ var app = builder.Build();
 //    if (!userManager.Users.Any())
 //    {
 //        var adminUser = new IdentityUser { UserName = "admin@example.com", Email = "admin@example.com" };
-//        var result = await userManager.CreateAsync(adminUser, "Admin@123");
+//        var adminUserResult = await userManager.CreateAsync(adminUser, "Admin@123");
 
-//        if (result.Succeeded)
+//        if (adminUserResult.Succeeded)
 //        {
 //            await userManager.AddToRoleAsync(adminUser, "Admin");
 //        }
+
+//        var userHans = new IdentityUser {
+//            Id = "a106762b-162f-4e96-9c50-8f6b80298fd1",
+//            UserName = "hans@maneromail.com", 
+//            Email = "hans@maneromail.com" 
+//        };
+//        var userHansResult = await userManager.CreateAsync(adminUser, "Bytmig123!");
+
+//        if (adminUserResult.Succeeded)
+//        {
+//            await userManager.AddToRoleAsync(adminUser, "User");
+//        }
 //    }
-//}
+//
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

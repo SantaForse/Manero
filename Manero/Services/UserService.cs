@@ -1,4 +1,5 @@
-﻿using Manero.Models.Entities;
+﻿using Manero.Data;
+using Manero.Models.Entities;
 using Manero.Repositories;
 using Manero.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -7,10 +8,12 @@ namespace Manero.Services
 {
     public class UserService
     {
+        private readonly ProductDbContext _context;
         private readonly PromoCodeRepo _promoCodeRepo;
         private readonly UserPromoCodeRepo _userPromoCodeRepo;
-        public UserService(PromoCodeRepo promoCodeRepo, UserPromoCodeRepo userPromoCodeRepo)
+        public UserService(ProductDbContext context, PromoCodeRepo promoCodeRepo, UserPromoCodeRepo userPromoCodeRepo)
         {
+            _context = context;
             _promoCodeRepo = promoCodeRepo;
             _userPromoCodeRepo = userPromoCodeRepo;
         }
@@ -21,24 +24,28 @@ namespace Manero.Services
 
         public async Task<List<PromoCodeViewModel>> GetPromoCodesByUserId(string userId)
         {
-            var requestedCodes = new List<int>();
+            var requestedCodeIds = new List<int>();
             foreach (var codes in await _userPromoCodeRepo.GetSelectedAsync(x => x.UserId == userId))
             {
-                requestedCodes.Add(codes.PromoCodeId);
+                requestedCodeIds.Add(codes.PromoCodeId);
             }
+            
+            
             var associatedCodes = new List<PromoCodeViewModel>();
-
-            foreach (var code in await _promoCodeRepo.GetAllAsync())
+            foreach (var codeId in requestedCodeIds)
             {
+                var result = _context.PromoCodes.FirstOrDefault(p => p.Id == codeId);
                 associatedCodes.Add(new PromoCodeViewModel
-                {
-                    ImageUrl = code.ImageUrl,
-                    Title = code.Title,
-                    Discount = code.Discount,
-                    ExpirationDate = code.ExpirationDate
-                    //Selected = requestedCodes!.Contains(code.Id)
-                });
+                    {
+                        ImageUrl = result.ImageUrl,
+                        Title = result.Title,
+                        Discount = result.Discount,
+                        ExpirationDate = result.ExpirationDate
+                    });
             }
+
+
+
             return associatedCodes;
         }
     }
