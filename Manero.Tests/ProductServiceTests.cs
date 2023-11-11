@@ -129,13 +129,13 @@ public class ProductServiceTests
         }
     }
 
-    //Testing "GetProductsByCategory" 
+    //Testing "GetProductsByCategory" Enligt Userstory MG1-152 av Jesper
     [Fact]
     public void GetCategoriesForProduct_ReturnsCategoriesForProduct()
     {
         // Arrange
         var options = new DbContextOptionsBuilder<ProductDbContext>()
-            .UseInMemoryDatabase(databaseName: "GetProductsByCategory_Database")
+            .UseInMemoryDatabase(databaseName: "GetCategoriesInProduct_Database")
             .Options;
 
         using (var context = new ProductDbContext(options))
