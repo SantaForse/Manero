@@ -1,27 +1,11 @@
 ﻿@using Manero.Services;
 
 
-@inject TagsService tagsService
+@inject ProductsService productsService
 
 @{
-    var products = tagsService.GetTopProducts();
+    var products = productsService.GetProducts();
 }
-
-@foreach (var product in await products)
-{
-    <h1>@product.ProductName</h1>
-
-    <h1>@product.Price</h1>
-
-    <p>@product.Rating</p>
-
-    <p>@product.Id</p>
-
-
-
-    <hr />
-}
-
 
 
 <section class="featured_products_section_v2">
@@ -33,202 +17,75 @@
         <!-- Grid with autofill function -->
         <div class="big_card_grid">
 
-            <!-- start of card -->
-            <div class="product_card">
-                <div class="card_top">
-                    <!-- can be changed, between classes:
-                            "card_tag_new, card_tag_sale and card_tag_top".
-                        see the options below -->
-                    <div class="card_tag"></div>
-                    <img src="/static-images/stock-images/white-shoe.jpg" alt="product">
-                    <div class="card_options">
-                        <a href="#"><i class="fa-regular fa-heart"></i></a>
-                        <a href="#"><i class="fa-regular fa-bag-shopping"></i></a>
-                    </div>
-                </div>
-                <div class="card_bottom">
-                    <div class="card_rating">
-                        <div class="card_stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <p>(3)</p>
-                    </div>
-                    <div class="card_title">White Sneakers</div>
-                    <div class="card_price">
-                        <p>£20.9</p>
-                        <p>£12.9</p>
-                    </div>
-                </div>
-            </div>
-            <!-- end of card -->
+            @foreach (var product in products)
+            {
 
-            <div class="product_card">
-                <div class="card_top">
-                    <div class="card_tag_sale">SALE</div>
-                    <img src="/static-images/stock-images/black-shoe.jpg" alt="product">
-                    <div class="card_options">
-                        <a href="#"><i class="fa-regular fa-heart"></i></a>
-                        <a href="#"><i class="fa-regular fa-bag-shopping"></i></a>
-                    </div>
-                </div>
-                <div class="card_bottom">
-                    <div class="card_rating">
-                        <div class="card_stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <p>(3)</p>
-                    </div>
-                    <div class="card_title">Black Sneakers</div>
-                    <div class="card_price">
-                        <p>£20.9</p>
-                        <p>£12.9</p>
-                    </div>
-                </div>
-            </div>
+                <!-- start of card -->
+                <div class="product_card">
+                    <div class="card_top">
 
-            <div class="product_card">
-                <div class="card_top">
-                    <div class="card_tag_top">TOP</div>
-                    <img src="/static-images/stock-images/white-shoe.jpg" alt="product">
-                    <div class="card_options">
-                        <a href="#"><i class="fa-regular fa-heart"></i></a>
-                        <a href="#"><i class="fa-regular fa-bag-shopping"></i></a>
-                    </div>
-                </div>
-                <div class="card_bottom">
-                    <div class="card_rating">
-                        <div class="card_stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <p>(3)</p>
-                    </div>
-                    <div class="card_title">White Sneakers</div>
-                    <div class="card_price">
-                        <p>£20.9</p>
-                    </div>
-                </div>
-            </div>
+                        <!-- can be changed, between classes:
+                                "card_tag_new, card_tag_sale and card_tag_top".
+                            see the options below -->
+                       @*  @if (Model.ButtonLink == "New")
+                        {
+                            <div class="card_tag_new">NEW</div>
+                        }
+                        else if (Model.ButtonLink == "Sale")
+                        {
+                            <div class="card_tag_sale">SALE</div>
+                        }
+                        else if (Model.ButtonLink == "Top")
+                        {
+                            <div class="card_tag_top">TOP</div>
+                        }
+                        else
+                        {
+                            <div class="card_tag"></div>
+                        } *@
 
-            <div class="product_card">
-                <div class="card_top">
-                    <div class="card_tag_new">NEW</div>
-                    <img src="/static-images/stock-images/white-shoe.jpg" alt="product">
-                    <div class="card_options">
-                        <a href="#"><i class="fa-regular fa-heart"></i></a>
-                        <a href="#"><i class="fa-regular fa-bag-shopping"></i></a>
-                    </div>
-                </div>
-                <div class="card_bottom">
-                    <div class="card_rating">
-                        <div class="card_stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <p>(3)</p>
-                    </div>
-                    <div class="card_title">White Sneakers</div>
-                    <div class="card_price">
-                        <p>£20.9</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="product_card">
-                <div class="card_top">
-                    <div class="card_tag_sale">SALE</div>
-                    <img src="/static-images/stock-images/black-shoe.jpg" alt="product">
-                    <div class="card_options">
-                        <a href="#"><i class="fa-regular fa-heart"></i></a>
-                        <a href="#"><i class="fa-regular fa-bag-shopping"></i></a>
-                    </div>
-                </div>
-                <div class="card_bottom">
-                    <div class="card_rating">
-                        <div class="card_stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
+                        <img src="@product.ImageUrl" alt="product">
+                        <div class="card_options">
+                            <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
+                            <a asp-controller="Order" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
                         </div>
-                        <p>(3)</p>
                     </div>
-                    <div class="card_title">Black Sneakers</div>
-                    <div class="card_price">
-                        <p>£20.9</p>
-                        <p>£12.9</p>
-                    </div>
-                </div>
-            </div>
+                    <div class="card_bottom">
+                        <div class="card_rating">
+                            <div class="card_stars">
 
-            <div class="product_card">
-                <div class="card_top">
-                    <div class="card_tag_top">TOP</div>
-                    <img src="/static-images/stock-images/white-shoe.jpg" alt="product">
-                    <div class="card_options">
-                        <a href="#"><i class="fa-regular fa-heart"></i></a>
-                        <a href="#"><i class="fa-regular fa-bag-shopping"></i></a>
-                    </div>
-                </div>
-                <div class="card_bottom">
-                    <div class="card_rating">
-                        <div class="card_stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <p>(3)</p>
-                    </div>
-                    <div class="card_title">White Sneakers</div>
-                    <div class="card_price">
-                        <p>£20.9</p>
-                    </div>
-                </div>
-            </div>
+                                @for (int i = 0; i < product.Rating; i++)
+                                {
+                                    <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
+                                }
 
-            <div class="product_card">
-                <div class="card_top">
-                    <div class="card_tag_new">NEW</div>
-                    <img src="/static-images/stock-images/white-shoe.jpg" alt="product">
-                    <div class="card_options">
-                        <a href="#"><i class="fa-regular fa-heart"></i></a>
-                        <a href="#"><i class="fa-regular fa-bag-shopping"></i></a>
-                    </div>
-                </div>
-                <div class="card_bottom">
-                    <div class="card_rating">
-                        <div class="card_stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
+                                @for (int i = 0; i < (5 - product.Rating); i++)
+                                {
+                                    <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
+
+                                }
+
+                            </div>
+                            <p>(3)</p>
                         </div>
-                        <p>(3)</p>
-                    </div>
-                    <div class="card_title">White Sneakers</div>
-                    <div class="card_price">
-                        <p>£20.9</p>
+
+                        @* Should later go to individual shopping cards site... *@
+                        <a asp-controller="Products" asp-action="@(product.ProductName)" class="card_title">@product.ProductName </a>
+                        <div class="card_price">
+                            <p>£@product.Price</p>
+
+                            @if (product.SalePrice != null)
+                            {
+                                <p>£ @product.SalePrice </p>
+                            }
+
+                        </div>
                     </div>
                 </div>
-            </div>
+                <!-- end of card -->
+            }
+
 
         </div>
     </div>

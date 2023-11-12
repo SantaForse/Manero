@@ -1,6 +1,13 @@
-﻿@using Manero.ViewModels;
+﻿@using Manero.Services;
+@using Manero.ViewModels;
+
+@inject ProductsService productsService 
+
 
 @{
+
+    var categories = productsService.GetAllUniqueCategories();
+
     var CategoryPage = new NavbarViewModel()
             {
                 Burger = false,
@@ -23,37 +30,41 @@
         <div class="list-part">
             <div class="container">
                 <div class="icon-path">
-                    <a asp-controller="WishList" asp-action="Index"><i>Men</i></a>
-                    <a asp-controller="WishList" asp-action="Index"><i>Women</i></a>
-                    <a asp-controller="WishList" asp-action="Index"><i>kids</i></a>
-                    <a asp-controller="WishList" asp-action="Index"><i>Accessories</i></a>
+
+                    @foreach (var category in categories)
+                    {
+                        <a asp-controller="Category" asp-action="@category"><i>@category</i></a>
+                    }
+
+
+
                 </div>
             </div>
         </div>
-
+@*         Dessa kanske bör loopas ut dynamiskt? *@
         <div class="grid">
-            <a asp-controller="WishList" asp-action="Index" id="category-box-1" class="category-box">
+            <a asp-controller="Category" asp-action="Dresses" id="category-box-1" class="category-box">
                 <div class="category-box-title">
                     Dresses
                 </div>
             </a>
-            <a asp-controller="WishList" asp-action="Index" id="category-box-2" class="category-box">
+            <a asp-controller="Category" asp-action="Pants" id="category-box-2" class="category-box">
                 <div class="category-box-title">
                     Pants
                 </div>
             </a>
 
-            <a asp-controller="WishList" asp-action="Index" id="category-box-3" class="category-box">
+            <a asp-controller="Category" asp-action="Accessories" id="category-box-3" class="category-box">
                 <div class="category-box-title">
                     Accessories
                 </div>
             </a>
-            <a asp-controller="WishList" asp-action="Index" id="category-box-4" class="category-box">
+            <a asp-controller="Category" asp-action="Shoes" id="category-box-4" class="category-box">
                 <div class="category-box-title">
                     Shoes
                 </div>
             </a>
-            <a asp-controller="WishList" asp-action="Index" id="category-box-5" class="category-box">
+            <a asp-controller="Category" asp-action="T-shirts" id="category-box-5" class="category-box">
                 <div class="category-box-title">
                     T-shirts
                 </div>

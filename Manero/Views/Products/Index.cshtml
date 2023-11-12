@@ -81,7 +81,12 @@
                     <a asp-controller="Products" asp-action="Product" asp-route-productName="@product.ProductName">@product.ProductName</a>
                     <div class="card_price">
                         <p>£@product.Price</p>
-                        <p>£@product.SalePrice</p>
+
+                            @if (product.SalePrice != null)
+                            {
+                                <p>£ @product.SalePrice </p>
+                            }
+
                     </div>
                 </div>
             </div>
