@@ -191,7 +191,7 @@ public class ProductDbContext : DbContext
                     CategoryName = "Dresses",
                 });
 
-                modelBuilder.Entity<ProductCategoryEntity>().HasData(
+        modelBuilder.Entity<ProductCategoryEntity>().HasData(
                 new ProductCategoryEntity
                 {
                     ProductId = 1,

@@ -1,0 +1,235 @@
+﻿@using Manero.Models;
+@using Manero.Services;
+@using Manero.ViewModels;
+
+@inject TagsService tagsService
+
+@{
+
+    var CategoryPage = new NavbarViewModel()
+            {
+                Burger = false,
+                MiddleData = Model + " Products",
+                ShoppingCart = true
+            };
+}
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="CategoryPage" />
+
+
+<section class="best_sellers_section ">
+    <div class="container">
+        <div class="best_sellers_title">
+
+            <h1><p>Tag: </p> @ViewContext.RouteData.Values["tagName"]</h1>
+        </div>
+
+        <!-- Grid with cards that go outside of window, introduce javascript scroll -->
+        <div class="big_card_slider">
+
+            @if (Model == "Sale")
+            {
+                var products = tagsService.GetSaleProducts();
+                foreach (var product in await products)
+                {
+
+                    <!-- start of card -->
+                    <div class="product_card">
+                        <div class="card_top">
+
+                            <!-- can be changed, between classes:
+                                    "card_tag_new, card_tag_sale and card_tag_top".
+                                see the options below -->
+                            @if (Model == "New")
+                            {
+                                <div class="card_tag_new">NEW</div>
+                            }
+                            else if (Model == "Sale")
+                            {
+                                <div class="card_tag_sale">SALE</div>
+                            }
+                            else if (Model == "Top")
+                            {
+                                <div class="card_tag_top">TOP</div>
+                            }
+                            else
+                            {
+                                <div class="card_tag"></div>
+                            }
+
+
+                            <img src="@product.ImageUrl" alt="product">
+                            <div class="card_options">
+                                <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
+                                <a asp-controller="Order" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
+                            </div>
+                        </div>
+                        <div class="card_bottom">
+                            <div class="card_rating">
+                                <div class="card_stars">
+
+                                    @for (int i = 0; i < product.Rating; i++)
+                                    {
+                                        <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
+                                    }
+
+                                    @for (int i = 0; i < (5 - product.Rating); i++)
+                                    {
+                                        <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
+
+                                    }
+
+                                </div>
+                                <p>(3)</p>
+                            </div>
+
+                            @* Should later go to individual shopping cards site... *@
+                            <a asp-controller="Products" asp-action="@(product.ProductName)" class="card_title">@product.ProductName </a>
+                            <div class="card_price">
+                                <p>£@product.Price</p>
+                                <p>£@product.SalePrice</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+                }
+
+            } else if (Model == "Top")
+            {
+                var products = tagsService.GetTopProducts();
+                foreach (var product in await products)
+                {
+                    <!-- start of card -->
+                    <div class="product_card">
+                        <div class="card_top">
+
+                            <!-- can be changed, between classes:
+                                    "card_tag_new, card_tag_sale and card_tag_top".
+                                see the options below -->
+                            @if (Model == "New")
+                            {
+                                <div class="card_tag_new">NEW</div>
+                            }
+                            else if (Model == "Sale")
+                            {
+                                <div class="card_tag_sale">SALE</div>
+                            }
+                            else if (Model == "Top")
+                            {
+                                <div class="card_tag_top">TOP</div>
+                            }
+                            else
+                            {
+                                <div class="card_tag"></div>
+                            }
+
+
+                            <img src="@product.ImageUrl" alt="product">
+                            <div class="card_options">
+                                <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
+                                <a asp-controller="Order" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
+                            </div>
+                        </div>
+                        <div class="card_bottom">
+                            <div class="card_rating">
+                                <div class="card_stars">
+
+                                    @for (int i = 0; i < product.Rating; i++)
+                                    {
+                                        <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
+                                    }
+
+                                    @for (int i = 0; i < (5 - product.Rating); i++)
+                                    {
+                                        <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
+
+                                    }
+
+                                </div>
+                                <p>(3)</p>
+                            </div>
+
+                            @* Should later go to individual shopping cards site... *@
+                            <a asp-controller="Products" asp-action="@(product.ProductName)" class="card_title">@product.ProductName </a>
+                            <div class="card_price">
+                                <p>£@product.Price</p>
+                                <p>£@product.SalePrice</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+                }
+
+            } else if (Model == "New")
+            {
+                var products = tagsService.GetNewProducts();
+                foreach (var product in await products)
+                {
+                    <!-- start of card -->
+                    <div class="product_card">
+                        <div class="card_top">
+
+                            <!-- can be changed, between classes:
+                                    "card_tag_new, card_tag_sale and card_tag_top".
+                                see the options below -->
+                            @if (Model == "New")
+                            {
+                                <div class="card_tag_new">NEW</div>
+                            }
+                            else if (Model == "Sale")
+                            {
+                                <div class="card_tag_sale">SALE</div>
+                            }
+                            else if (Model == "Top")
+                            {
+                                <div class="card_tag_top">TOP</div>
+                            }
+                            else
+                            {
+                                <div class="card_tag"></div>
+                            }
+
+
+                            <img src="@product.ImageUrl" alt="product">
+                            <div class="card_options">
+                                <a asp-controller="Wishlist" asp-action="Index"><i class="fa-regular fa-heart"></i></a>
+                                <a asp-controller="Order" asp-action="Index"><i class="fa-regular fa-bag-shopping"></i></a>
+                            </div>
+                        </div>
+                        <div class="card_bottom">
+                            <div class="card_rating">
+                                <div class="card_stars">
+
+                                    @for (int i = 0; i < product.Rating; i++)
+                                    {
+                                        <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
+                                    }
+
+                                    @for (int i = 0; i < (5 - product.Rating); i++)
+                                    {
+                                        <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
+
+                                    }
+
+                                </div>
+                                <p>(3)</p>
+                            </div>
+
+                            @* Should later go to individual shopping cards site... *@
+                            <a asp-controller="Products" asp-action="@(product.ProductName)" class="card_title">@product.ProductName </a>
+                            <div class="card_price">
+                                <p>£@product.Price</p>
+                                <p>£@product.SalePrice</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of card -->
+                }
+
+            } 
+
+
+
+        </div>
+    </div>
+</section>

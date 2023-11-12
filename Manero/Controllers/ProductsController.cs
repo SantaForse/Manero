@@ -14,12 +14,10 @@ public class ProductsController : Controller
         this.productsService = productsService;
     }
 
+    //Views
     public IActionResult Index()
     {
-        //Populates the view with a list of all products
-        var products = productsService.GetProducts();
-
-        return View(products);
+        return View();
     }
 
 

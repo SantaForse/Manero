@@ -1,8 +1,13 @@
 ﻿@using Manero.ViewModels;
-@* All products / or something *@
+@using Manero.Services;
+@model Manero.ViewModels.CardGridViewModel
+
+@inject ProductsService productService
 
 
 @{
+    var products = productService.GetProducts();
+
     var ProductPage = new NavbarViewModel()
             {
                 Burger = false,
@@ -19,7 +24,7 @@
 
 
 
-        @foreach (var product in Model)
+        @foreach (var product in products)
         {
             var rating = product.Rating;
 
