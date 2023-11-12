@@ -13,7 +13,20 @@ public class TagsService
         _context = context;
     }
 
-    
+    //This list of all the tags could be moved to database
+    public IEnumerable<string> Tags() 
+    {
+        var tags = new List<string>
+            {
+            //One tag for each tagfunction
+                "Sale",
+                "Top",
+                "New"
+            };
+
+        return tags;
+     }
+
 
 
     //Get a list of all the products
@@ -65,27 +78,15 @@ public class TagsService
         return products;
     }
 
-
+    //Picks the tag from the list, that has the same name
     public string GetTag(string tagName)
     {
-
-        List<string> tags = new List<string>
+        if (Tags() != null)
         {
-        //One tag for each tagfunction
-            "Sale",
-            "Top",
-            "New"
-        };
-
-        foreach (var tag in tags)
-        {
-            if (tag == tagName)
-            {
-                return tag;
-            }
+            return Tags().FirstOrDefault(tag => string.Equals(tag, tagName, StringComparison.OrdinalIgnoreCase))!;
         }
-
-        return null;
-
+        return null!;
     }
+
+
 }
