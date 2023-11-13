@@ -16,6 +16,13 @@ public class ProductDbContext : DbContext
     public DbSet<PromoCodeEntity> PromoCodes { get; set; }
     public DbSet<UserPromoCodeEntity> UserPromoCodes { get; set; }
 
+    public DbSet<AddressEntity> Addresses { get; set; }
+    public DbSet<UserAddressEntity> UserAddresses { get; set; }
+
+    public DbSet<PaymentCardEntity> PaymentCards { get; set; }
+    public DbSet<UserPaymentCardEntity> UserPaymentCards { get; set; }
+
+
 
 
 

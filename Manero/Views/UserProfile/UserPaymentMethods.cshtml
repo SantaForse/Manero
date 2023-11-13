@@ -1,4 +1,5 @@
 ﻿@using Manero.ViewModels
+@inject UserService userService
 @model Manero.ViewModels.PaymentMethodViewModel
 
 @{
@@ -48,10 +49,13 @@
 
     <div class="slider">
 
-
-        <partial name="/Views/Partials/PaymentMethodPartials/_PaymentCard.cshtml" model="currentUser" />
-        <partial name="/Views/Partials/PaymentMethodPartials/_PaymentCard.cshtml" model="currentUser" />
-        <partial name="/Views/Partials/PaymentMethodPartials/_PaymentCard.cshtml" model="currentUser" />
+        @foreach (var paymentCard in await userService.GetPaymentCardByUserId(userId))
+        {
+            @if (paymentCard != null)
+            {
+                <partial name="/Views/Partials/PaymentMethodPartials/_PaymentCard.cshtml" model="paymentCard" />
+            }
+        }
 
 
     </div>

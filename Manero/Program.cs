@@ -37,6 +37,11 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<PromoCodeRepo>();
 builder.Services.AddScoped<UserPromoCodeRepo>();
 
+//Anton added this 13/11
+builder.Services.AddScoped<AddressRepo>();
+builder.Services.AddScoped<UserAddressRepo>();
+builder.Services.AddScoped<PaymentCardRepo>();
+builder.Services.AddScoped<UserPaymentCardRepo>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
