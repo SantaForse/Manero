@@ -1,6 +1,10 @@
-﻿
+﻿@using Manero.ViewModels
+
 @model Manero.ViewModels.NavbarViewModel
 
+@{
+    var bannerRight = new SearchNavbarViewModel();
+}
 
 
 <section class="top-navbar container">
@@ -71,10 +75,10 @@
     
     }else if (Model.MiddleData == "Search")
     {
-        <div class="search-input second-navbar">
-            <div class="search-button"><i class="fa-light fa-magnifying-glass"></i></div>
-            <input type="text" class="input" placeholder="Search">
-        </div>
+
+        <partial name="/Views/Partials/NavbarPartials/_SearchNavbarPartial.cshtml" model="bannerRight" />
+
+
     } else
     {
     @* Maybe this one should automatically show the page title or something? *@

@@ -39,6 +39,17 @@ public class ProductsService
         return _context.Products.FirstOrDefault(p => p.ProductName == productName)!;
     }
 
+    //Asyncronous task that returns a list of products with similar names as searchword
+    public async Task<IEnumerable<ProductEntity>> GetProductsByStringAsync(string searchWord)
+    {
+        // Use a case-insensitive search for products with names similar to the provided search word
+        var products = await _context.Products
+            .Where(p => EF.Functions.Like(p.ProductName, $"%{searchWord}%"))
+            .ToListAsync();
+
+        return products;
+    }
+
     #endregion
 
 
