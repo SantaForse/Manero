@@ -243,9 +243,9 @@ Manero/UpgradeLog*.XML
 Manero/UpgradeLog*.htm
 Manero/ServiceFabricBackup/
 Manero/*.rptproj.bak
-Manero/*.mdf
-Manero/*.ldf
-Manero/*.ndf
+Manero/.mdf
+Manero/.ldf
+Manero/.ndf
 Manero/*.rdl.data
 Manero/*.bim.layout
 Manero/*.bim_*.settings
