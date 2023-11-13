@@ -81,4 +81,22 @@ public class ProductsService
     #endregion
 
 
+
+    ///////////////////////////////  REVIEW
+    
+
+    public IEnumerable<ReviewEntity> GetReviews(int productId)
+    {
+        return _context.ProductReviews
+            .Where(pr => pr.ProductId == productId)
+            .Select(pr => pr.Review)
+            .ToList();
+    }
+
+
+
 }
+
+
+
+
