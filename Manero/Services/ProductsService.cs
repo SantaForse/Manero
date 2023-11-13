@@ -32,6 +32,15 @@ public class ProductsService
             .ToList();
     }
 
+    //Förväxla inte dessa 2!
+    public IEnumerable<ProductEntity> SearchProductsByString(string categoryName)
+    {
+        return _context.ProductCategories
+            .Where(pc => pc.Category.CategoryName == categoryName)
+            .Select(pc => pc.Product)
+            .ToList();
+    }
+
 
     //Get product by name
     public ProductEntity GetProductByName(string productName)
@@ -92,4 +101,22 @@ public class ProductsService
     #endregion
 
 
+
+    ///////////////////////////////  REVIEW
+    
+
+    public IEnumerable<ReviewEntity> GetReviews(int productId)
+    {
+        return _context.ProductReviews
+            .Where(pr => pr.ProductId == productId)
+            .Select(pr => pr.Review)
+            .ToList();
+    }
+
+
+
 }
+
+
+
+

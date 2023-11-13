@@ -2,26 +2,27 @@
 
 @* Product details page *@
 
-@model Manero.Models.Entities.ProductEntity
+@*  @model Manero.Models.Entities.ProductEntity  *@
 
+@model Manero.ViewModels.ProductPageViewModel
 @{
 
     var rating = Model.Rating;
-
     var ProductPage = new NavbarViewModel()
             {
                 Burger = false,
                 MiddleData = "Manero",
                 ShoppingCart = true
             };
+
 }
 
 <partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="ProductPage" />
 
-<section class="big-screen-product container">
+<section class="big-screen-product">
 
     <div class="product-img">
-        <img src="@Model.ImageUrl" alt="product">
+        <img src="@Model.Product.ImageUrl" alt="product">
         <div class="product-img-navigation">
             <div class="ball"><i class="fa-solid fa-circle"></i></div>
             <div class="ball"><i class="fa-solid fa-circle"></i></div>
@@ -32,25 +33,32 @@
 
     <div class="product-details container">
         <div class="product-heading-heart">
-            <h1>@Model.ProductName</h1>
+            <h1>@Model.Product.ProductName</h1>
             <a asp-controller="Wishlist" asp-action="Index"><i class="fa-light fa-heart" style="color: #626262;"></i></a>
         </div>
         <div class="raiting-stars">
 
-
-            @for (int i = 0; i < rating; i++ )
+            @* to display the average rating *@
+            <p>Average Rating:</p>
+            @{
+                int averageRating = 0;
+                if (Model.Reviews.Count > 0)
+                {
+                    averageRating = (int)Model.Reviews.Average(review => review.Rating);
+                }
+            }
+            @for (int i = 0; i < averageRating; i++)
             {
                 <a href="#"><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
             }
-
-            @for (int i = 0; i < (5 - rating); i++)
+            @for (int i = 0; i < (5 - averageRating); i++)
             {
                 <a href="#"><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
-
             }
-           
-        @* Should show how many reviews there are *@
-            <p>(4)</p>
+
+
+
+            <p>( @Model.Reviews.Count )</p>
         </div>
         <div class="product-price-quantity">
             <h1 class="product-price">$@Model.Price</h1>
@@ -87,7 +95,7 @@
 
 <section class="product-description container">
     <h3>Description</h3>
-    <p>@Model.Description</p>
+    <p>@Model.Product.Description</p>
 </section>
 
 <div class="review-button container">

@@ -1,5 +1,6 @@
 ﻿using Manero.Models.Entities;
 using Manero.Services;
+using Manero.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Manero.Controllers;
@@ -20,7 +21,6 @@ public class ProductsController : Controller
         return View();
     }
 
-
     //Routes to the specifik Products page
     [Route("Products/{productName}")]
     public IActionResult Product(string productName)
@@ -33,14 +33,55 @@ public class ProductsController : Controller
             return NotFound();
         }
 
-        return View(product);
+        // Get-reviews for the product 
+        var reviews = productsService.GetReviews(product.Id).ToList();
+
+
+        var model = new ProductPageViewModel
+        {
+            Product = product,
+            Reviews = reviews
+        };
+
+        return View(model);
     }
 
+
     [Route("Products/Reviews")]
-    public IActionResult Reviews()
+    public IActionResult Reviews(string productName)
     {
-        //Should populate all reviews ofc...
-        return View();
+        var product = productsService.GetProductByName(productName);
+
+
+        if (product == null)
+        {
+            return NotFound();
+        }
+
+
+        var reviews = productsService.GetReviews(product.Id).ToList();
+
+
+        var model = new ProductPageViewModel
+        {
+            Product = product,
+            Reviews = reviews
+        };
+
+        return View(model);
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

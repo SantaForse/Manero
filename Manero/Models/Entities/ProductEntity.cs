@@ -20,7 +20,7 @@
         public ICollection<ProductCategoryEntity> ProductCategories = new HashSet<ProductCategoryEntity>();
         //public ICollection<ProductColorEntity> ProductColors = new HashSet<ProductColorEntity>();
         //public ICollection<ProductImageEntity> ProductImages = new List<ProductImageEntity>();
-        //public ICollection<ProductReviewEntity> ProductReviews = new List<ProductReviewEntity>();
+        public ICollection<ProductReviewEntity> ProductReviews = new List<ProductReviewEntity>();
         //public ICollection<ProductSizeEntity> ProductSizes = new List<ProductSizeEntity>();
         //public ICollection<ProductTagEntity> ProductTags = new List<ProductTagEntity>();
     }

@@ -32,7 +32,8 @@ builder.Services.AddScoped<ProductsService>();
 //Im adding a service for tags /Santa
 builder.Services.AddScoped<TagsService>();
 
-
+//Zahra for reviews
+builder.Services.AddScoped<ReviewsService>();
 
 builder.Services.AddControllersWithViews();
 
@@ -83,6 +84,13 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+//Zahra
+app.MapControllerRoute(
+    name: "ProductReviews",
+    pattern: "Products/Reviews/{productName}",
+    defaults: new { controller = "Products", action = "Reviews" }
+);
 
 app.MapControllerRoute(
 	name: "default",

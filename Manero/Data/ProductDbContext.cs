@@ -10,10 +10,12 @@ public class ProductDbContext : DbContext
     {
     }
 
-    public DbSet <ProductEntity> Products { get; set; }
+    public DbSet<ProductEntity> Products { get; set; }
     public DbSet<CategoryEntity> Categories { get; set; }
     public DbSet<ProductCategoryEntity> ProductCategories { get; set; }
 
+    public DbSet<ReviewEntity> Reviews { get; set; }
+    public DbSet<ProductReviewEntity> ProductReviews { get; set; }
 
     //Static example product
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -233,9 +235,172 @@ public class ProductDbContext : DbContext
                     ProductId = 3,
                     CategoryId = 6,
                 });
-            }
-                
-}
 
+
+        modelBuilder.Entity<ReviewEntity>().HasData(
+        new ReviewEntity
+        {
+            Id = 1,
+            Rating = 5,
+            CommentText = "Excellent.I highly recommend this business",
+            ReviewDate = DateTime.Now,
+        },
+        new ReviewEntity
+        {
+            Id = 2,
+            Rating = 4,
+            CommentText = "Nice,I was completely impressed with their professionalism and customer service",
+            ReviewDate = DateTime.Now,
+        },
+        new ReviewEntity
+        {
+            Id = 3,
+            Rating = 3,
+            CommentText = "Thanks so much, I am very happy with my purchase",
+            ReviewDate = DateTime.Now,
+        }, new ReviewEntity
+        {
+            Id = 4,
+            Rating = 2,
+            CommentText = "Not bad, It could have been of better quality",
+            ReviewDate = DateTime.Now,
+        },
+        new ReviewEntity
+        {
+            Id = 5,
+            Rating = 5,
+            CommentText = "Eexellent, It has good quality",
+            ReviewDate = DateTime.Now,
+        },
+        new ReviewEntity
+        {
+            Id = 6,
+            Rating = 3,
+            CommentText = "That was OK",
+            ReviewDate = DateTime.Now,
+        },
+        new ReviewEntity
+        {
+            Id = 7,
+            Rating = 5,
+            CommentText = "Very good, and good quality",
+            ReviewDate = DateTime.Now,
+        }, new ReviewEntity
+        {
+            Id = 8,
+            Rating = 1,
+            CommentText = "Vey Bad, I am not satisfied at all",
+            ReviewDate = DateTime.Now,
+        },
+        new ReviewEntity
+        {
+            Id = 9,
+            Rating = 5,
+            CommentText = "Eexellent .Thanks so much, I am very happy with my purchase",
+            ReviewDate = DateTime.Now,
+        },
+        new ReviewEntity
+        {
+            Id = 10,
+            Rating = 3,
+            CommentText = "Nice ,I am very happy",
+            ReviewDate = DateTime.Now,
+        });
+
+
+
+        modelBuilder.Entity<ProductReviewEntity>().HasData(
+           new ProductReviewEntity
+           {
+               ProductId = 1,
+               ReviewId = 1,
+           },
+
+           new ProductReviewEntity
+           {
+               ProductId = 1,
+               ReviewId = 2,
+           },
+             new ProductReviewEntity
+             {
+                 ProductId = 1,
+                 ReviewId = 7,
+             },
+            new ProductReviewEntity
+            {
+                ProductId = 1,
+                ReviewId = 10,
+            },
+            new ProductReviewEntity
+            {
+                ProductId = 1,
+                ReviewId = 9,
+            },
+
+            new ProductReviewEntity
+            {
+                ProductId = 2,
+                ReviewId = 4,
+            },
+
+            new ProductReviewEntity
+            {
+                ProductId = 2,
+                ReviewId = 5,
+            },
+
+            new ProductReviewEntity
+            {
+                ProductId = 2,
+                ReviewId = 3,
+            },
+
+            new ProductReviewEntity
+            {
+                ProductId = 3,
+                ReviewId = 5,
+            },
+            new ProductReviewEntity
+            {
+                ProductId = 4,
+                ReviewId = 6,
+            },
+
+            new ProductReviewEntity
+            {
+                ProductId = 5,
+                ReviewId = 7,
+            },
+
+            new ProductReviewEntity
+            {
+                ProductId = 6,
+                ReviewId = 8,
+            },
+            new ProductReviewEntity
+            {
+                ProductId = 7,
+                ReviewId = 10,
+            },
+            new ProductReviewEntity
+            {
+                ProductId = 8,
+                ReviewId = 9,
+            },
+
+            new ProductReviewEntity
+            { 
+                ProductId = 9,
+                ReviewId = 10,
+            },
+
+            new ProductReviewEntity
+            {
+                ProductId = 10,
+                ReviewId = 2,
+            });
+
+    }
+}
 
 

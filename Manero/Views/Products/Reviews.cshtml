@@ -1,61 +1,49 @@
-﻿@using Manero.ViewModels;
+﻿@using Manero.ViewModels
+
+@model Manero.ViewModels.ProductPageViewModel
 
 @{
-    int count = 0;
-    int nr = 0;
-
     var ReviewsPage = new NavbarViewModel()
-        {
-            Burger = false,
-            MiddleData = "All Reviews",
-            ShoppingCart = true
-        };
+            {
+                Burger = false,
+                MiddleData = "All Reviews",
+                ShoppingCart = true
+            };
 }
 
 <partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="ReviewsPage" />
 
-
 <section class="reviews">
+    <h2 class="m-5" style="text-align: center;">Reviews (@Model.Product.ProductName)</h2>
 
-    <h2 class="m-5" style="text-align:center;">Reviews (4)</h2>
-
-    @* For now they just loop out the same cards, will need products in db to loop out  *@
-    @while (count < 4)
+    @foreach (var review in Model.Reviews)
     {
-
-        count++;
-
         <div class="review-card container">
-            <img src="~/static-images/review@(count).jpg" alt="review-person-1">
+            <img src="~/static-images/review@(review.Id).jpg" alt="review-person-@(review.Id)">
             <div class="review-info">
                 <div class="name-date-stars">
                     <div class="name-date">
 
-                        @* Here it will instead show the info from database via a model *@
-                        <p class="name">Annette Black</p>
-                        <p class="review-date">23 Jan 2022</p>
+                        <p class="review-date">@review.ReviewDate.ToString("dd MMM yyyy")</p>
                     </div>
                     <div class="review-stars">
-
-                        @* For now they are static *@
-
-                        @for (int i = 0; i < (count - nr); i++)
+                        @for (int i = 0; i < review.Rating; i++)
                         {
                             <a href=""><i class="fa-solid fa-star" style="color: #fbee00;"></i></a>
-
                         }
-
-                        @for (int i = 0; i < (5 - count); i++)
+                        @for (int i = 0; i < (5 - review.Rating); i++)
                         {
                             <a href=""><i class="fa-thin fa-star" style="color: #fbee00;"></i></a>
                         }
                     </div>
                 </div>
-                <p class="review-text">Consequat ut ea dolor aliqua laborum tempor Lorem culpa. Commodo veniam sint est mollit proident commodo.</p>
+                <p class="review-text">@review.CommentText</p>
             </div>
         </div>
     }
 
     <h1 id="write-a-comment" class="m-3">Write a comment? <a asp-controller="LeaveReview" asp-action="Index"><i class="fa-solid fa-comment"></i></a></h1>
-
 </section>
+
+
+
