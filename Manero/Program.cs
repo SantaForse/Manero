@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Determine the appropriate connection string based on the environment
 string? connectionString = builder.Environment.IsDevelopment()
-    ? builder.Configuration.GetConnectionString("DevelopmentConnection")
+    ? builder.Configuration.GetConnectionString("DefaultConnection")
     : builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -17,7 +17,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
-builder.Services.AddDbContext<ProductDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DataSql")));
+builder.Services.AddDbContext<ProductDbContext>(options => 
+{
+	options.UseSqlServer(connectionString);
+});
 
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
