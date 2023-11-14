@@ -80,7 +80,7 @@ namespace manero.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/home"); //christian 11/9
+            returnUrl ??= Url.Content("~/home"); //christian 9/11
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
