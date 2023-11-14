@@ -1,9 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Manero.Services;
+using Manero.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Manero.Controllers
 {
     public class UserProfileController : Controller
     {
+        //christian 14/11
+        private readonly UserService _userService;
+        public UserProfileController(UserService userService)
+        {
+            _userService = userService;
+        }
+
+
 
         public IActionResult Index()
         {
@@ -39,11 +49,21 @@ namespace Manero.Controllers
         }
 
 
-
         public IActionResult UserPaymentMethodAdd()
         {
             return View();
         }
+
+
+        [HttpPost] //christian 14/11
+        public async Task<IActionResult> UserPaymentMethodAddPost(PaymentCardAddViewModel model, string userId)
+        {
+            await _userService.AddNewPaymentCard(model, userId);
+
+            return View();
+        }
+
+
 
 
 

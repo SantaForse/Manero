@@ -1,4 +1,4 @@
-﻿@model Manero.ViewModels.PaymentCardAddViewModel
+﻿@model PaymentCardAddViewModel
 @using Manero.ViewModels
 
 @{
@@ -49,17 +49,21 @@
 </section>
 
 <section class="card-details container">
-    <form class="mb-3" method="post" novalidate>
+
+    <form class="mb-3" method="post" asp-action="UserPaymentMethodAddPost" novalidate>
+
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <input type="hidden" asp-for="@Model.UserId" value="@userId" />
 
         <div class="field-div mt-5">
             <label asp-for="CardHolderName" class="label-text"></label>
-            <input asp-for="CardHolderName" value=@placeholderName />
+            <input asp-for="@Model.CardHolderName" value=@placeholderName />
         </div>
         <div class="d-flex justify-content-between card-number">
             <div class="field-div">
                 <label asp-for="CardNumber" class="label-text"></label>
-                <input asp-for="CardNumber" value=@placeholderNumber />
+                <input asp-for="@Model.CardNumber" value=@placeholderNumber />
             </div>
             <button><i class="fa-light fa-camera"></i></button>
         </div>
@@ -67,16 +71,15 @@
         <div class="d-flex">
             <div class="field-div">
                 <label asp-for="CardExpirationDate" class="label-text"></label>
-                <input asp-for="CardExpirationDate" value=@placeholderDate />
+                <input asp-for="@Model.CardExpirationDate" value=@placeholderDate />
             </div>
             <div class="field-div">
                 <label asp-for="CardCVV" class="label-text"></label>
-                <input asp-for="CardCVV" type="password" value=@placeholderCode />
+                <input asp-for="@Model.CardCVV" type="password" value=@placeholderCode />
             </div>
         </div>
 
-
-        <button type="submit" class="black-button mt-5">SAVE CARD</button>
+        <button class="black-button mt-5">SAVE CARD</button>
     </form>
 </section>
 

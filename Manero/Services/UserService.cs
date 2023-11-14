@@ -4,7 +4,6 @@ using Manero.Repositories;
 using Manero.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Web.Mvc;
 
 namespace Manero.Services
 {
@@ -99,19 +98,47 @@ namespace Manero.Services
 
 
 
+
+
         // christian 13/11
-        [HttpPost]
-        public async Task<IActionResult> Register(PaymentCardAddViewModel model, string userId)
+        public async Task<UserPaymentCardEntity> AddNewPaymentCard(PaymentCardEntity model, string userId)
         {
+            var result = new UserPaymentCardEntity();
+
             List<PaymentCardViewModel> associatedPaymentCards = await GetPaymentCardByUserId(userId);
-            if(associatedPaymentCards.FindAll(x => x.CardNumber == model.CardNumber && x.ExpireDate == model.CardExpirationDate) == null)
+
+
+
+            if(associatedPaymentCards.FindAll(x => x.CardNumber == model.CardNumber && x.ExpireDate == model.ExpireDate) == null )
             {
-                _entity = await _userPaymentCardRepo.AddAsync(model);
+                throw new Exception("Problem @ UserService.Register(): Submitted Entry Already Exits");
             } 
             else
             {
+                var cardEntityToAdd = new PaymentCardEntity()
+                {
+                    Name = model.Name,
+                    CardNumber = model.CardNumber,
+                    ExpireDate = model.ExpireDate,
+                    CVVCode = model.CVVCode
+                };
+                var addedCardEntity = await _paymentCardRepo.AddAsync(cardEntityToAdd);
 
+                if (addedCardEntity != null)
+                {
+                    var userCardEntityToAdd = new UserPaymentCardEntity()
+                    {
+                        UserId = userId,
+                        PaymentCardId = addedCardEntity.Id
+                    };
+                    result = await _userPaymentCardRepo.AddAsync(userCardEntityToAdd);
+                }
+                else
+                {
+                    throw new Exception("Problem @ UserService.Register(): Entry Could Not Be Added To Database");
+                }
             }
+            return result;
         }
     }
 }

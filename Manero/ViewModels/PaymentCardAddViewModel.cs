@@ -1,9 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Manero.Models.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace Manero.ViewModels
 {
     public class PaymentCardAddViewModel
     {
+        public string? UserId { get; set; }
+
+
         [Required(ErrorMessage = "Name is required")]
         [Display(Name = "NAME")]
         public string? CardHolderName { get; set; }
@@ -21,6 +25,21 @@ namespace Manero.ViewModels
 
         [Required(ErrorMessage = "CVV is required")]
         [Display(Name = "CVV")]
-        public string? CardCVV { get; set; }
+        public int CardCVV { get; set; }
+
+
+
+
+        public static implicit operator PaymentCardEntity(PaymentCardAddViewModel model)
+        {
+            var paymentCardEntity = new PaymentCardEntity
+            {
+                Name = model.CardHolderName,
+                CardNumber = model.CardNumber,
+                ExpireDate = model.CardExpirationDate,
+                CVVCode = model.CardCVV
+            };
+            return paymentCardEntity;
+        }
     }
 }
