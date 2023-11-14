@@ -207,11 +207,6 @@ public class ProductDbContext : DbContext
                 },
                 new ProductCategoryEntity
                 {
-                    ProductId = 7,
-                    CategoryId = 3,
-                },
-                new ProductCategoryEntity
-                {
                     ProductId = 8,
                     CategoryId = 3,
                 },
@@ -223,16 +218,6 @@ public class ProductDbContext : DbContext
                 new ProductCategoryEntity
                 {
                     ProductId = 7,
-                    CategoryId = 3,
-                },
-                new ProductCategoryEntity
-                {
-                    ProductId = 8,
-                    CategoryId = 3,
-                },
-                new ProductCategoryEntity
-                {
-                    ProductId = 9,
                     CategoryId = 3,
                 },
                 new ProductCategoryEntity
