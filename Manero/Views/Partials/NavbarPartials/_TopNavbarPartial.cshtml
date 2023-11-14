@@ -1,6 +1,10 @@
-﻿
+﻿@using Manero.ViewModels
+
 @model Manero.ViewModels.NavbarViewModel
 
+@{
+    var bannerRight = new SearchNavbarViewModel();
+}
 
 <section class="top-navbar container">
 
@@ -70,7 +74,9 @@
     
     }else if (Model.MiddleData == "Search")
     {
-        <partial name="/Views/Partials/NavbarPartials/_SearchNavbarPartial.cshtml"  />
+
+        <partial name="/Views/Partials/NavbarPartials/_SearchNavbarPartial.cshtml" model="bannerRight" />
+
 
     } else
     {

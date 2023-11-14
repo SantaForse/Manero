@@ -52,6 +52,37 @@ public class CategoriesController : Controller
 
     }
 
+    [HttpPost]
+    public IActionResult Index(SearchbarViewModel viewModel)
+    {
+        if (viewModel != null)
+        {
+            TempData["SearchInput"] = viewModel.SearchInput;
+        }
+
+
+        return RedirectToAction("Search");
+    }
+
+    public IActionResult Search()
+    {
+        // Retrieve the information from TempData
+        var searchInput = TempData["SearchInput"] as string;
+
+        var searchViewModel = new SearchbarViewModel
+        {
+            SearchInput = searchInput,
+        };
+
+        return View(searchViewModel);
+    }
+
+
+    [HttpPost]
+    public IActionResult Search(SearchbarViewModel viewModel)
+    {
+        return View(viewModel);
+    }
 
     //Routes to the specifik category page
     [Route("Category/{productCategory}")]
