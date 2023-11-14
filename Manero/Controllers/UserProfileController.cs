@@ -60,7 +60,7 @@ namespace Manero.Controllers
         {
             await _userService.AddNewPaymentCard(model, userId);
 
-            return View();
+            return RedirectToAction("UserPaymentMethods", "UserProfile");
         }
 
 
