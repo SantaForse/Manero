@@ -1,5 +1,10 @@
-﻿
+﻿@using Manero.Services;
 
+@inject ProductsService productsService
+
+@{
+    var categories = productsService.GetAllUniqueCategories();
+}
 
 
 <section class="top-navbar container">
@@ -75,17 +80,12 @@
 
     <div class="tag-section">
         <p>Tags</p>
-        <button class="tag-button">KIDS</button>
-        <button class="tag-button">SPORT</button>
-        <button class="tag-button">DRESS</button>
-        <button class="tag-button">PANTS</button>
-        <button class="tag-button">T-SHIRT</button>
-        <button class="tag-button">HAT</button>
-        <button class="tag-button">UNISEX</button>
-        <button class="tag-button">BAG</button>
-        <button class="tag-button">ACCESSORIES</button>
-        <button class="tag-button">SHOES</button>
-        <button class="tag-button">POLO</button>
+
+        @foreach (var category in categories)
+        {
+            <button class="tag-button">@category</button>
+        }
+
     </div>
 
     <div class="review-button container">

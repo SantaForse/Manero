@@ -9,12 +9,14 @@ public class ProductDbContext : DbContext
     {
     }
 
-    public DbSet <ProductEntity> Products { get; set; }
+    public DbSet<ProductEntity> Products { get; set; }
     public DbSet<CategoryEntity> Categories { get; set; }
     public DbSet<ProductCategoryEntity> ProductCategories { get; set; }
 
     public DbSet<PromoCodeEntity> PromoCodes { get; set; }
     public DbSet<UserPromoCodeEntity> UserPromoCodes { get; set; }
+    public DbSet<ReviewEntity> Reviews { get; set; }
+    public DbSet<ProductReviewEntity> ProductReviews { get; set; }
 
     public DbSet<AddressEntity> Addresses { get; set; }
     public DbSet<UserAddressEntity> UserAddresses { get; set; }
@@ -220,6 +222,21 @@ public class ProductDbContext : DbContext
                 },
                 new ProductCategoryEntity
                 {
+                    ProductId = 7,
+                    CategoryId = 3,
+                },
+                new ProductCategoryEntity
+                {
+                    ProductId = 8,
+                    CategoryId = 3,
+                },
+                new ProductCategoryEntity
+                {
+                    ProductId = 9,
+                    CategoryId = 3,
+                },
+                new ProductCategoryEntity
+                {
                     ProductId = 10,
                     CategoryId = 3,
                 },
@@ -305,7 +322,6 @@ public class ProductDbContext : DbContext
     }
 }
                 
-
 
 
 

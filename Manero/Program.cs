@@ -36,7 +36,8 @@ builder.Services.AddScoped<UserPromoCodeRepo>();
 //Im adding a service for tags /Santa
 builder.Services.AddScoped<TagsService>();
 
-
+//Zahra for reviews
+builder.Services.AddScoped<ReviewsService>();
 
 //Anton added this 13/11
 builder.Services.AddScoped<AddressRepo>();
@@ -108,6 +109,13 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+//Zahra
+app.MapControllerRoute(
+    name: "ProductReviews",
+    pattern: "Products/Reviews/{productName}",
+    defaults: new { controller = "Products", action = "Reviews" }
+);
 
 app.MapControllerRoute(
 	name: "default",

@@ -1,6 +1,7 @@
 ﻿using Manero.Models;
 using Manero.Models.Entities;
 using Manero.Services;
+using Manero.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Manero.Controllers;
@@ -24,6 +25,33 @@ public class CategoriesController : Controller
     {
         return View();
     }
+
+
+    public IActionResult Index2()
+    {
+        return View();
+
+    }
+
+    [HttpPost]
+    public IActionResult Index2(SearchViewModel searchViewModel)
+    {
+        var products = productsService.SearchProductsByString(searchViewModel.SearchWord);
+
+        if (products == null)
+        {
+            return View("Error");
+        }
+        return RedirectToRoute(Index3(products));
+
+    }
+
+    public IActionResult Index3(IEnumerable<Models.Entities.ProductEntity> products)
+    {
+        return View();
+
+    }
+
 
     //Routes to the specifik category page
     [Route("Category/{productCategory}")]
