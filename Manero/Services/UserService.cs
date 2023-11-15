@@ -2,6 +2,7 @@
 using Manero.Models.Entities;
 using Manero.Repositories;
 using Manero.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Manero.Services
@@ -14,7 +15,7 @@ namespace Manero.Services
         private readonly UserAddressRepo _userAddressRepo;
         private readonly PaymentCardRepo _paymentCardRepo;
         private readonly UserPaymentCardRepo _userPaymentCardRepo;
-        
+
         public UserService(ProductDbContext context, PromoCodeRepo promoCodeRepo, UserPromoCodeRepo userPromoCodeRepo, UserAddressRepo userAddressRepo, PaymentCardRepo paymentCardRepo, UserPaymentCardRepo userPaymentCardRepo)
         {
             _userAddressRepo = userAddressRepo;
@@ -23,6 +24,7 @@ namespace Manero.Services
             _userPromoCodeRepo = userPromoCodeRepo;
             _paymentCardRepo = paymentCardRepo;
             _userPaymentCardRepo = userPaymentCardRepo;
+
         }
 
         public async Task<List<PromoCodeViewModel>> GetPromoCodesByUserId(string userId)
