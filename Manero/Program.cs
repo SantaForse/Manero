@@ -37,7 +37,7 @@ builder.Services.AddScoped<UserPromoCodeRepo>();
 builder.Services.AddScoped<TagsService>();
 
 //Zahra for reviews
-builder.Services.AddScoped<ReviewsService>();
+builder.Services.AddScoped<ReviewService>();
 
 //Anton added this 13/11
 builder.Services.AddScoped<AddressRepo>();
