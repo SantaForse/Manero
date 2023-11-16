@@ -44,7 +44,7 @@ body {
 .black-button {
     background-color: var(--color-theme-black);
     color: var(--color-white);
-    border: none;
+    border: 3px solid var(--color-theme-black);
     padding: 1rem;
     width: 100%;
     border-radius: 5rem;
