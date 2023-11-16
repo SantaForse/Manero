@@ -22,6 +22,27 @@ namespace Manero.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Manero.Models.Entities.AddressEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Addresses");
+                });
+
             modelBuilder.Entity("Manero.Models.Entities.CategoryEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -69,6 +90,34 @@ namespace Manero.Migrations
                             Id = 6,
                             CategoryName = "Hoodie"
                         });
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.PaymentCardEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CVVCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CardNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExpireDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentCards");
                 });
 
             modelBuilder.Entity("Manero.Models.Entities.ProductCategoryEntity", b =>
@@ -292,6 +341,311 @@ namespace Manero.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Manero.Models.Entities.ProductReviewEntity", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReviewId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "ReviewId");
+
+                    b.HasIndex("ReviewId");
+
+                    b.ToTable("ProductReviews");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            ReviewId = 1
+                        },
+                        new
+                        {
+                            ProductId = 1,
+                            ReviewId = 2
+                        },
+                        new
+                        {
+                            ProductId = 1,
+                            ReviewId = 7
+                        },
+                        new
+                        {
+                            ProductId = 1,
+                            ReviewId = 10
+                        },
+                        new
+                        {
+                            ProductId = 1,
+                            ReviewId = 9
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            ReviewId = 4
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            ReviewId = 5
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            ReviewId = 3
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            ReviewId = 5
+                        },
+                        new
+                        {
+                            ProductId = 4,
+                            ReviewId = 6
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            ReviewId = 7
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            ReviewId = 8
+                        },
+                        new
+                        {
+                            ProductId = 7,
+                            ReviewId = 10
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            ReviewId = 9
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            ReviewId = 10
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            ReviewId = 2
+                        });
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.PromoCodeEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("Discount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExpirationDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PromoCodes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Discount = 50,
+                            ExpirationDate = "June 1, 2024",
+                            ImageUrl = "/static-images/placeholder_promocode.svg",
+                            Title = "Acme Co."
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Discount = 30,
+                            ExpirationDate = "May 1, 2022",
+                            ImageUrl = "/static-images/placeholder_promocode.svg",
+                            Title = "Barone LLC."
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Discount = 15,
+                            ExpirationDate = "June 30, 2022",
+                            ImageUrl = "/static-images/placeholder_promocode.svg",
+                            Title = "Abstergo Ltd."
+                        });
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.ReviewEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CommentText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReviewDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CommentText = "Excellent.I highly recommend this business",
+                            Rating = 5,
+                            ReviewDate = new DateTime(2023, 11, 14, 23, 50, 52, 438, DateTimeKind.Local).AddTicks(4982)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CommentText = "Nice,I was completely impressed with their professionalism and customer service",
+                            Rating = 4,
+                            ReviewDate = new DateTime(2023, 11, 14, 23, 50, 52, 438, DateTimeKind.Local).AddTicks(5042)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CommentText = "Thanks so much, I am very happy with my purchase",
+                            Rating = 3,
+                            ReviewDate = new DateTime(2023, 11, 14, 23, 50, 52, 438, DateTimeKind.Local).AddTicks(5044)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CommentText = "Not bad, It could have been of better quality",
+                            Rating = 2,
+                            ReviewDate = new DateTime(2023, 11, 14, 23, 50, 52, 438, DateTimeKind.Local).AddTicks(5046)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CommentText = "Eexellent, It has good quality",
+                            Rating = 5,
+                            ReviewDate = new DateTime(2023, 11, 14, 23, 50, 52, 438, DateTimeKind.Local).AddTicks(5048)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CommentText = "That was OK",
+                            Rating = 3,
+                            ReviewDate = new DateTime(2023, 11, 14, 23, 50, 52, 438, DateTimeKind.Local).AddTicks(5050)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CommentText = "Very good, and good quality",
+                            Rating = 5,
+                            ReviewDate = new DateTime(2023, 11, 14, 23, 50, 52, 438, DateTimeKind.Local).AddTicks(5051)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CommentText = "Vey Bad, I am not satisfied at all",
+                            Rating = 1,
+                            ReviewDate = new DateTime(2023, 11, 14, 23, 50, 52, 438, DateTimeKind.Local).AddTicks(5053)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CommentText = "Eexellent .Thanks so much, I am very happy with my purchase",
+                            Rating = 5,
+                            ReviewDate = new DateTime(2023, 11, 14, 23, 50, 52, 438, DateTimeKind.Local).AddTicks(5055)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CommentText = "Nice ,I am very happy",
+                            Rating = 3,
+                            ReviewDate = new DateTime(2023, 11, 14, 23, 50, 52, 438, DateTimeKind.Local).AddTicks(5057)
+                        });
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.UserAddressEntity", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "AddressId");
+
+                    b.HasIndex("AddressId");
+
+                    b.ToTable("UserAddresses");
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.UserPaymentCardEntity", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("PaymentCardId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "PaymentCardId");
+
+                    b.HasIndex("PaymentCardId");
+
+                    b.ToTable("UserPaymentCards");
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.UserPromoCodeEntity", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("PromoCodeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "PromoCodeId");
+
+                    b.HasIndex("PromoCodeId");
+
+                    b.ToTable("UserPromoCodes");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "5ebe6c4c-409c-47fe-bed4-df34cdbd3a8a",
+                            PromoCodeId = 1
+                        },
+                        new
+                        {
+                            UserId = "a106762b-162f-4e96-9c50-8f6b80298fd1",
+                            PromoCodeId = 2
+                        },
+                        new
+                        {
+                            UserId = "a106762b-162f-4e96-9c50-8f6b80298fd1",
+                            PromoCodeId = 3
+                        });
+                });
+
             modelBuilder.Entity("Manero.Models.Entities.ProductCategoryEntity", b =>
                 {
                     b.HasOne("Manero.Models.Entities.CategoryEntity", "Category")
@@ -309,6 +663,68 @@ namespace Manero.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.ProductReviewEntity", b =>
+                {
+                    b.HasOne("Manero.Models.Entities.ProductEntity", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Manero.Models.Entities.ReviewEntity", "Review")
+                        .WithMany("ProductReviws")
+                        .HasForeignKey("ReviewId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Review");
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.UserAddressEntity", b =>
+                {
+                    b.HasOne("Manero.Models.Entities.AddressEntity", "Address")
+                        .WithMany("UserAddresses")
+                        .HasForeignKey("AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.UserPaymentCardEntity", b =>
+                {
+                    b.HasOne("Manero.Models.Entities.PaymentCardEntity", "PaymentCard")
+                        .WithMany()
+                        .HasForeignKey("PaymentCardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PaymentCard");
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.UserPromoCodeEntity", b =>
+                {
+                    b.HasOne("Manero.Models.Entities.PromoCodeEntity", "PromoCode")
+                        .WithMany()
+                        .HasForeignKey("PromoCodeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PromoCode");
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.AddressEntity", b =>
+                {
+                    b.Navigation("UserAddresses");
+                });
+
+            modelBuilder.Entity("Manero.Models.Entities.ReviewEntity", b =>
+                {
+                    b.Navigation("ProductReviws");
                 });
 #pragma warning restore 612, 618
         }
