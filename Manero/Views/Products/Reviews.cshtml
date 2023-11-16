@@ -42,7 +42,7 @@
         </div>
     }
 
-    <h1 id="write-a-comment" class="m-3">Write a comment? <a asp-controller="LeaveReview" asp-action="Index"><i class="fa-solid fa-comment"></i></a></h1>
+    <h1 id="write-a-comment" class="m-3">Write a comment? <a href="/LeaveReview/Index?ProductId=@Model.Product.Id"><i class="fa-solid fa-comment"></i></a></h1>
 </section>
 
 

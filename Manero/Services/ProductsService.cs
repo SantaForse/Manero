@@ -113,6 +113,16 @@ public class ProductsService
             .ToList();
     }
 
+    public int GetProductIdByName(string productName)
+    {
+        var product = _context.Products.FirstOrDefault(p => p.ProductName == productName);
+        return product != null ? product.Id : 0;
+    }
+
+    public ProductEntity GetProductById(int productId)
+    {
+        return _context.Products.FirstOrDefault(p => p.Id == productId);
+    }
 
 
 }

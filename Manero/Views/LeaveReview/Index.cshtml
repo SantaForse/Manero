@@ -1,11 +1,11 @@
 ﻿@using Manero.Models;
 @using System.Linq
+@model Manero.ViewModels.ReviewEntry
+@* @model Manero.ViewModels.ProductPageViewModel  *@
 
-@model Manero.ViewModels.ReviewViewModel
 <head>
     <link rel="stylesheet" href="~/css/zahra.css" asp-append-version="true" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    @* <script src="~/js/starRating.js"></script> *@
 </head>
 
 <section class="leave-review bg-color2">
@@ -15,21 +15,23 @@
             <img class="review-image" src="~/static-images/reviewImg.png" alt="Review Image">
             <div class="vertical-line"></div>
             <p class="review-paragraph">Please rate the quality of <br> service for the order!</p>
-        
+
             <div class="star-rating">
-                <i class=" ratingStar far fa-star"></i> 
-                <i class=" ratingStar far fa-star"></i>
-                <i class=" ratingStar far fa-star"></i>
-                <i class=" ratingStar far fa-star"></i>
-                <i class=" ratingStar far fa-star"></i>
-               
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <i class="ratingStar far fa-star" data-rating="@i"></i>
+                }
             </div>
 
             <p class="second-text">Your comments and suggestions help us <br> improve the service quality better!</p>
+           
 
-            <form method="post">
-                <label asp-for="NewCommentText">COMMENT</label>
-                <input id="comments" asp-for="NewCommentText" type="text" placeholder="Enter your comment" />
+            <form method="post" asp-action="AddComment">
+                <label asp-for="CommentText">COMMENT</label>
+                <input id="comments" asp-for="CommentText" type="text" placeholder="Enter your comment" />
+                <input asp-for="Rating" type="hidden" id="selectedRating" />
+                @* <input asp-for="ProductId" type="hidden" id="selectedProduct" value="@(Model.ProductId)" /> *@
+                <input asp-for="ProductId" type="hidden" id="selectedProduct"  />
                 <button type="submit">SUBMIT</button>
             </form>
 
@@ -39,21 +41,133 @@
 </section>
 
 
+            <script>
+                $(".ratingStar").hover(function () {
+                    $(".ratingStar").addClass("far").removeClass("fas");
+                    $(this).addClass("fas").removeClass("far");
+                    $(this).prevAll(".ratingStar").addClass("fas").removeClass("far");
+                    var selectedRating = $(this).data("rating");
+                    $("#selectedRating").val(selectedRating);
+                });
+
+
+   
+
+</script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* @using Manero.Models
+@using System.Linq
+@model Manero.ViewModels.ReviewViewModel
+
+<head>
+    <link rel="stylesheet" href="~/css/zahra.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<section class="leave-review bg-color2">
+    <div class="container">
+        <div class="center-content">
+            <div class="review-title">Leave a review</div>
+            <img class="review-image" src="~/static-images/reviewImg.png" alt="Review Image">
+            <div class="vertical-line"></div>
+            <p class="review-paragraph">Please rate the quality of <br> service for the order!</p>
+
+            <div class="star-rating">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <i class="ratingStar far fa-star" data-rating="@i"></i>
+                }
+            </div>
+
+            <p class="second-text">Your comments and suggestions help us <br> improve the service quality better!</p>
+
+            <form method="post" asp-action="AddComment" >
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Rating">Rating:</label>
+                    <input asp-for="Rating" class="form-control" />
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CommentText">Comment:</label>
+                    <input asp-for="CommentText" class="form-control" />
+                    <span asp-validation-for="CommentText" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <div class="end-line"></div>
+        </div>
+    </div>
+</section>
+
 <script>
     $(".ratingStar").hover(function () {
         $(".ratingStar").addClass("far").removeClass("fas");
-
         $(this).addClass("fas").removeClass("far");
         $(this).prevAll(".ratingStar").addClass("fas").removeClass("far");
+        var selectedRating = $(this).data("rating");
+        $("#selectedRating").val(selectedRating);
     });
-</script>
 
+    // Om det finns ett värde för ProductName, använd det
+    var productName = "@Model.ProductName";
 
-
-
-
-
-
-
-
-
+    if (productName) {
+        $("#selectedProduct").val(productName);
+    }
+</script> *@
