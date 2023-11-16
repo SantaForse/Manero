@@ -24,5 +24,21 @@
 
             response.EnsureSuccessStatusCode();
         }
+
+        [Fact]
+        public async Task WishListPageShouldReturnSuccess()
+        {
+            var response = await _client.GetAsync("/WishList");
+
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Fact]
+        public async Task CategoriesPageShouldReturnSuccess()
+        {
+            var response = await _client.GetAsync("/Categories");
+
+            response.EnsureSuccessStatusCode();
+        }
     }
 }
