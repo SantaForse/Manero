@@ -4,32 +4,44 @@ using Manero.Repositories;
 using Manero.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Manero.Services
 {
     public class UserService
     {
         private readonly ProductDbContext _context;
+        private readonly UserAddressRepo _userAddressRepo;
         private readonly PromoCodeRepo _promoCodeRepo;
         private readonly UserPromoCodeRepo _userPromoCodeRepo;
-        private readonly UserAddressRepo _userAddressRepo;
         private readonly PaymentCardRepo _paymentCardRepo;
         private readonly UserPaymentCardRepo _userPaymentCardRepo;
-        
-        public UserService(ProductDbContext context, PromoCodeRepo promoCodeRepo, UserPromoCodeRepo userPromoCodeRepo, UserAddressRepo userAddressRepo, PaymentCardRepo paymentCardRepo, UserPaymentCardRepo userPaymentCardRepo)
+
+
+
+        public UserService(ProductDbContext context, UserAddressRepo userAddressRepo, PromoCodeRepo promoCodeRepo, UserPromoCodeRepo userPromoCodeRepo, PaymentCardRepo paymentCardRepo, UserPaymentCardRepo userPaymentCardRepo)
         {
-            _userAddressRepo = userAddressRepo;
+            //_addressRepo = addressRepo;
             _context = context;
+            _userAddressRepo = userAddressRepo;
             _promoCodeRepo = promoCodeRepo;
             _userPromoCodeRepo = userPromoCodeRepo;
             _paymentCardRepo = paymentCardRepo;
             _userPaymentCardRepo = userPaymentCardRepo;
         }
 
+
+
+
+
+        //public async Task<List<UserPromoCodeEntity>> GetSelectedUserPromoCodes(string userId) { return _context.Set<UserPromoCodeEntity>().Where(x => x.UserId == userId).ToList(); }
         public async Task<List<PromoCodeViewModel>> GetPromoCodesByUserId(string userId)
         {
             var requestedCodeIds = new List<int>();
+
             foreach (var codes in await _userPromoCodeRepo.GetSelectedAsync(x => x.UserId == userId))
+            //foreach (var codes in await GetSelectedUserPromoCodes(userId))
             {
                 requestedCodeIds.Add(codes.PromoCodeId);
             }
@@ -49,10 +61,17 @@ namespace Manero.Services
             return associatedCodes;
         }
 
+
+
+
+
+
+        //public async Task<List<UserAddressEntity>> GetSelectedUserAddresses(string userId) { return _context.Set<UserAddressEntity>().Where(x => x.UserId == userId).ToList(); } //christian 15/11
         public async Task<List<AddressViewModel>> GetAddressesByUserId(string userId)
         {
             var requestedAddresses = new List<int>();
-            foreach (var address in await _userAddressRepo.GetSelectedAsync(x => x.UserId == userId))
+            foreach (var address in await _userAddressRepo.GetSelectedAsync(x => x.UserId == userId))  
+            //foreach (var address in await GetSelectedUserAddresses(userId))  //christian 15/11
             {
                 requestedAddresses.Add(address.AddressId);
             }
@@ -69,6 +88,10 @@ namespace Manero.Services
             }
             return associatedAdresses;
         }
+
+
+
+
 
 
         #region Get list of associated payment cards by user id
@@ -109,7 +132,7 @@ namespace Manero.Services
 
 
 
-            if(associatedPaymentCards.FindAll(x => x.CardNumber == model.CardNumber && x.ExpireDate == model.ExpireDate) == null )
+            if(associatedPaymentCards.Where(x => x.CardNumber == model.CardNumber && x.ExpireDate == model.ExpireDate) == null )
             {
                 throw new Exception("Problem @ UserService.Register(): Submitted Entry Already Exits");
             } 
