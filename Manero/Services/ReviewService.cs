@@ -24,91 +24,62 @@ namespace Manero.Services
                 .ToList();
         }
 
-        public void AddReviewToProduct(ProductEntity product, ReviewEntity review)
-        {
-            var productReview = new ProductReviewEntity
-            {
-                ProductId = product.Id,
-                ReviewId = review.Id
-            };
+    
 
-            _context.ProductReviews.Add(productReview);
-            _context.SaveChanges();
+        public void AddReview(ReviewEntity review, int productId)
+        {
+            review.ReviewDate = DateTime.Now;
+
+            var product = _productsService.GetProductById(productId);
+
+            if (product != null)
+            {
+
+                _context.Reviews.Add(review);
+                _context.SaveChanges();
+
+                var productReview = new ProductReviewEntity
+                {
+                    ProductId = product.Id,
+                    ReviewId = review.Id
+                };
+
+                _context.ProductReviews.Add(productReview);
+                _context.SaveChanges();
+            }
+            else
+            {
+              
+            }
         }
     }
 }
 
 
-//    public void AddReview(ReviewEntity review, int productId)
-//    {
-//        review.ReviewDate = DateTime.Now;
-
-//        var product = productsService.GetProductById(productId);
-
-//        if (product != null)
-//        {
-//            var productReview = new ProductReviewEntity
-//            {
-//                ProductId = product.Id,
-//                ReviewId = review.Id
-//            };
-
-//            dbContext.Reviews.Add(review);
-//            dbContext.ProductReviews.Add(productReview);
-//            dbContext.SaveChanges();
-//        }
-//        else
-//        {
-//            // Handle the case where the product doesn't exist
-//        }
-//    }
-//}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//using Manero.Data;
-//using Manero.Models.Entities;
-//using Microsoft.EntityFrameworkCore;
-//using System.Collections.Generic;
-//using System.Linq;
-
-//namespace Manero.Services
+//public void AddReviewToProduct(ProductEntity product, ReviewEntity review)
 //{
-//    public class ReviewsService : ProductsService
+//    var productReview = new ProductReviewEntity
 //    {
-//        protected ProductDbContext _context;
+//        ProductId = product.Id,
+//        ReviewId = review.Id
+//    };
 
-//        public ReviewsService(ProductDbContext context) : base(context)
-//        {
-//            _context = context;
-//        }
-
-
-
-//        public ProductEntity GetProductByName(string productName)
-//        {
-//            return _context.Products.FirstOrDefault(p => p.ProductName == productName);
-//        }
-
-//        public IEnumerable<ReviewEntity> GetReviews(int productId)
-//        {
-//            return _context.ProductReviews
-//                .Where(pr => pr.ProductId == productId)
-//                .Select(pr => pr.Review)
-//                .ToList();
-//        }
-//    }
+//    _context.ProductReviews.Add(productReview);
+//    _context.SaveChanges();
 //}
+
+
+
+
+
+
+
+
+
+
+
+
+

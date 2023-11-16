@@ -1,7 +1,11 @@
-﻿using Manero.Data;
+﻿using Manero.Controllers;
+using Manero.Data;
 using Manero.Models.Entities;
 using Manero.Services;
+using Manero.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -120,10 +124,94 @@ namespace Manero.Tests
                 Assert.NotNull(reviews);
                 Assert.Equal(2, reviews.Count());
             }
-        }
 
+
+        }
+            [Fact]
+            public void AddReview_To_product()
+            {
+            
+                var options = new DbContextOptionsBuilder<ProductDbContext>()
+                    .UseInMemoryDatabase(databaseName: "AddReview_ReviewAddedSuccessfully")
+                    .Options;
+
+                using (var context = new ProductDbContext(options))
+                {
+                    var productService = new ProductsService(context);
+                    var reviewService = new ReviewService(context, productService);
+
+                    
+                    var product = new ProductEntity
+                    {
+                        ProductName = "Skor",
+                        ImageUrl = "testpic.jpg",
+                        
+                    };
+
+                    context.Products.Add(product);
+                    context.SaveChanges();
+
+                    var review = new ReviewEntity
+                    {
+                        Rating = 5,
+                        CommentText = "good"
+                    };
+
+                    // Act
+                    reviewService.AddReview(review, product.Id);
+                }
+
+             
+                using (var context = new ProductDbContext(options))
+                {
+                   
+                    Assert.Single(context.Reviews);
+
+                   
+                    var addedReview = context.Reviews.Single();
+                    Assert.Equal(5, addedReview.Rating);
+                    Assert.Equal("good", addedReview.CommentText);
+                }
+            }
+
+
+            [Fact]
+        public void AddReview_InvalidProductId_ReviewNotAdded()
+        {
+         
+            var options = new DbContextOptionsBuilder<ProductDbContext>()
+                .UseInMemoryDatabase(databaseName: "AddReview_InvalidProductId")
+                .Options;
+
+            using (var context = new ProductDbContext(options))
+            {
+                var productId = 1;
+                var review = new ReviewEntity
+                {
+                    Rating = 5,
+                    CommentText = "good"
+                };
+
+                var productService = new ProductsService(context);
+                var reviewService = new ReviewService(context, productService);
+
+               
+                reviewService.AddReview(review, productId);
+            }
+
+        
+            using (var context = new ProductDbContext(options))
+            {
+                Assert.Equal(0, context.Reviews.Count()); 
+                Assert.Equal(0, context.ProductReviews.Count());
+            }
+        }
     }
+
 }
+
+
+
 
 
 
