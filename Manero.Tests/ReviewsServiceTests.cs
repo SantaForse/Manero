@@ -14,7 +14,7 @@ using Xunit;
 namespace Manero.Tests
 {
     // These are Zahra's tests, more tests will be added for reviews part
-    public class ProductServiceTests
+    public class ReviewServiceTests
     {
         [Fact]
         public void ToGet_Reviews_From_Database()

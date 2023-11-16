@@ -58,7 +58,7 @@ namespace Manero.Tests
 
 
 				//old code
-				var service = new UserService(context, promoCodeRepo, userPromoCodeRepo, userAddressRepo, paymentCardRepo, userPaymentCardRepo);
+				var service = new UserService(context, userAddressRepo, promoCodeRepo, userPromoCodeRepo, paymentCardRepo, userPaymentCardRepo);
 
 				// Act
 				var result = await service.GetAddressesByUserId("10");
