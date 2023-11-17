@@ -1,20 +1,19 @@
-﻿using Manero.Controllers;
+﻿
+using Manero.Controllers;
 using Manero.Data;
 using Manero.Models.Entities;
 using Manero.Services;
 using Manero.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Xunit;
+
 
 namespace Manero.Tests
 {
-    // These are Zahra's tests, more tests will be added for reviews part
-    public class ReviewServiceTests
+    // These are Zahra's tests
+    public class ReviewsServiceTests
+
+
     {
         [Fact]
         public void ToGet_Reviews_From_Database()
@@ -127,58 +126,58 @@ namespace Manero.Tests
 
 
         }
-            [Fact]
-            public void AddReview_To_product()
+        [Fact]
+        public void AddReview_To_product()
+        {
+
+            var options = new DbContextOptionsBuilder<ProductDbContext>()
+                .UseInMemoryDatabase(databaseName: "AddReview_ReviewAddedSuccessfully")
+                .Options;
+
+            using (var context = new ProductDbContext(options))
             {
-            
-                var options = new DbContextOptionsBuilder<ProductDbContext>()
-                    .UseInMemoryDatabase(databaseName: "AddReview_ReviewAddedSuccessfully")
-                    .Options;
+                var productService = new ProductsService(context);
+                var reviewService = new ReviewService(context, productService);
 
-                using (var context = new ProductDbContext(options))
+
+                var product = new ProductEntity
                 {
-                    var productService = new ProductsService(context);
-                    var reviewService = new ReviewService(context, productService);
+                    ProductName = "Skor",
+                    ImageUrl = "testpic.jpg",
 
-                    
-                    var product = new ProductEntity
-                    {
-                        ProductName = "Skor",
-                        ImageUrl = "testpic.jpg",
-                        
-                    };
+                };
 
-                    context.Products.Add(product);
-                    context.SaveChanges();
+                context.Products.Add(product);
+                context.SaveChanges();
 
-                    var review = new ReviewEntity
-                    {
-                        Rating = 5,
-                        CommentText = "good"
-                    };
-
-                    // Act
-                    reviewService.AddReview(review, product.Id);
-                }
-
-             
-                using (var context = new ProductDbContext(options))
+                var review = new ReviewEntity
                 {
-                   
-                    Assert.Single(context.Reviews);
+                    Rating = 5,
+                    CommentText = "good"
+                };
 
-                   
-                    var addedReview = context.Reviews.Single();
-                    Assert.Equal(5, addedReview.Rating);
-                    Assert.Equal("good", addedReview.CommentText);
-                }
+                // Act
+                reviewService.AddReview(review, product.Id);
             }
 
 
-            [Fact]
-        public void AddReview_InvalidProductId_ReviewNotAdded()
+            using (var context = new ProductDbContext(options))
+            {
+
+                Assert.Single(context.Reviews);
+
+
+                var addedReview = context.Reviews.Single();
+                Assert.Equal(5, addedReview.Rating);
+                Assert.Equal("good", addedReview.CommentText);
+            }
+        }
+
+
+        [Fact]
+        public void ToAddReview_ToInvalidProductId_ReviewCanNotBeAdded()
         {
-         
+
             var options = new DbContextOptionsBuilder<ProductDbContext>()
                 .UseInMemoryDatabase(databaseName: "AddReview_InvalidProductId")
                 .Options;
@@ -195,20 +194,71 @@ namespace Manero.Tests
                 var productService = new ProductsService(context);
                 var reviewService = new ReviewService(context, productService);
 
-               
+
                 reviewService.AddReview(review, productId);
             }
 
-        
+
             using (var context = new ProductDbContext(options))
             {
-                Assert.Equal(0, context.Reviews.Count()); 
+                Assert.Equal(0, context.Reviews.Count());
                 Assert.Equal(0, context.ProductReviews.Count());
             }
+
         }
+
+
+        [Fact]
+        public void ControllerTestToAddComment_ToHaveValidSubmission_ToBeRedirectsToHomePage()
+        {
+        
+            var options = new DbContextOptionsBuilder<ProductDbContext>()
+                .UseInMemoryDatabase(databaseName: "AddComment_ValidSubmission")
+                .Options;
+
+            using (var context = new ProductDbContext(options))
+            {
+                var productService = new ProductsService(context);
+                var reviewService = new ReviewService(context, productService);
+
+                var controller = new LeaveReviewController(productService, reviewService);
+
+                var product = new ProductEntity
+                {
+                    Id = 1,
+                    ProductName = "this test product",
+                    ImageUrl = ".zahrastest.jpg"
+                };
+
+                context.Products.Add(product);
+                context.SaveChanges();
+
+                var reviewEntry = new ReviewEntry
+                {
+                    Rating = 4,
+                    CommentText = "comment for test",
+                    ProductId = product.Id
+                };
+
+               
+                var result = controller.AddComment(reviewEntry) as RedirectToActionResult;
+
+               
+                Assert.NotNull(result);
+                Assert.Equal("Index", result.ActionName);
+                Assert.Equal("Home", result.ControllerName);
+            }
+
+
+
+
+
+
+        }
+
+    }  
     }
 
-}
 
 
 

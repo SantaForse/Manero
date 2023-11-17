@@ -58,7 +58,7 @@ namespace Manero.Controllers
                     reviewService.AddReview(newComment, product.Id);
 
                     //return LocalRedirect($"/Products/Reviews?productName={product.ProductName}"); 
-                    return LocalRedirect($"/home");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
