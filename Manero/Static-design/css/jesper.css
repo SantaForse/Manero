@@ -42,6 +42,7 @@
   font-family: var(--font-mulish);
   padding: 15px 25px;
   border-radius: 45px;
+  width: auto;
   border: none;
   text-align: center;
   transition: color ease-in 250ms, background ease-in 250ms;

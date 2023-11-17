@@ -1,0 +1,53 @@
+﻿:root {
+    /* Colours */
+    --color-theme: #DBE3F5;
+    --color-theme-black: #111111;
+    --color-white: #FFFFFF;
+    --color-text-gray: #626262;
+    --color-text-red: #F4303C;
+    --color-text-blue: #B3B9C7;
+    --color-text-yellow: #EF962D;
+    --color-stars: #FFBE00;
+    --color-new: #CFA93F;
+    --color-sale: #69864D;
+    --color-top: #864D7D;
+    --color-success: #00824B;
+    --color-fail: #F4303C; /* This is the same colour as text red */
+    /* Font-details */
+    --font-mulish: 'Mulish', sans-serif;
+    --light-font: 300;
+    --regular-font: 400;
+    --semibold-font: 600;
+    --bold-font: 700;
+}
+
+.black-button {
+    border: 4px solid black;
+}
+
+    .black-button:hover {
+        background-color: var(--color-theme-black);
+        color: var(--color-theme-black);
+    }
+
+
+.white_button {
+    width: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.category_link i {
+    font-family: var(--font-mulish);
+    font-weight: 600;
+
+}
+    .category_link i:hover {
+        background-color: blue;
+        width: 100px;
+    }
+
+@media (min-width: 900px) {
+    
+
+}
