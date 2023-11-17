@@ -1,4 +1,9 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Manero.Services;
+@using Microsoft.AspNetCore.Identity;
 @using manero.Models;
 @* @using manero.ViewModels; *@
+
+@inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> userManager
 

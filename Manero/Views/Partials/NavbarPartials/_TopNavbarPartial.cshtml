@@ -1,7 +1,10 @@
-﻿
+﻿@using Manero.ViewModels
+
 @model Manero.ViewModels.NavbarViewModel
 
-
+@{
+    var bannerRight = new SearchNavbarViewModel();
+}
 
 <section class="top-navbar container">
 
@@ -71,10 +74,10 @@
     
     }else if (Model.MiddleData == "Search")
     {
-        <div class="search-input second-navbar">
-            <div class="search-button"><i class="fa-light fa-magnifying-glass"></i></div>
-            <input type="text" class="input" placeholder="Search">
-        </div>
+
+        <partial name="/Views/Partials/NavbarPartials/_SearchNavbarPartial.cshtml" model="bannerRight" />
+
+
     } else
     {
     @* Maybe this one should automatically show the page title or something? *@
@@ -94,7 +97,17 @@
             <a asp-controller="Categories" asp-action="Index" class="big-screen-menu">Search</a>
             <a asp-controller="WishList" asp-action="Index" class="big-screen-menu">Wishlist</a>
             <a asp-controller="Order" asp-action="Index" class="big-screen-menu">Shopping bag</a>
-            <a asp-controller="UserProfile" asp-action="Index" class="big-screen-menu">My Profile</a>
+
+            //--------------------------------------------------------------------------------- christian 9/11
+            @if (signInManager.IsSignedIn(User)) 
+            {
+                <a asp-area="Identity" asp-page="/Account/Manage/Index" class="big-screen-menu">My Profile</a>
+            } else
+            {
+                <a asp-area="Identity" asp-page="/Account/Login" class="big-screen-menu">Log in</a>
+            }
+            //-------------------------------------------------------------------------------------------------
+
             <a asp-controller="Order" asp-action="Index" class="shopping-bag-symbol" style="color: #626262;"><i class="fa-light fa-bag-shopping"></i></a>
         }
 

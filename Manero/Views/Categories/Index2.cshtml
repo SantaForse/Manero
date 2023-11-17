@@ -1,0 +1,11 @@
+﻿
+
+@model Manero.ViewModels.SearchViewModel
+
+
+<form method="post" asp-controller="Categories" asp-action="Index2" class="search-input second-navbar" novalidate>
+    <button class="search-button"><i class="fa-light fa-magnifying-glass"></i></button>
+    <input asp-for="SearchWord" type="text" class="input" placeholder="Search">
+</form>
+
+

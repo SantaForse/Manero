@@ -1,7 +1,10 @@
-﻿<div class="_card">
+﻿@using Manero.ViewModels;
+
+@model PaymentCardViewModel
+<div class="_card">
     <img src="/static-images/paymentcard.png" />
-    <i class="fa-brands @Model.CardType"></i>
+    <i class="fa-brands @Model.CVVCode"></i>
     <p class="card-number">@Model.CardNumber</p>
-    <p class="card-name">@Model.CardHolderName</p>
-    <p class="expire">@Model.CardExpirationDate</p>
+    <p class="card-name">@Model.Name</p>
+    <p class="expire">@Model.ExpireDate</p>
 </div>

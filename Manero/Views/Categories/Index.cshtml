@@ -14,6 +14,8 @@
                 MiddleData = "Search",
                 ShoppingCart = true
             };
+
+    int categoryCount = 0;
 }
 
 <partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="CategoryPage" />
@@ -33,7 +35,17 @@
 
                     @foreach (var category in categories)
                     {
-                        <a asp-controller="Category" asp-action="@category"><i>@category</i></a>
+                        categoryCount++;
+
+                        @if (categoryCount < 6)
+                        {
+
+                            <a class="category_link" asp-controller="Category" asp-action="@category">@category</a>
+
+                        }
+
+
+
                     }
 
 

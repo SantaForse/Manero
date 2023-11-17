@@ -27,16 +27,17 @@
 
   <ItemGroup>
     <PackageReference Include="BuildWebCompiler" Version="1.12.405" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.13" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.13">
       <TreatAsUsed>true</TreatAsUsed>
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
   </ItemGroup>
 
 
@@ -53,8 +54,11 @@
     <None Include="wwwroot\css\sami.css" />
     <None Include="wwwroot\css\site.css" />
     <None Include="wwwroot\static-images\paymentcard.png" />
+    <None Include="wwwroot\static-images\pexels-miggy-rivera-5665104.jpg" />
     <None Include="wwwroot\static-images\placeholder_promocode.svg" />
+    <None Include="wwwroot\static-images\promocode_img.svg" />
     <None Include="wwwroot\static-images\stock-images\stock1.webp" />
+    <None Include="wwwroot\static-images\trackorder_img.svg" />
   </ItemGroup>
 
 </Project>

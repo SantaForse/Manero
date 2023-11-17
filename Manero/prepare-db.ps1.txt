@@ -1,0 +1,2 @@
+add-migration Init -context ProductDbContext
+update-database -context ProductDbContext

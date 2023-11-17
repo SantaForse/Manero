@@ -85,37 +85,36 @@
             position: relative;
             border: 6px solid var(--color-theme);
             border-radius: 50%;
-            height: 132px;
-            width: 132px;
+            height: 200px;
+            width: 200px;
             margin: 2rem 0;
+            overflow: hidden;
+            z-index: 1;
         }
-            .user-profile .presentation .frame img {
+            .user-profile .presentation img {
                 position: absolute;
-                border-radius: 50%;
-                height: 122px;
-                width: 122px;
-                position: absolute;
+                width: 200px;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
-                overflow: hidden;
                 border: none;
             }
 
-            .user-profile .presentation .frame .frame-icon {
+            .user-profile .presentation .frame-icon {
                 background-color: var(--color-theme);
                 border-radius: 50%;
                 height: 40px;
                 width: 40px;
                 margin: 2rem;
-                position: absolute;
+                position: relative;
                 left: 50px;
-                top: 50px;
+                top: -100px;
+                z-index: 2;
             }
 
-                .user-profile .presentation .frame .frame-icon i {
+                .user-profile .presentation .frame-icon i {
                     position: absolute;
-                    left: 50%;
+                    left: 52%;
                     top: 50%;
                     transform: translate(-50%, -50%);
                 }

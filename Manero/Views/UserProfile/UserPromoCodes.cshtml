@@ -1,36 +1,27 @@
-﻿@using Manero.ViewModels
-@model Manero.ViewModels.PromoCodeViewModel
+﻿@using Manero.Services
+@using Manero.ViewModels;
+@inject UserService userService
 
 @{
     ViewData["Title"] = "My Promo codes";
 
-    // placeholder
-    var acme = new PromoCodeViewModel()
-            {
-                ImageUrl = "/static-images/placeholder_promocode.svg",
-                Title = "Acme Co.",
-                Discount = 50,
-                ExpirationDate = "June 30, 2022",
-            };
-    var barone = new PromoCodeViewModel()
-            {
-                ImageUrl = "/static-images/placeholder_promocode.svg",
-                Title = "Barone LLC.",
-                Discount = 30,
-                ExpirationDate = "June 30, 2022",
-            };
-    var abstergo = new PromoCodeViewModel()
-            {
-                ImageUrl = "/static-images/placeholder_promocode.svg",
-                Title = "Abstergo Ltd.",
-                Discount = 15,
-                ExpirationDate = "June 30, 2022",
-            };
+    var user = await userManager.GetUserAsync(User);
+    string userId = user.Id;
+
+    var HomePage = new NavbarViewModel()
+    {
+        Burger = true,
+        MiddleData = "Manero",
+        ShoppingCart = true
+
+    };
 }
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
 
 <section class="promocodes-header container">
     <div class="_title">
-        <a asp-controller="UserProfile" asp-action="Index"><i class="fa-solid fa-chevron-left"></i></a>
+        <a asp-area="Identity" asp-page="/Account/Manage/Index"><i class="fa-solid fa-chevron-left"></i></a>
         <h5>@ViewData["Title"]</h5>
         <div></div>
     </div>
@@ -42,26 +33,30 @@
 
 <section class="my-promocodes container">
     <hr />
-
-    <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="acme" />
-    <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="barone" />    
-    <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="abstergo" />
+    @foreach (var promoCode in await userService.GetPromoCodesByUserId(userId))
+    {
+        @if (promoCode != null) {
+            <partial name="/Views/Partials/UserProfilePartials/_UserPromoCodePartial.cshtml" model="promoCode" />
+        }
+        else
+        {
+            <section class="no-promocodes container d-none">
+                <img src="/images/promocode_img.svg" />
+                <div class="vertical-line"></div>
+                <h4>Your don’t have promocodes yet!</h4>
+                <p>Qui ex aute ipsum duis. Incididunt adipisicing voluptate laborum</p>
+                <div class="input-title">
+                    <p>ENTER THE VOUCHER</p>
+                </div>
+                <input type="text" />
+                <div>
+                    <button class="black-button">SUBMIT</button>
+                </div>
+            </section>
+        }
+    }
 
 </section>
 
-<section class="no-promocodes container d-none">
-    <img src="/images/promocode_img.svg" />
-    <div class="vertical-line"></div>
-    <h4>Your don’t have promocodes yet!</h4>
-    <p>Qui ex aute ipsum duis. Incididunt adipisicing voluptate laborum</p>
-    <div class="input-title">
-        <p>ENTER THE VOUCHER</p>
-    </div>
-    <input type="text" />
-    <div>
-        <button class="black-button">SUBMIT</button>
-    </div>
 
-
-</section>
 

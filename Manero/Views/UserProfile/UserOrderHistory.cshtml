@@ -19,13 +19,27 @@
                 OrderItemQuantity = 1,
                 OrderItemPrice = 34.95M
             };
+
+
+    var user = await userManager.GetUserAsync(User);
+    string userId = user.Id;
+
+    var HomePage = new NavbarViewModel()
+    {
+        Burger = true,
+        MiddleData = "Manero",
+        ShoppingCart = true
+
+    };
 }
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
 
 <section class="order-history ps-5">
 
     <div class="container">
         <div class="navigation-header">
-            <a class="" asp-controller="UserProfile" asp-action="Index">
+            <a asp-area="Identity" asp-page="/Account/Manage/Index">
                 <i class="fa-solid fa-chevron-left"></i></a>
             <h5>@ViewData["Title"]</h5>
             <div></div>

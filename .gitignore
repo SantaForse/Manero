@@ -18,6 +18,9 @@ Manero/*.sln.docstates
 # User-specific files (MonoDevelop/Xamarin Studio)
 Manero/*.userprefs
 
+# Migrations
+Manero/Migrations
+
 # Mono auto generated files
 Manero/mono_crash.*
 
@@ -243,8 +246,8 @@ Manero/UpgradeLog*.XML
 Manero/UpgradeLog*.htm
 Manero/ServiceFabricBackup/
 Manero/*.rptproj.bak
-Manero/*.mdf
-Manero/*.ldf
+
+
 Manero/*.ndf
 Manero/*.rdl.data
 Manero/*.bim.layout

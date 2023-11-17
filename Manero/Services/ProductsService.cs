@@ -32,11 +32,31 @@ public class ProductsService
             .ToList();
     }
 
+    //Förväxla inte dessa 2!
+    public IEnumerable<ProductEntity> SearchProductsByString(string categoryName)
+    {
+        return _context.ProductCategories
+            .Where(pc => pc.Category.CategoryName == categoryName)
+            .Select(pc => pc.Product)
+            .ToList();
+    }
+
 
     //Get product by name
     public ProductEntity GetProductByName(string productName)
     {
         return _context.Products.FirstOrDefault(p => p.ProductName == productName)!;
+    }
+
+    //Asyncronous task that returns a list of products with similar names as searchword
+    public async Task<IEnumerable<ProductEntity>> GetProductsByStringAsync(string searchWord)
+    {
+        // Use a case-insensitive search for products with names similar to the provided search word
+        var products = await _context.Products
+            .Where(p => EF.Functions.Like(p.ProductName, $"%{searchWord}%"))
+            .ToListAsync();
+
+        return products;
     }
 
     #endregion
@@ -81,4 +101,32 @@ public class ProductsService
     #endregion
 
 
+
+    ///////////////////////////////  REVIEW
+    
+
+    public IEnumerable<ReviewEntity> GetReviews(int productId)
+    {
+        return _context.ProductReviews
+            .Where(pr => pr.ProductId == productId)
+            .Select(pr => pr.Review)
+            .ToList();
+    }
+
+    public int GetProductIdByName(string productName)
+    {
+        var product = _context.Products.FirstOrDefault(p => p.ProductName == productName);
+        return product != null ? product.Id : 0;
+    }
+
+    public ProductEntity GetProductById(int productId)
+    {
+        return _context.Products.FirstOrDefault(p => p.Id == productId);
+    }
+
+
 }
+
+
+
+

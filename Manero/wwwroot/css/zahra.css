@@ -74,6 +74,8 @@
 
 /* Onboarding page */
 
+
+
 .onboardPage {
     display: flex;
     justify-content: center;
@@ -84,7 +86,7 @@
 
     .onboardPage .container {
         position: relative;
-        top: 241px;
+        top: 5%;
     }
 
         .onboardPage .container .big-circle {
@@ -93,7 +95,7 @@
             border-radius: 50%;
             background-color: white;
             position: absolute;
-            top: 50%;
+            top: 30%;
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;

@@ -1,5 +1,94 @@
 ﻿@page
 @model IndexModel
+@using Manero.ViewModels
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+
+
+    var placeholderUser = new UserProfileViewModel
+    {
+        ImageUrl = "/static-images/pexels-miggy-rivera-5665104.jpg"
+    };
+
+
+    var HomePage = new NavbarViewModel()
+    {
+        Burger = true,
+        MiddleData = "Manero",
+        ShoppingCart = true
+
+    };
+}
+
+<partial name="/Views/Partials/NavbarPartials/_TopNavbarPartial.cshtml" model="HomePage" />
+
+<section class="user-profile">
+    <div class="container pt-5">
+        <div class="frame">
+            <div class="presentation">
+                <div class="line-container">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="frame">
+                    <img src=@placeholderUser.ImageUrl />
+                </div>
+                <div class="frame-icon">
+                    <a asp-controller="UserProfile" asp-action="UserProfileEdit"><i class="fa-solid fa-pen-to-square"></i></a>
+                </div>
+                <h5>@Model.Username</h5>
+                <h6></h6>
+            </div>
+            <div class="navigation-fields">
+                <a class="navigation-field" asp-controller="UserProfile" asp-action="UserAddress">
+                    <div class="left">
+                        <i class="fa-solid fa-gift"></i>
+                        <div class="label">My address</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a class="navigation-field" asp-controller="UserProfile" asp-action="UserOrderHistory">
+                    <div class="left">
+                        <i class="fa-solid fa-gift"></i>
+                        <div class="label">Order history</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a class="navigation-field" asp-controller="UserProfile" asp-action="UserPaymentMethods">
+                    <div class="left">
+                        <i class="fa-solid fa-gift"></i>
+                        <div class="label">Payment method</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+
+                <a class="navigation-field" asp-controller="UserProfile" asp-action="UserPromoCodes">
+                    <div class="left">
+                        <i class="fa-solid fa-gift"></i>
+                        <div class="label">My promocodes</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a class="navigation-field" asp-controller="SignOut" asp-action="Index">
+                    <div class="left">
+                        <i class="fa-solid fa-gift"></i>
+                        <div class="label">Sign out</div>
+                    </div>
+                    <div></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+@*
+
+@page
+@model IndexModel
 @{
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
@@ -24,6 +113,8 @@
         </form>
     </div>
 </div>
+
+*@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
