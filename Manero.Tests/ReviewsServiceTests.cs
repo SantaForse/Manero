@@ -13,8 +13,8 @@ using Xunit;
 
 namespace Manero.Tests
 {
-    // These are Zahra's tests, more tests will be added for reviews part
-    public class ProductServiceTests
+    // These are Zahra's tests
+    public class ReviewsServiceTests
     {
         [Fact]
         public void ToGet_Reviews_From_Database()
@@ -176,7 +176,7 @@ namespace Manero.Tests
 
 
             [Fact]
-        public void AddReview_InvalidProductId_ReviewNotAdded()
+         public void ToAddReview_ToInvalidProductId_ReviewCanNotBeAdded()
         {
          
             var options = new DbContextOptionsBuilder<ProductDbContext>()
