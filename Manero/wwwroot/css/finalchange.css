@@ -21,6 +21,11 @@
     --bold-font: 700;
 }
 
+body {
+    position: relative;
+    min-height: 50vh;
+}
+
 .black-button {
     border: 4px solid black;
 }
