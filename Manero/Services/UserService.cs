@@ -35,7 +35,7 @@ namespace Manero.Services
 
 
 
-        //public async Task<List<UserPromoCodeEntity>> GetSelectedUserPromoCodes(string userId) { return _context.Set<UserPromoCodeEntity>().Where(x => x.UserId == userId).ToList(); }
+        
         public async Task<List<PromoCodeViewModel>> GetPromoCodesByUserId(string userId)
         {
             var requestedCodeIds = new List<int>();
@@ -66,7 +66,6 @@ namespace Manero.Services
 
 
 
-        //public async Task<List<UserAddressEntity>> GetSelectedUserAddresses(string userId) { return _context.Set<UserAddressEntity>().Where(x => x.UserId == userId).ToList(); } //christian 15/11
         public async Task<List<AddressViewModel>> GetAddressesByUserId(string userId)
         {
             var requestedAddresses = new List<int>();
@@ -130,9 +129,7 @@ namespace Manero.Services
 
             List<PaymentCardViewModel> associatedPaymentCards = await GetPaymentCardByUserId(userId);
 
-
-
-            if(associatedPaymentCards.Where(x => x.CardNumber == model.CardNumber && x.ExpireDate == model.ExpireDate) == null )
+            if(associatedPaymentCards.Where(x => x.CardNumber == model.CardNumber && x.ExpireDate == model.ExpireDate).Count() != 0 )
             {
                 throw new Exception("Problem @ UserService.Register(): Submitted Entry Already Exits");
             } 
