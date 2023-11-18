@@ -131,7 +131,7 @@ namespace Manero.Services
 
             if(associatedPaymentCards.Where(x => x.CardNumber == model.CardNumber && x.ExpireDate == model.ExpireDate).Count() != 0 )
             {
-                throw new Exception("Problem @ UserService.Register(): Submitted Entry Already Exits");
+                return null;
             } 
             else
             {
@@ -155,7 +155,7 @@ namespace Manero.Services
                 }
                 else
                 {
-                    throw new Exception("Problem @ UserService.Register(): Entry Could Not Be Added To Database");
+                    return null;
                 }
             }
             return result;
